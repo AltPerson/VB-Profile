@@ -1,0 +1,262 @@
+@keyframes rotateLeft {
+  100% {
+    transform: rotate(205deg);
+  }
+}
+@keyframes rotateRight {
+  100% {
+    transform: rotate(150deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    filter: brightness(50%);
+  }
+  100% {
+    filter: brightness(150%);
+  }
+}
+
+@keyframes shadowPulseYellow {
+  0% {
+    filter: brightness(50%) drop-shadow(1px 1px 2px rgb(248, 239, 0));
+  }
+  100% {
+    filter: brightness(150%) drop-shadow(1px 1px 8px rgb(248, 239, 0));
+  }
+}
+
+@keyframes shadowPulseRed {
+  0% {
+    filter: brightness(50%) drop-shadow(1px 1px 2px rgb(247, 80, 73));
+  }
+  100% {
+    filter: brightness(150%) drop-shadow(1px 1px 8px rgb(247, 80, 73));
+  }
+}
+
+@keyframes shadowPulseWhite {
+  0% {
+    filter: brightness(50%) drop-shadow(1px 1px 2px rgb(255, 255, 255));
+  }
+  100% {
+    filter: brightness(150%) drop-shadow(1px 1px 8px rgb(255, 255, 255));
+  }
+}
+
+@keyframes home-title-up {
+  0% {
+    opacity: 0;
+    bottom: -100%;
+  }
+  100% {
+    opacity: 1;
+    bottom: 30%;
+    transform: translateY(30%) rotate(90deg);
+  }
+}
+
+@keyframes home-title-down {
+  0% {
+    opacity: 0;
+    top: -100%;
+  }
+  100% {
+    opacity: 1;
+    top: 30%;
+    transform: translateY(-30%) rotate(-90deg);
+  }
+}
+
+@media (max-width: 2561px) {
+  @keyframes home-title-up {
+    0% {
+      opacity: 0;
+      bottom: -100%;
+    }
+    100% {
+      opacity: 1;
+      bottom: 30%;
+      transform: translateY(30%) rotate(90deg);
+    }
+  }
+
+  @keyframes home-title-down {
+    0% {
+      opacity: 0;
+      top: -100%;
+    }
+    100% {
+      opacity: 1;
+      top: 27.5%;
+      transform: translateY(-27%) rotate(-90deg);
+    }
+  }
+}
+
+@media (max-width: 1921px) {
+  @keyframes home-title-up {
+    0% {
+      opacity: 0;
+      bottom: -100%;
+    }
+    100% {
+      opacity: 1;
+      bottom: 30%;
+      transform: translateY(30%) rotate(90deg);
+    }
+  }
+
+  @keyframes home-title-down {
+    0% {
+      opacity: 0;
+      top: -100%;
+    }
+    100% {
+      opacity: 1;
+      top: 26%;
+      transform: translateY(-30%) rotate(-90deg);
+    }
+  }
+}
+
+@media (max-width: 1651px) {
+  @keyframes home-title-up {
+    0% {
+      opacity: 0;
+      bottom: -100%;
+    }
+    100% {
+      opacity: 1;
+      bottom: 34%;
+      transform: translateY(35%) rotate(90deg);
+    }
+  }
+
+  @keyframes home-title-down {
+    0% {
+      opacity: 0;
+      top: -100%;
+    }
+    100% {
+      opacity: 1;
+      top: 27.5%;
+      transform: translateY(-27%) rotate(-90deg);
+    }
+  }
+}
+
+@media (max-width: 1441px) {
+  @keyframes home-title-up {
+    0% {
+      opacity: 0;
+      bottom: -100%;
+    }
+    100% {
+      opacity: 1;
+      bottom: 34%;
+      transform: translateY(35%) rotate(90deg);
+    }
+  }
+
+  @keyframes home-title-down {
+    0% {
+      opacity: 0;
+      top: -100%;
+    }
+    100% {
+      opacity: 1;
+      top: 30%;
+      transform: translateY(-30%) rotate(-90deg);
+    }
+  }
+}
+
+@media (max-width: 1025px) {
+  @keyframes home-title-up {
+    0% {
+      opacity: 0;
+      bottom: -100%;
+    }
+    100% {
+      opacity: 1;
+      bottom: 35%;
+      transform: translateY(35%) rotate(90deg);
+    }
+  }
+
+  @keyframes home-title-down {
+    0% {
+      opacity: 0;
+      top: -100%;
+    }
+    100% {
+      opacity: 1;
+      top: 32.5%;
+      transform: translateY(-31.5%) rotate(-90deg);
+    }
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  99.9% {
+    border-color: rgba(247, 80, 73, 0.77);
+  }
+  100% {
+    border-color: transparent;
+  }
+}
+
+@keyframes showUp {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes swipeFromRight {
+  0% {
+    right: -100%;
+    opacity: 0;
+  }
+  100% {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes slide-fwd-center {
+  0% {
+    opacity: 0;
+    transform: perspective(100px) translateZ(-360px);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(100px) translateZ(0px);
+  }
+}
+
+@keyframes pingCustom {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
