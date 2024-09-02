@@ -1,8 +1,7 @@
-import React from "react";
-import page from "../(home)/page";
+import Content from './_components/Content';
 
-const Experience = () => {
-  return <main className="content-part">Experience</main>;
+const Experience = async () => {
+  return <Content />;
 };
 
 export default Experience;
