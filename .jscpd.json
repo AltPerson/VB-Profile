@@ -1,0 +1,8 @@
+{
+  "reporters": ["html", "console"],
+  "ignore": ["**/__snapshots__/**", "src/__tests__/**", "**.test.{ts,tsx}"],
+  "ignorePattern": ["import.*", "<Skeleton.*"],
+  "pattern": ["./src/**/*.{ts,tsx}"],
+  "gitignore": true,
+  "output": "./jscpd-report/"
+}

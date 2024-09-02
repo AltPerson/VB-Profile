@@ -1,0 +1,4 @@
+build
+coverage
+**/*.model.ts
+src/lib/api/types/index.d.ts
