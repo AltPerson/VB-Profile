@@ -43,7 +43,7 @@ const Content = () => {
       <h3 className="greetings-title projects-greetings-title">
         {projectsData[language]['title']}
       </h3>
-      <div className="flex flex-col justify-between flex-grow gap-4 overflow-auto">
+      <div className="flex flex-col justify-between flex-grow gap-4 max-lg:overflow-auto">
         <div className="projects-slider">
           <button onClick={() => sliderClick('left')}>
             <Image src={arrowLeft} alt="arrow_left" className="hover-opacity" />
