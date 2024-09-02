@@ -479,6 +479,9 @@ body {
   body {
     font-size: 14px;
   }
+	.project-card{
+		flex:0 0 100%;
+	}
 }
 
 @media (max-width: 1280px) {
