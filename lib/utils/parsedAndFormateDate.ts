@@ -67,7 +67,14 @@ export const parsedAndFormateDate = (term: DateValues, language: LanguageEnum) =
     formattedEndDate = dateLocalizationValues.formatDate(endDateParsed);
   }
 
-  return `${formattedStartDate} - ${formattedEndDate} · ${
+  const formattedTerm = `${formattedStartDate} - ${formattedEndDate} · ${
     yearsDifference > 0 ? `${yearsDifference} ${dateLocalizationValues.years}` : ''
   } ${monthsDifference > 0 ? `${monthsDifference} ${dateLocalizationValues.months}` : ''}`;
+
+  const experience = yearsDifference ? yearsDifference * 12 + monthsDifference : monthsDifference;
+
+  return {
+    formattedTerm,
+    experience,
+  };
 };

@@ -1,13 +1,36 @@
 'use client';
-import { useChangeLanguage } from '@/contexts/language-context';
-import { homeData } from '@/locales';
-import { LanguageEnum } from '@/types/enums';
-import React from 'react';
-import parse from 'html-react-parser';
 import DefaultLayout from '@/components/default-layout';
+import { useChangeLanguage } from '@/contexts/language-context';
+import { parsedAndFormateDate } from '@/lib/utils/parsedAndFormateDate';
+import { isFloat } from '@/lib/utils/utlis';
+import { experienceData, homeData, IWorkPlace } from '@/locales';
+import { LanguageEnum } from '@/types/enums';
+import parse from 'html-react-parser';
+
+const getExperience = (workPlaces: IWorkPlace[], language: LanguageEnum) => {
+  const yearsMappedValues = {
+    ua: 'років',
+    en: 'years',
+  };
+
+  let experience = 0;
+
+  workPlaces.forEach((workPlace) => {
+    const workPlaceExperience = parsedAndFormateDate(workPlace.term, language).experience;
+    experience += workPlaceExperience;
+  });
+
+  experience /= 12;
+
+  return `${isFloat(experience) ? experience.toFixed(1) : experience} ${yearsMappedValues[language]}`;
+};
 
 const Content = () => {
   const { language } = useChangeLanguage();
+
+  const workPlaces = experienceData[language]['workPlaces'];
+
+  const experience = getExperience(workPlaces, language);
 
   return (
     <DefaultLayout>
@@ -15,7 +38,15 @@ const Content = () => {
         <h1 className="greetings-title home-greeting-title">{homeData[language]['title']}</h1>
         <h4 className="greetings-subtitle">{homeData[language]['subtitle']}</h4>
       </div>
-      <p className="greetings-text text-justify">{parse(homeData[language]['text'])}</p>
+      <p className="greetings-text text-justify">
+        {parse(homeData[language]['text'], {
+          replace(domNode: any) {
+            if (domNode.attribs && domNode.attribs.id === 'exp') {
+              return <>{experience}</>;
+            }
+          },
+        })}
+      </p>
       <div className="button-shadow">
         <a
           target="_blank"
