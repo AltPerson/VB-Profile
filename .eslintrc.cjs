@@ -23,7 +23,7 @@ module.exports = {
       },
     ],
     '@typescript-eslint/no-unused-vars': [
-      'warn',
+      'error',
       {
         vars: 'all',
         args: 'after-used',
@@ -34,6 +34,11 @@ module.exports = {
         caughtErrorsIgnorePattern: '^_',
       },
     ],
-    'no-unused-vars': 'off',
+		"no-console": ["error", { "allow": ["warn", "error"] }],
+		"react-hooks/rules-of-hooks": "error",
+		"react-hooks/exhaustive-deps": "warn",
+		"@typescript-eslint/no-inferrable-types": "error",
+		"@typescript-eslint/no-use-before-define": ["error"],
+		"comma-dangle": ["error", "always-multiline"],
   },
 };

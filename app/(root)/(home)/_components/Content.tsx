@@ -15,8 +15,6 @@ const getExperience = (workPlaces: IWorkPlace[], language: LanguageEnum) => {
 
   let experience = 0;
 
-	let asd = 0;
-
   workPlaces.forEach((workPlace) => {
     const workPlaceExperience = parsedAndFormateDate(workPlace.term, language).experience;
     experience += workPlaceExperience;
