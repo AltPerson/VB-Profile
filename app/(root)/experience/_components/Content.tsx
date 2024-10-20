@@ -7,6 +7,7 @@ import WorkPlacesList from './List';
 
 const Content = () => {
   const { language } = useChangeLanguage();
+	const a =;
 
   return (
     <DefaultLayout>
