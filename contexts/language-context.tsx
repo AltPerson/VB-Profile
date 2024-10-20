@@ -1,8 +1,7 @@
 'use client';
-import { useContext, useLayoutEffect } from 'react';
 import { LanguageEnum } from '@/types/enums';
 import { ILanguageContext } from '@/types/interfaces';
-import { ReactNode, createContext, useState } from 'react';
+import { ReactNode, createContext, useContext, useLayoutEffect, useState } from 'react';
 
 export const LanguageContext = createContext<ILanguageContext>({
   language: LanguageEnum.ENGLISH,
@@ -15,7 +14,7 @@ export default function LanguageProvider({ children }: { children: ReactNode }) 
   useLayoutEffect(() => {
     const localStorageData =
       typeof window !== 'undefined' ? localStorage.getItem('language') : null;
-    console.log('LocalStorageData', localStorageData);
+
     localStorageData === null
       ? setLanguage(LanguageEnum.ENGLISH)
       : setLanguage(localStorageData as LanguageEnum);

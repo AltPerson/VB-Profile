@@ -1,15 +1,15 @@
 'use client';
 import { links } from '@/constants';
 import { useChangeLanguage } from '@/contexts/language-context';
+import { useChangeMusic } from '@/contexts/play-music-context';
 import { classNames } from '@/lib/utils/classnames';
 import { linksData, settingsHint } from '@/locales';
 import { ILink } from '@/types/interfaces';
+import parse from 'html-react-parser';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import parse from 'html-react-parser';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { clearTimeout } from 'timers';
-import { useChangeMusic } from '@/contexts/play-music-context';
 
 const Header = () => {
   const pathname = usePathname();

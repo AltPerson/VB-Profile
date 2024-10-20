@@ -1,6 +1,6 @@
 'use client';
 import { useChangeMusic } from '@/contexts/play-music-context';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 const BackgroundMusic = () => {
   const { playMusic } = useChangeMusic();

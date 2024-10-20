@@ -2,7 +2,6 @@
 import { classNames } from '@/lib/utils/classnames';
 import { AppRoutesEnum } from '@/types/enums';
 import { usePathname } from 'next/navigation';
-import React from 'react';
 
 const Aside = () => {
   const pathname = usePathname();
