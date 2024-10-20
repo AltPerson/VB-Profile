@@ -12,17 +12,17 @@
     "format:fix": "prettier --write --ignore-path .gitignore .",
     "prepare": "husky install"
   },
-	"lint-staged": {
-  "*.{js,jsx,ts,tsx}": [
-    "eslint --fix",
-    "prettier --write"
-  ]
-	},
-	"dependencies": {
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
     "date-fns": "^4.1.0",
     "html-react-parser": "^5.1.1",
     "latest": "^0.2.0",
-    "next": "14.1.0",
+    "next": "^14.2.15",
     "react": "^18",
     "react-dom": "^18"
   },
