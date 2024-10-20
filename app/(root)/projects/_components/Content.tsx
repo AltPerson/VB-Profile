@@ -2,11 +2,13 @@
 import DefaultLayout from '@/components/default-layout';
 import { useChangeLanguage } from '@/contexts/language-context';
 import { projectsData } from '@/locales';
-import Link from 'next/link';
-import React, { SyntheticEvent, useRef, useState } from 'react';
 import arrowLeft from '@/public/assets/icons/arrow_left.svg';
 import arrowRight from '@/public/assets/icons/arrow_right.svg';
 import Image from 'next/image';
+import Link from 'next/link';
+import React, { useRef, useState } from 'react';
+
+const calculateIndexDelay = (index: number) => (index === 0 ? 1 : index + 0.5);
 
 const getBgName = (bgName: string) => {
   switch (bgName) {
@@ -25,6 +27,11 @@ const Content = () => {
 
   const sliderRefContainer = useRef<HTMLDivElement>();
 
+  const [showsArrows, setShowArrows] = useState({
+    showLeft: false,
+    showRight: true,
+  });
+
   const sliderClick = (side: string) => {
     const childNodes = sliderRefContainer?.current?.childNodes[0] as HTMLDivElement;
     const extraOffset = 22;
@@ -32,11 +39,46 @@ const Content = () => {
     if (side === 'left') {
       (sliderRefContainer.current as HTMLDivElement).scrollLeft -=
         childNodes.clientWidth + extraOffset;
+
+      if (sliderRefContainer.current?.scrollLeft === 0) {
+        setShowArrows((prev) => ({
+          ...prev,
+          showLeft: false,
+        }));
+      } else {
+        setShowArrows((prev) => ({
+          ...prev,
+          showRight: true,
+        }));
+      }
     } else {
       (sliderRefContainer.current as HTMLDivElement).scrollLeft +=
         childNodes.clientWidth + extraOffset;
+
+      if (
+        sliderRefContainer.current?.scrollLeft ===
+        (sliderRefContainer.current?.scrollWidth as number) -
+          (sliderRefContainer.current?.clientWidth as number)
+      ) {
+        setShowArrows((prev) => ({
+          ...prev,
+          showRight: false,
+        }));
+      } else {
+        setShowArrows((prev) => ({
+          ...prev,
+          showLeft: true,
+        }));
+      }
     }
   };
+
+  let scrollTop = 0;
+
+  if (typeof document !== 'undefined') {
+    const element = document.getElementById(showProjectTechnologies);
+    scrollTop = element?.scrollTop || 0;
+  }
 
   return (
     <DefaultLayout>
@@ -45,8 +87,13 @@ const Content = () => {
       </h3>
       <div className="flex flex-col justify-between flex-grow gap-4 max-lg:overflow-auto">
         <div className="projects-slider">
-          <button onClick={() => sliderClick('left')}>
-            <Image src={arrowLeft} alt="arrow_left" className="hover-opacity" />
+          <button onClick={() => sliderClick('left')} disabled={!showsArrows.showLeft}>
+            <Image
+              src={arrowLeft}
+              alt="arrow_left"
+              style={{}}
+              className={!showsArrows.showLeft ? 'opacity-50' : 'hover-opacity'}
+            />
           </button>
           <div
             className="projects-wrapper"
@@ -54,14 +101,9 @@ const Content = () => {
           >
             {projectsData[language]['projects'].map((project) => (
               <div
-                className={`project-card ${getBgName(project.bgName)}`}
+                id={project.title}
+                className={`project-card ${getBgName(project.bgName)} overflow-y-auto relative`}
                 key={project.title}
-                onMouseMoveCapture={(e) => {
-                  const id = (e.target as HTMLElement).id;
-                  if (id === '') {
-                    setProjectTechnologies('');
-                  }
-                }}
               >
                 <h5>{project.title}</h5>
                 <div className="flex flex-col justify-between gap-5 flex-grow">
@@ -72,41 +114,55 @@ const Content = () => {
                         id="trigger-tooltip"
                         className="technologies-trigger-name"
                         onMouseEnter={() => setProjectTechnologies(project.title)}
+                        onMouseLeave={() => setProjectTechnologies('')}
                       >
                         TECHNOLOGIES
                       </p>
-                      <ul
-                        id="tooltip-text"
-                        className={`technologies-hidden-list ${
-                          showProjectTechnologies === project.title ? 'flex' : 'hidden'
-                        }`}
-                      >
-                        {project.technologies.map((technology, index) => (
-                          <li
-                            id="tooltip-text-item"
-                            key={index}
-                            className="card-shape-container px-3 py-1 w-fit whitespace-nowrap font-bold"
-                          >
-                            {technology}
-                          </li>
-                        ))}
-                      </ul>
                     </div>
                   </div>
                   <Link href={project.link} target="_blank">
                     Web
                   </Link>
                 </div>
+                <ul
+                  id="tooltip-text"
+                  className={`technologies-hidden-list ${
+                    showProjectTechnologies === project.title ? 'flex' : 'hidden'
+                  }`}
+                  style={{
+                    top: scrollTop + 'px',
+                  }}
+                >
+                  {project.technologies.map((technology, index) => (
+                    <li
+                      id="tooltip-text-item"
+                      key={index}
+                      className="card-shape-container px-3 py-1 w-fit font-bold"
+                    >
+                      {technology}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
-          <button onClick={() => sliderClick('right')}>
-            <Image src={arrowRight} alt="arrow_right" className="hover-opacity" />
+          <button onClick={() => sliderClick('right')} disabled={!showsArrows.showRight}>
+            <Image
+              src={arrowRight}
+              alt="arrow_right"
+              className={!showsArrows.showRight ? 'opacity-50' : 'hover-opacity'}
+            />
           </button>
         </div>
         <div className="projects-list">
-          {projectsData[language]['projects'].map((project) => (
-            <div className="project-card overflow-auto" key={project.title}>
+          {projectsData[language]['projects'].map((project, index) => (
+            <div
+              className="project-card overflow-auto"
+              key={project.title}
+              style={{
+                animation: `slide-from-right 0.5s linear forwards 1 ${calculateIndexDelay(index)}s`,
+              }}
+            >
               <h5>{project.title}</h5>
               <div className="flex flex-col justify-between gap-3 flex-grow">
                 <div>

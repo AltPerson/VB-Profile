@@ -5,8 +5,6 @@ import React, { useEffect } from 'react';
 const BackgroundMusic = () => {
   const { playMusic } = useChangeMusic();
 
-  console.log('playMusic', playMusic);
-
   useEffect(() => {
     const player = document.getElementsByClassName('audio-element')[0] as HTMLAudioElement;
 
@@ -19,6 +17,7 @@ const BackgroundMusic = () => {
       player.muted = true;
     }
   }, [playMusic]);
+
   return (
     <>
       <audio className="audio-element" loop>

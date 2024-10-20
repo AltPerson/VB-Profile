@@ -1,7 +1,7 @@
 import Aside from '@/components/aside';
 import BackgroundMusic from '@/components/background-music';
 import Header from '@/components/header';
-import React, { useState } from 'react';
+import React from 'react';
 
 interface Props {
   children: React.ReactNode;

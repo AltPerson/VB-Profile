@@ -1,7 +1,6 @@
-import React from "react";
+import React from 'react';
+import Content from './_components/Content';
 
-const Contact = () => {
-  return <main className="content-part">Contact</main>;
-};
+const Contact = () => <Content />;
 
 export default Contact;
