@@ -68,7 +68,7 @@ export const homeData: ILanguageData<IHomeDataElement> = {
     title: 'Vladislav Bondarchuk',
     subtitle: 'Frontend Developer',
     text: `I\`m a <span className="text-white">Frontend developer</span> with
-		<span className="text-white">1,9 years</span> of commercial experience and
+		<span className="text-white"><span id="exp"></span></span> of commercial experience and
 		passion for creating complex and interesting web applications.
 		<br />
 		My positive sides are
@@ -85,7 +85,7 @@ export const homeData: ILanguageData<IHomeDataElement> = {
     title: 'Владислав Бондарчук',
     subtitle: 'Фронтенд розробник',
     text: `Я <span className="text-white">Фронтенд-розробник</span> з
-		<span className="text-white">1,9 роками</span> комерційного досвіду і
+		<span className="text-white"><span id="exp"></span></span> комерційного досвіду і
 		пристрастю до створення складних і цікавих веб-додатків.
 		<br />
 		Моїми позитивними сторонами є 

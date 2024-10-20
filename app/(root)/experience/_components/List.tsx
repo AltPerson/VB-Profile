@@ -19,8 +19,7 @@ const formatKeyWordsInAchievement = (text: string, keyWords: string[]) => {
   return tempString;
 };
 
-const renderWorkPlaces = (workPlaces: IWorkPlace[],language:LanguageEnum) => {
-
+const renderWorkPlaces = (workPlaces: IWorkPlace[], language: LanguageEnum) => {
   return workPlaces.map((workPlace, index) => (
     <div
       className="work-place-box"
@@ -31,7 +30,9 @@ const renderWorkPlaces = (workPlaces: IWorkPlace[],language:LanguageEnum) => {
     >
       <h5 className="work-place-title">{workPlace.title}</h5>
 
-      <h6 className="work-place-date">{parsedAndFormateDate(workPlace.term, language)}</h6>
+      <h6 className="work-place-date">
+        {parsedAndFormateDate(workPlace.term, language).formattedTerm}
+      </h6>
 
       <p className="work-place-description mt-3">{workPlace.description}</p>
 
@@ -53,9 +54,9 @@ interface IProps {
 }
 
 const WorkPlacesList = ({ workPlaces }: IProps) => {
-	const { language } = useChangeLanguage();
-	
-  return renderWorkPlaces(workPlaces,language);
+  const { language } = useChangeLanguage();
+
+  return renderWorkPlaces(workPlaces, language);
 };
 
 export default WorkPlacesList;
