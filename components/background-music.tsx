@@ -7,7 +7,6 @@ const BackgroundMusic = () => {
 
   useEffect(() => {
     const player = document.getElementsByClassName('audio-element')[0] as HTMLAudioElement;
-
     if (playMusic) {
       player.volume = 0.2;
       player.play();
