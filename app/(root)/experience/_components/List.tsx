@@ -1,4 +1,7 @@
+import { useChangeLanguage } from '@/contexts/language-context';
+import { parsedAndFormateDate } from '@/lib/utils/parsedAndFormateDate';
 import { IWorkPlace } from '@/locales';
+import { LanguageEnum } from '@/types/enums';
 import parse from 'html-react-parser';
 
 const calculateIndexDelay = (index: number) => (index === 0 ? 1.5 : index + 1);
@@ -16,7 +19,8 @@ const formatKeyWordsInAchievement = (text: string, keyWords: string[]) => {
   return tempString;
 };
 
-const renderWorkPlaces = (workPlaces: IWorkPlace[]) => {
+const renderWorkPlaces = (workPlaces: IWorkPlace[],language:LanguageEnum) => {
+
   return workPlaces.map((workPlace, index) => (
     <div
       className="work-place-box"
@@ -26,8 +30,11 @@ const renderWorkPlaces = (workPlaces: IWorkPlace[]) => {
       }}
     >
       <h5 className="work-place-title">{workPlace.title}</h5>
-      <h6 className="work-place-date">{workPlace.term}</h6>
+
+      <h6 className="work-place-date">{parsedAndFormateDate(workPlace.term, language)}</h6>
+
       <p className="work-place-description mt-3">{workPlace.description}</p>
+
       <ul className="mt-3">
         {workPlace.achievements.map((achievement, index) => (
           <li key={index} className="work-place-achievement">
@@ -35,6 +42,7 @@ const renderWorkPlaces = (workPlaces: IWorkPlace[]) => {
           </li>
         ))}
       </ul>
+
       <div className="work-place-technologies mt-3">{workPlace.technologies.join(' · ')}</div>
     </div>
   ));
@@ -45,7 +53,9 @@ interface IProps {
 }
 
 const WorkPlacesList = ({ workPlaces }: IProps) => {
-  return renderWorkPlaces(workPlaces);
+	const { language } = useChangeLanguage();
+	
+  return renderWorkPlaces(workPlaces,language);
 };
 
 export default WorkPlacesList;

@@ -19,13 +19,27 @@ body {
   initial-value: none;
 }
 
+@property --scrollbar-thumb-bg-card-inner {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --scrollbar-thumb-border-style-card-inner {
+  syntax: '<border-style>';
+  inherits: true;
+  initial-value: none;
+}
+
 @layer utilities {
   .pulsed-text {
-    animation: shadowPulseRed 0.2s steps(2, end) infinite alternate 1s,
+    animation:
+      shadowPulseRed 0.2s steps(2, end) infinite alternate 1s,
       shadowPulseRed 1.5s linear 1 forwards alternate 2s;
   }
   .pulsed-text-white {
-    animation: shadowPulseWhite 0.2s steps(2, end) infinite alternate 1s,
+    animation:
+      shadowPulseWhite 0.2s steps(2, end) infinite alternate 1s,
       shadowPulseWhite 1.5s linear 1 forwards alternate 2s;
   }
 
@@ -45,21 +59,28 @@ body {
     position: relative;
     transform: perspective(100px) translateZ(-360px);
     opacity: 0;
-    animation: slide-fwd-center 0.5s linear forwards 1 2s,
+    animation:
+      slide-fwd-center 0.5s linear forwards 1 2s,
       shadowPulseYellow 1.5s linear 1 forwards alternate 1s;
   }
 
   .button-bg {
     background-image: url('/assets/icons/arrow.svg'), url('/assets/icons/bage.svg');
     background-repeat: no-repeat no-repeat;
-    background-position: 85% 50%, 90% 115%;
+    background-position:
+      85% 50%,
+      90% 115%;
   }
 
   .central-bg-0 {
     background-image: url('/assets/images/ellipse.png'), url('/assets/gifs/bg.gif');
     background-repeat: no-repeat, no-repeat;
-    background-size: 95% 70%, cover;
-    background-position: 700% -75%, 20% 100%;
+    background-size:
+      95% 70%,
+      cover;
+    background-position:
+      700% -75%,
+      20% 100%;
   }
 
   .central-bg-mobile-0 {
@@ -67,43 +88,69 @@ body {
       url('/assets/images/ellipse.png'), url('/assets/gifs/bg.gif');
     padding: 0 15px;
     background-repeat: no-repeat, no-repeat, no-repeat;
-    background-size: cover, 95% 70%, cover;
-    background-position: 100% 100%, 700% -75%, 20% 100%;
+    background-size:
+      cover,
+      95% 70%,
+      cover;
+    background-position:
+      100% 100%,
+      700% -75%,
+      20% 100%;
   }
 
   .central-bg-mobile-1 {
     @apply central-bg-mobile-0;
-    background-position: 100% 100%, 700% -75%, 40% 100%;
+    background-position:
+      100% 100%,
+      700% -75%,
+      40% 100%;
   }
 
   .central-bg-mobile-2 {
     @apply central-bg-mobile-0;
-    background-position: 100% 100%, 700% -75%, 60% 100%;
+    background-position:
+      100% 100%,
+      700% -75%,
+      60% 100%;
   }
   .central-bg-mobile-3 {
     @apply central-bg-mobile-0;
-    background-position: 100% 100%, 700% -75%, 80% 100%;
+    background-position:
+      100% 100%,
+      700% -75%,
+      80% 100%;
   }
   .central-bg-mobile-4 {
     @apply central-bg-mobile-0;
-    background-position: 100% 100%, 700% -75%, 100% 100%;
+    background-position:
+      100% 100%,
+      700% -75%,
+      100% 100%;
   }
 
   .central-bg-1 {
     @apply central-bg-0;
-    background-position: 700% -75%, 40% 100%;
+    background-position:
+      700% -75%,
+      40% 100%;
   }
   .central-bg-2 {
     @apply central-bg-0;
-    background-position: 700% -75%, 60% 100%;
+    background-position:
+      700% -75%,
+      60% 100%;
   }
   .central-bg-3 {
     @apply central-bg-0;
-    background-position: 700% -75%, 80% 100%;
+    background-position:
+      700% -75%,
+      80% 100%;
   }
   .central-bg-4 {
     @apply central-bg-0;
-    background-position: 700% -75%, 100% 100%;
+    background-position:
+      700% -75%,
+      100% 100%;
   }
 
   .neon-wrapper-border {
@@ -145,7 +192,9 @@ body {
     z-index: -2;
     transform: rotate(25deg);
     transform-origin: center center;
-    animation: rotateLeft 0.5s linear 1 0.5s, pulse 0.2s steps(2, end) infinite alternate 1s,
+    animation:
+      rotateLeft 0.5s linear 1 0.5s,
+      pulse 0.2s steps(2, end) infinite alternate 1s,
       pulse 1.5s linear 1 alternate forwards 2s;
   }
 
@@ -184,7 +233,9 @@ body {
     z-index: -2;
     transform-origin: center center;
     transform: rotate(-30deg);
-    animation: rotateRight 2s linear 1 0.5s, pulse 1.5s linear 1 forwards alternate 1s;
+    animation:
+      rotateRight 2s linear 1 0.5s,
+      pulse 1.5s linear 1 forwards alternate 1s;
   }
 
   .central-text::after {
@@ -243,15 +294,21 @@ body {
   }
 
   .experience-greetings-title {
-    animation: typing 2.5s steps(40, end), blink-caret 0.2s steps(10, end) 6 forwards;
+    animation:
+      typing 2.5s steps(40, end),
+      blink-caret 0.2s steps(10, end) 6 forwards;
   }
 
   .projects-greetings-title {
-    animation: typing 2.5s steps(40, end), blink-caret 0.2s steps(10, end) 5 forwards;
+    animation:
+      typing 2.5s steps(40, end),
+      blink-caret 0.2s steps(10, end) 5 forwards;
   }
 
   .home-greeting-title {
-    animation: typing 2.5s steps(40, end), blink-caret 0.2s steps(10, end) 12 forwards;
+    animation:
+      typing 2.5s steps(40, end),
+      blink-caret 0.2s steps(10, end) 12 forwards;
   }
 
   .greetings-subtitle {
@@ -269,15 +326,15 @@ body {
   }
 
   .work-place-date {
-    @apply font-rajdhani text-[1.1em] font-light  text-gray-200;
+    @apply font-rajdhani text-[1.1em] font-light  text-gray-400;
   }
 
   .work-place-description {
-    @apply font-rajdhani text-[1.2em] font-medium  text-white;
+    @apply font-rajdhani text-[1.2em] font-medium  text-gray-300;
   }
 
   .work-place-achievement {
-    @apply font-rajdhani text-[1.2em] font-medium  text-white;
+    @apply font-rajdhani text-[1.2em] font-medium  text-gray-300;
   }
 
   .work-place-achievement:not(:first-of-type) {
@@ -285,7 +342,7 @@ body {
   }
 
   .work-place-achievement > .achievement-technology {
-    @apply font-tomorrow;
+    @apply font-tomorrow text-white;
   }
 
   .work-place-technologies {
@@ -309,6 +366,23 @@ body {
   .work-place-wrapper::-webkit-scrollbar-thumb {
     background: var(--scrollbar-thumb-bg);
     border-style: var(--scrollbar-thumb-border-style);
+    border-color: rgba(94, 246, 255, 0.3);
+    border-radius: 10px;
+  }
+
+  .skills-wrapper:hover {
+    --scrollbar-thumb-bg: rgba(94, 246, 255, 0.3);
+    --scrollbar-thumb-border-style: solid;
+  }
+
+  .skills-wrapper::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .skills-wrapper::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb-bg);
+    border-style: var(--scrollbar-thumb-border-style);
+    border-color: rgba(94, 246, 255, 0.3);
     border-radius: 10px;
   }
 
@@ -360,18 +434,26 @@ body {
     @apply hidden pr-1;
   }
 
+  .projects-list:hover {
+    --scrollbar-thumb-bg: rgba(5, 41, 43, 1);
+    --scrollbar-thumb-border-style: solid;
+  }
+
   .projects-list::-webkit-scrollbar {
     width: 10px;
   }
 
   .projects-list::-webkit-scrollbar-thumb {
-    background: rgba(5, 41, 43, 1);
-    border-style: solid;
+    background: var(--scrollbar-thumb-bg);
+    border-style: var(--scrollbar-thumb-border-style);
+    border-color: rgba(94, 246, 255, 0.3);
     border-radius: 10px;
   }
 
   .projects-slider button {
     @apply flex-shrink-0;
+    opacity: 0;
+    animation: showOpacity 1s linear forwards 1 0.6s;
     width: '30px';
     height: '30px';
   }
@@ -404,13 +486,29 @@ body {
     flex: 0 0 340px;
   }
 
+  .projects-wrapper .project-card::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .projects-wrapper .project-card::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb-bg-card-inner);
+    border-style: var(--scrollbar-thumb-border-style-card-inner);
+    border-radius: 10px;
+    border-color: transparent;
+  }
+
+  .projects-wrapper .project-card:hover {
+    --scrollbar-thumb-bg-card-inner: rgba(94, 246, 255, 1);
+    --scrollbar-thumb-border-style-card-inner: solid;
+  }
+
   .technologies-trigger-name {
     @apply mt-3 cursor-pointer w-fit underline decoration-dotted underline-offset-8 decoration-4;
   }
 
   .technologies-hidden-list {
-    @apply flex gap-2 flex-wrap absolute top-[10px] left-[30px] p-2 max-h-[100px] overflow-auto;
-    border-radius: 10px;
+    @apply flex gap-2  flex-col absolute left-[30%] right-[0px] p-2 overflow-auto;
+    border-radius: 0px 0px 0px 10px;
     background-color: rgba(5, 41, 43, 1);
     border: 1px solid rgba(94, 246, 255, 1);
     z-index: 1000;
@@ -432,7 +530,7 @@ body {
   }
 
   .project-card p {
-    @apply font-rajdhani font-medium text-xl text-justify max-md:text-base max-sm:text-sm;
+    @apply font-rajdhani font-medium max-lg:font-light text-xl text-justify max-md:text-base max-sm:text-sm;
   }
 
   .project-card a {
@@ -441,6 +539,9 @@ body {
 
   .project-main-link {
     @apply flex gap-3 justify-center align-bottom max-w-fit mx-auto;
+    opacity: 0;
+    transform: translateY(200%);
+    animation: slide-top 0.5s linear forwards 1 0.6s;
   }
 
   .project-main-link-button {
@@ -475,13 +576,31 @@ body {
   }
 }
 
+@media (min-width: 1440px) {
+  .projects-wrapper .project-card {
+    opacity: 0;
+  }
+  .projects-wrapper .project-card:nth-child(even) {
+    animation: showOpacity 0.5s linear forwards 1 0.6s;
+  }
+  .projects-wrapper .project-card:nth-child(odd) {
+    transform: translateX(100%);
+    animation: slide-from-right 0.5s linear forwards 1 0.5s;
+  }
+}
+
 @media (max-width: 1440px) {
   body {
     font-size: 14px;
   }
-	.project-card{
-		flex:0 0 100%;
-	}
+  .project-card {
+    flex: 0 0 100%;
+  }
+  .projects-wrapper .project-card:first-child {
+    transform: unset;
+    animation: showOpacity 0.5s linear forwards 1 0.6s;
+    opacity: 0;
+  }
 }
 
 @media (max-width: 1280px) {
@@ -496,7 +615,9 @@ body {
 @media (max-width: 1025px) {
   .greetings-title {
     font-size: 3.15em;
-    animation: typing 2.5s steps(40, end), blink-caret 0.2s steps(10, end) 13 forwards;
+    animation:
+      typing 2.5s steps(40, end),
+      blink-caret 0.2s steps(10, end) 13 forwards;
   }
 }
 
@@ -512,18 +633,22 @@ body {
     padding: 0px;
   }
   .greetings-title {
-    animation: typing 2.5s steps(40, end), blink-caret 0.2s steps(10, end) 10 forwards;
+    animation:
+      typing 2.5s steps(40, end),
+      blink-caret 0.2s steps(10, end) 10 forwards;
   }
   .projects-slider {
     display: none;
   }
   .projects-list {
-    @apply flex flex-col gap-2 overflow-auto;
+    @apply flex flex-col gap-2 overflow-auto overflow-x-hidden;
   }
 
   .projects-list .project-card {
     flex: 0 0 auto;
     max-height: 100%;
+    opacity: 0;
+    transform: translateX(100%);
   }
 }
 
@@ -533,7 +658,9 @@ body {
   }
   .greetings-title {
     padding-bottom: 0px;
-    animation: typing 2.5s steps(40, end), blink-caret 0.2s steps(10, end) 8 forwards;
+    animation:
+      typing 2.5s steps(40, end),
+      blink-caret 0.2s steps(10, end) 8 forwards;
   }
 }
 
@@ -551,7 +678,9 @@ body {
   }
   .greetings-title {
     font-size: 3em;
-    animation: typing 2.5s steps(40, end), blink-caret 0.2s steps(10, end) 12 forwards;
+    animation:
+      typing 2.5s steps(40, end),
+      blink-caret 0.2s steps(10, end) 12 forwards;
   }
   .greetings-subtitle {
     font-size: 1.8em;
@@ -597,6 +726,8 @@ body {
   }
   .greetings-title {
     font-size: 2.25em;
-    animation: typing 2.5s steps(40, end), blink-caret 0.2s steps(10, end) 14 forwards;
+    animation:
+      typing 2.5s steps(40, end),
+      blink-caret 0.2s steps(10, end) 14 forwards;
   }
 }

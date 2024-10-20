@@ -1,4 +1,9 @@
 import { AppRoutesLabelsEnum } from '@/types/enums';
+import googleIcon from '@/public/assets/icons/google.svg';
+import githubIcon from '@/public/assets/icons/github.svg';
+import linkedinIcon from '@/public/assets/icons/linkedin.svg';
+import telegramIcon from '@/public/assets/icons/telegram.svg';
+import { DateValues } from '@/lib/utils/parsedAndFormateDate';
 
 interface IHomeDataElement {
   title: string;
@@ -11,7 +16,7 @@ type TLinksDataElement = Record<AppRoutesLabelsEnum, string>;
 
 export interface IWorkPlace {
   title: string;
-  term: string;
+  term: DateValues;
   description: string;
   technologies: string[];
   achievements: {
@@ -27,6 +32,12 @@ export interface IProject {
   link: string;
   bgName: string;
 }
+
+export interface IContact {
+  title: string;
+  link: string;
+  img: string;
+}
 export interface IExperienceDataElement {
   title: string;
   workPlaces: IWorkPlace[];
@@ -35,6 +46,16 @@ export interface IExperienceDataElement {
 export interface IProjectDataElement {
   title: string;
   projects: IProject[];
+}
+
+export interface ISkillsDataElement {
+  title: string;
+  skills: string[];
+}
+
+export interface IContactDataElement {
+  title: string;
+  contacts: IContact[];
 }
 
 export interface ILanguageData<T> {
@@ -47,7 +68,7 @@ export const homeData: ILanguageData<IHomeDataElement> = {
     title: 'Vladislav Bondarchuk',
     subtitle: 'Frontend Developer',
     text: `I\`m a <span className="text-white">Frontend developer</span> with
-		<span className="text-white">1,5 years</span> of commercial experience and
+		<span className="text-white">1,9 years</span> of commercial experience and
 		passion for creating complex and interesting web applications.
 		<br />
 		My positive sides are
@@ -64,7 +85,7 @@ export const homeData: ILanguageData<IHomeDataElement> = {
     title: 'Владислав Бондарчук',
     subtitle: 'Фронтенд розробник',
     text: `Я <span className="text-white">Фронтенд-розробник</span> з
-		<span className="text-white">1,5 роками</span> комерційного досвіду і
+		<span className="text-white">1,9 роками</span> комерційного досвіду і
 		пристрастю до створення складних і цікавих веб-додатків.
 		<br />
 		Моїми позитивними сторонами є 
@@ -85,7 +106,12 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
     workPlaces: [
       {
         title: 'Frontend Developer - Radity',
-        term: 'Mar 2024 - Present · 6 mos',
+        term: {
+          startDate: {
+            month: 2,
+            year: 2024,
+          },
+        },
         description: `Contributed to the development of cutting-edge insurance projects for international companies.`,
         achievements: [
           {
@@ -133,7 +159,16 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
       },
       {
         title: 'React Developer - Upwork',
-        term: 'Jan 2023 - Mar 2024 · 1 yr 3 mos',
+        term: {
+          startDate: {
+            month: 0,
+            year: 2023,
+          },
+          endDate: {
+            month: 2,
+            year: 2024,
+          },
+        },
         description: `Worked on the project, development of a website, a versatile study resource that
 	presents the Book of Mormon text accompanied by an array of supportive elements like
 	narrative synopsis, images, commentary, audio, etc.`,
@@ -173,7 +208,12 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
     workPlaces: [
       {
         title: 'Frontend розробник - Radity',
-        term: 'Березень 2024 - Теперішній час · 6 місяців',
+        term: {
+          startDate: {
+            month: 2,
+            year: 2024,
+          },
+        },
         description: `Брав участь у розвитку передових страхових проектів для міжнародних компаній.`,
         achievements: [
           {
@@ -221,7 +261,16 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
       },
       {
         title: 'React розробник - Upwork',
-        term: 'Січень 2023 - Березень 2024 · 1 рік 3 місяці',
+        term: {
+          startDate: {
+            month: 0,
+            year: 2023,
+          },
+          endDate: {
+            month: 2,
+            year: 2024,
+          },
+        },
         description: `Працював над проектом, розробкою сайту, універсального навчального ресурсу, який
 				представляє текст Книги Мормона, що супроводжується низкою допоміжних елементів, як-от
 				короткий опис, зображення, коментарі, аудіо тощо.`,
@@ -322,7 +371,165 @@ export const projectsData: ILanguageData<IProjectDataElement> = {
   },
   ua: {
     title: 'Проєкти',
-    projects: [{}],
+    projects: [
+      {
+        title: 'Farang E-Commerce',
+        description:
+          'Це веб-сайт електронної комерції Farang. Цей веб-сайт було створено як пет-проект, як приклад використовувався оригінальний веб-сайт Team Farang. Сайт має зручний і зрозумілий дизайн, який дозволить вам легше відчути враження від покупки товару.',
+        technologies: ['React', 'TS', 'SCSS', 'React-Router'],
+        link: 'https://farang-e-commerce.netlify.app/',
+        bgName: 'projectOne',
+      },
+      {
+        title: 'Currency Exchanger App',
+        description:
+          'Currency Exchanger App - це SPA, який конвертує валюту та показує останні значення валют. Це дозволяє користувачам конвертувати валюту за запитом, зазначеним у шаблоні. Також користувачі можуть перевірити останні значення валюти та порівняти 1 до 1 валюти, яка їм потрібна.',
+        technologies: ['React', 'JS', 'Redux', 'React-Router', 'REST API (ExchangerRate)'],
+        link: 'https://altperson.github.io/Currency-Exchanger/',
+        bgName: 'projectTwo',
+      },
+      {
+        title: 'Orders-n-Products',
+        description:
+          'Orders & Products — простий веб-сайт, створений як тестове завдання. Має простий функціонал і дизайн. Веб-сайт дозволяє користувачеві переглядати продукти у своєму замовленні, видаляти свої замовлення на сторінці «Замовлення», а також переглядати та фільтрувати продукти на сторінці «Продукти». На сайті є лічильник відвідувачів і перемикач мов.',
+        technologies: [
+          'React',
+          'TS',
+          'Redux Toolkit',
+          'React-Router',
+          'Socket.io',
+          'i18n',
+          'Bootstrap(SCSS)',
+        ],
+        link: 'https://orders-n-products.netlify.app/',
+        bgName: 'projectThird',
+      },
+      {
+        title: 'Note-App',
+        description:
+          'Note App — це SPA, який імітує спрощений блокнот від MacOS. Це дозволяє користувачам писати нотатки, використовуючи текст розмітки або простий текст. Користувачі можуть зберігати, видаляти або редагувати нотатки, які зберігаються в indexDB браузера.',
+        technologies: ['React', 'JS', 'React-Icons', 'IndexDB'],
+        link: 'https://altperson.github.io/Note-App/',
+        bgName: 'projectOne',
+      },
+      {
+        title: 'Мusіс Search Арр',
+        description:
+          'Веб-сайт для пошуку музики з простим і зручним інтерфейсом, який дозволить вам легше відчути враження від пошуку та прослуховування музики.',
+        technologies: ['React', 'JS', 'React-Router', 'REST API(Deezer)'],
+        link: 'https://altperson.github.io/Music-Search-App/',
+        bgName: 'projectTwo',
+      },
+      {
+        title: 'Todo-List-App',
+        description:
+          'Todo List App – це SPA, який представляє просту програму зі списком справ. Користувачі можуть додавати, видаляти або редагувати нотатку в списку завдань. Розгорнута версія веб-сайту з використанням простого бекенд-сервера на Express.js для керування станом. Версія Github має Frontend і Backend частини.',
+        technologies: ['React', 'TS', 'React-Query', 'Tailwind', 'Node.js', 'Express.js'],
+        link: 'https://altperson.github.io/Music-Search-App/',
+        bgName: 'projectThird',
+      },
+    ],
+  },
+};
+
+export const skillsData: ILanguageData<ISkillsDataElement> = {
+  en: {
+    title: 'Skills',
+    skills: [
+      'HTML',
+      'CSS',
+      'SCSS',
+      'JS',
+      'TS',
+      'Browser API',
+      'REST API',
+      'React.js',
+      'Redux',
+      'RTK',
+      'React Query',
+      'Material UI',
+      'Boostrap',
+      'Styled-Components',
+      'VS Code',
+      'Photoshop',
+      'Figma',
+      'Git',
+      'Webpack',
+      'Vite',
+    ],
+  },
+  ua: {
+    title: 'Навички',
+    skills: [
+      'HTML',
+      'CSS',
+      'SCSS',
+      'JS',
+      'TS',
+      'Browser API',
+      'REST API',
+      'React.js',
+      'Redux',
+      'RTK',
+      'React Query',
+      'Material UI',
+      'Boostrap',
+      'Styled-Components',
+      'VS Code',
+      'Photoshop',
+      'Figma',
+      'Git',
+      'Webpack',
+      'Vite',
+    ],
+  },
+};
+
+export const contactData: ILanguageData<IContactDataElement> = {
+  en: {
+    title: 'Contact',
+    contacts: [
+      {
+        title: 'email',
+        link: 'nothinghardforyou@gmail.com',
+        img: googleIcon,
+      },
+      {
+        title: 'linkedin',
+        link: 'https://www.linkedin.com/in/altperson/',
+        img: linkedinIcon,
+      },
+      {
+        title: 'gitHub',
+        link: 'https://github.com/AltPerson',
+        img: githubIcon,
+      },
+      {
+        title: 'telegram',
+        link: 'https://t.me/alt_person',
+        img: telegramIcon,
+      },
+    ],
+  },
+  ua: {
+    title: 'Контакти',
+    contacts: [
+      {
+        title: 'email',
+        link: 'nothinghardforyou@gmail.com',
+        img: googleIcon,
+      },
+      {
+        title: 'linkedin',
+        link: 'https://www.linkedin.com/in/altperson/',
+        img: linkedinIcon,
+      },
+      {
+        title: 'gitHub',
+        link: 'https://github.com/AltPerson',
+        img: githubIcon,
+      },
+    ],
   },
 };
 

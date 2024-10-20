@@ -5,7 +5,7 @@ import localFont from 'next/font/local';
 import React, { ReactNode } from 'react';
 
 const rajdhani = Rajdhani({
-  weight: ['500'],
+  weight: ['400', '500'],
   subsets: ['latin'],
   variable: '--font-rajdhani',
 });

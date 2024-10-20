@@ -1,7 +1,6 @@
-import React from "react";
+import React from 'react';
+import Content from './_components/Content';
 
-const Skills = () => {
-  return <main className="content-part">Skills</main>;
-};
+const Skills = () => <Content />;
 
 export default Skills;
