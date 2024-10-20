@@ -7,6 +7,8 @@ export interface DateObject {
   month: number;
 }
 
+const DATE_MONTH_YEAR_TEMPLATE = 'MMM yyyy';
+
 export interface DateValues {
   startDate: DateObject;
   endDate?: DateObject;
@@ -39,8 +41,6 @@ const dateLocalizationMap = {
       }),
   },
 };
-
-const DATE_MONTH_YEAR_TEMPLATE = 'MMM yyyy';
 
 export const parsedAndFormateDate = (term: DateValues, language: LanguageEnum) => {
   const { startDate, endDate } = term;
