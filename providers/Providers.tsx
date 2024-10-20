@@ -2,7 +2,7 @@ import LanguageProvider from '@/contexts/language-context';
 import PlayMusicProvider from '@/contexts/play-music-context';
 import { Rajdhani, Tomorrow } from 'next/font/google';
 import localFont from 'next/font/local';
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 const rajdhani = Rajdhani({
   weight: ['400', '500'],

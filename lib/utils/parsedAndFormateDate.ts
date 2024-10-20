@@ -1,6 +1,6 @@
 import { LanguageEnum } from '@/types/enums';
 import { differenceInMonths, differenceInYears, format } from 'date-fns';
-import { uk, enUS } from 'date-fns/locale';
+import { enUS, uk } from 'date-fns/locale';
 
 export interface DateObject {
   year: number;
