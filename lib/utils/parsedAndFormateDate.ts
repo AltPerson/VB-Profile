@@ -7,7 +7,7 @@ export interface DateObject {
   month: number;
 }
 
-const DATE_MONTH_YEAR_TEMPLATE = 'MMM yyyy';
+const DATE_MONTH_YEAR_TEMPLATE = 'MMMM yyyy';
 
 export interface DateValues {
   startDate: DateObject;
@@ -16,15 +16,14 @@ export interface DateValues {
 
 const dateLocalizationMap = {
   ua: {
-    todayEmptyDate: 'На тепершній час',
-    years: 'років',
-    months: 'місяців',
+    todayEmptyDate: 'До теперішнього часу',
+    years: 'р',
+    months: 'міс',
     formatDate: (date: Date): string => {
       let formattedDate = format(date, DATE_MONTH_YEAR_TEMPLATE, {
         locale: uk,
       });
 
-      formattedDate = formattedDate.replace('.', '');
       formattedDate = formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
 
       return formattedDate;

@@ -2,15 +2,15 @@
 import DefaultLayout from '@/components/default-layout';
 import { useChangeLanguage } from '@/contexts/language-context';
 import { parsedAndFormateDate } from '@/lib/utils/parsedAndFormateDate';
-import { isFloat } from '@/lib/utils/utlis';
+import { declOfNum, isFloat } from '@/lib/utils/utlis';
 import { experienceData, homeData, IWorkPlace } from '@/locales';
 import { LanguageEnum } from '@/types/enums';
 import parse from 'html-react-parser';
 
 const getExperience = (workPlaces: IWorkPlace[], language: LanguageEnum) => {
   const yearsMappedValues = {
-    ua: 'років',
-    en: 'years',
+    ua: ['роком', 'роками', 'роками'],
+    en: ['year', 'years', 'years'],
   };
 
   let experience = 0;
@@ -22,7 +22,13 @@ const getExperience = (workPlaces: IWorkPlace[], language: LanguageEnum) => {
 
   experience /= 12;
 
-  return `${isFloat(experience) ? experience.toFixed(1) : experience} ${yearsMappedValues[language]}`;
+  if (isFloat(experience)) {
+    experience = Number(experience.toFixed(1));
+  }
+
+  const languageExperienceWord = declOfNum(experience, yearsMappedValues[language]);
+
+  return `${experience} ${languageExperienceWord}`;
 };
 
 const Content = () => {

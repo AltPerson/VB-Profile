@@ -1,9 +1,9 @@
-import { AppRoutesLabelsEnum } from '@/types/enums';
-import googleIcon from '@/public/assets/icons/google.svg';
+import { DateValues } from '@/lib/utils/parsedAndFormateDate';
 import githubIcon from '@/public/assets/icons/github.svg';
+import googleIcon from '@/public/assets/icons/google.svg';
 import linkedinIcon from '@/public/assets/icons/linkedin.svg';
 import telegramIcon from '@/public/assets/icons/telegram.svg';
-import { DateValues } from '@/lib/utils/parsedAndFormateDate';
+import { AppRoutesLabelsEnum } from '@/types/enums';
 
 interface IHomeDataElement {
   title: string;
@@ -281,7 +281,7 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
           },
           {
             text: `Я інтегрував файли React-gluejar, React-cropper, React-drag-drop і розробив модуль завантаження зображень, який використовується для завантаження зображення користувача та зміни зображення групи, також я інтегрував React-quill і розробив розширений редактор для надсилання повідомлень.`,
-            keywords: ['React-gluejar', 'React-cropper', 'React-drag-drop-files', 'React-quill'],
+            keywords: ['React-gluejar', 'React-cropper', 'React-drag-drop', 'React-quill'],
           },
           {
             text: `Я розробив меню налаштувань швидкості та гучності відтворення для відеопрогравача веб-сайту.`,
@@ -301,6 +301,10 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
           'ReactJS',
           'React-Router',
           'Sendbird SDK',
+          'React-gluejar',
+          'React-cropper',
+          'React-drag-drop',
+          'React-quill',
         ],
       },
     ],
