@@ -32,14 +32,8 @@ const Content = () => {
     showRight: true,
   });
 
-  const sliderClick = (side: string) => {
-    const childNodes = sliderRefContainer?.current?.childNodes[0] as HTMLDivElement;
-    const extraOffset = 22;
-
+  const showArrowsSideHandler = (side: string) => {
     if (side === 'left') {
-      (sliderRefContainer.current as HTMLDivElement).scrollLeft -=
-        childNodes.clientWidth + extraOffset;
-
       if (sliderRefContainer.current?.scrollLeft === 0) {
         setShowArrows((prev) => ({
           ...prev,
@@ -52,9 +46,6 @@ const Content = () => {
         }));
       }
     } else {
-      (sliderRefContainer.current as HTMLDivElement).scrollLeft +=
-        childNodes.clientWidth + extraOffset;
-
       if (
         sliderRefContainer.current?.scrollLeft ===
         (sliderRefContainer.current?.scrollWidth as number) -
@@ -73,6 +64,21 @@ const Content = () => {
     }
   };
 
+  const sliderClick = (side: string) => {
+    const childNodes = sliderRefContainer?.current?.childNodes[0] as HTMLDivElement;
+    const extraOffset = 22;
+
+    if (side === 'left') {
+      (sliderRefContainer.current as HTMLDivElement).scrollLeft -=
+        childNodes.clientWidth + extraOffset;
+    } else {
+      (sliderRefContainer.current as HTMLDivElement).scrollLeft +=
+        childNodes.clientWidth + extraOffset;
+    }
+
+    showArrowsSideHandler(side);
+  };
+
   let scrollTop = 0;
 
   if (typeof document !== 'undefined') {
@@ -85,7 +91,14 @@ const Content = () => {
       <h3 className="greetings-title projects-greetings-title">
         {projectsData[language]['title']}
       </h3>
-      <div className="flex flex-col justify-between flex-grow gap-4 max-lg:overflow-auto">
+      <div
+        className="flex flex-col justify-between flex-grow gap-4 max-lg:overflow-auto"
+        onWheel={(event) => {
+          const side = event.deltaX > 0 ? 'right' : 'left';
+
+          showArrowsSideHandler(side);
+        }}
+      >
         <div className="projects-slider">
           <button onClick={() => sliderClick('left')} disabled={!showsArrows.showLeft}>
             <Image
