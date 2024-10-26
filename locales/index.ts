@@ -368,7 +368,7 @@ export const projectsData: ILanguageData<IProjectDataElement> = {
         description:
           'Todo List App is a SPA which represents a simple todo list app. Users can add, delete or edit a note in the todo list. Deployed version of website using a simple backend server on express.js for state management. The Github version has the Frontend and Backend part.',
         technologies: ['React', 'TS', 'React-Query', 'Tailwind', 'Node.js', 'Express.js'],
-        link: 'https://altperson.github.io/Music-Search-App/',
+        link: 'https://test-pet-todolist.netlify.app',
         bgName: 'projectThird',
       },
     ],
@@ -429,7 +429,7 @@ export const projectsData: ILanguageData<IProjectDataElement> = {
         description:
           'Todo List App – це SPA, який представляє просту програму зі списком справ. Користувачі можуть додавати, видаляти або редагувати нотатку в списку завдань. Розгорнута версія веб-сайту з використанням простого бекенд-сервера на Express.js для керування станом. Версія Github має Frontend і Backend частини.',
         technologies: ['React', 'TS', 'React-Query', 'Tailwind', 'Node.js', 'Express.js'],
-        link: 'https://altperson.github.io/Music-Search-App/',
+        link: 'https://test-pet-todolist.netlify.app',
         bgName: 'projectThird',
       },
     ],
