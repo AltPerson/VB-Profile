@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align='center'><img width='256' height='256' src='https://github.com/user-attachments/assets/36eff474-ac15-4c04-b80e-a4fecce2b6f2'/></div>
 
-## Getting Started
+<h2>About the project</h2>
 
-First, run the development server:
+<p>This is a portfolio website showcasing my work as a frontend developer, highlighting projects, skills, and experience in building dynamic and responsive web applications. 
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+👉 Live Demo: <a href='https://vb-profile.netlify.app'>VB Profile</a>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+<h3>Build with:</h3>
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+» Next.js <br>
+» TS <br>
+» Tailwind
 
-To learn more about Next.js, take a look at the following resources:
+<h2>Screenshots of the Project 📸</h2>
+<br>
+<h3 align='center'>Home Page 🏡</h3>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<div align='center'>
+<img src='https://github.com/user-attachments/assets/717dd4ab-291b-4c98-a31f-a94a1af1cb7f'/>
+</div>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<br><br>
 
-## Deploy on Vercel
+<h3 align='center'>Experience Page 💼</h3>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<div align='center'>
+<img src='https://github.com/user-attachments/assets/4bdba399-9434-4685-b99f-89eeec5bd162'/>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<br>
+<br>
+<h3 align='center'>Projects Page 💻</h3>
+
+<div align='center'>
+<img src='https://github.com/user-attachments/assets/2c39dafc-d1a8-48cb-b694-be33b940885b'/>
+
+<br>
+<br>
+<h3 align='center'>Skills Page 🛠️</h3>
+
+<div align='center'>
+<img src='https://github.com/user-attachments/assets/b430855e-1242-4eb8-8ce7-970f77be0832'/>
+</div>
+
+<br>
+<br>
+<h3 align='center'>Contact Page ✉️</h3>
+
+<div align='center'>
+<img src='https://github.com/user-attachments/assets/8685f07c-0b52-4a37-855a-c4c420cab229'/>
+</div>
