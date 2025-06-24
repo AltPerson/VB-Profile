@@ -66,36 +66,25 @@ export interface ILanguageData<T> {
 export const homeData: ILanguageData<IHomeDataElement> = {
   en: {
     title: 'Vladislav Bondarchuk',
-    subtitle: 'Frontend Developer',
-    text: `I\`m a <span className="text-white">Frontend developer</span> with
-		<span className="text-white"><span id="exp"></span></span> of commercial experience and
-		passion for creating complex and interesting web applications.
-		<br />
-		My positive sides are
-		<span className="text-white">time management,</span>
-		<span className="text-white"> communication,</span> and
-		<span className="text-white"> the ability to learn quickly.</span>
-		<br />
-		So if you are looking for a
-		<span className="text-white">skilled developer</span> to help bring your
-		project to life, I am here and ready to help.`,
+    subtitle: 'Frontend developer',
+    text: `<span className="text-white">Frontend developer</span> with
+		<span className="text-white">over <span id="exp"></span></span> of commercial experience, contributing to teams of 2–10 people. 
+		<br>
+		<span className="text-white">Participated in full development cycles </span> — from requirements gathering to building and deploying production-ready features with test coverage and performance monitoring. 
+		<br>
+		<span className="text-white">Experienced in Agile development </span> environments. Continuously seeking to improve both <span className="text-white">code quality</span> and <span className="text-white">user experience</span>.`,
     buttonText: 'CHECK MY CV',
   },
   ua: {
     title: 'Владислав Бондарчук',
     subtitle: 'Фронтенд розробник',
-    text: `Я <span className="text-white">Фронтенд-розробник</span> з
-		<span className="text-white"><span id="exp"></span></span> комерційного досвіду і
-		пристрастю до створення складних і цікавих веб-додатків.
-		<br />
-		Моїми позитивними сторонами є 
-		<span className="text-white">тайм-менеджмент,</span>
-		<span className="text-white">комунікабельність,</span> та
-		<span className="text-white">здатність до швидкого навчання.</span>
-		<br />
-		Тож якщо ви шукаєте
-		<span className="text-white">кваліфікованого розробника</span> який допоможе втілити ваш
-		проєкт у життя, я тут і готовий допомогти.`,
+    text: `<span className="text-white">Фронтенд розробник</span> з 
+<span className="text-white">понад <span id="exp"></span></span> комерційного досвіду, працював у командах від 2 до 10 осіб.
+<br />
+<span className="text-white">Брав участь у повних циклах розробки</span> — від збору вимог до створення та деплою продакшен-функцій з тестовим покриттям і моніторингом продуктивності.
+<br />
+<span className="text-white">Має досвід у розробці за Agile-підходом</span>. Постійно прагну покращувати як <span className="text-white">якість коду</span>, так і <span className="text-white">користувацький досвід</span>.
+`,
     buttonText: 'ПЕРЕГЛЯНУТИ РЕЗЮМЕ',
   },
 };
@@ -115,45 +104,35 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
         description: `Contributed to the development of cutting-edge insurance projects for international companies.`,
         achievements: [
           {
-            text: `I was building, styling, and shipping high-quality insurance portals for a diverse array of clients using technologies such as React, Next.js, Redux, JS, TS, Material UI, Figma, and more.`,
-            keywords: ['React', 'Next.js', 'Redux', 'JS', 'TS', 'Material UI', 'Figma'],
-          },
-          {
-            text: `I was working alongside product & project managers, designers, and other engineers to transform creative concepts into refined digital experiences at an agile (2 week) cadence.`,
-            keywords: [
-              'product',
-              'project managers',
-              'designers',
-              'other engineers',
-              'an agile (2 week)',
-            ],
-          },
-          {
-            text: `I was creating reusable, modern, and performant components for a lean, clean, and fast responsive layouts.`,
+            text: `Built a dynamic multi-endpoint form with conditional rendering and real-time validation, preventing invalid data entries and adapting to user input context`,
             keywords: [],
           },
           {
-            text: `I was developing highly complex and performant server interactions, resulting in fast and reliable systems.`,
-            keywords: [''],
+            text: `Created a flexible input component combining free text and autocomplete, streamlining data entry and increasing address entry success rate in edge cases by over 25%`,
+            keywords: ['by over 25%'],
+          },
+          {
+            text: `Optimized CI/CD pipeline by enabling matrix-based E2E test runs, reducing test time by approximately 35%`,
+            keywords: ['by approximately 35%'],
           },
         ],
         technologies: [
-          'HTML',
-          'CSS',
-          'SCSS',
+          'HTML5',
+          'CSS3',
           'TS',
-          'JS',
           'React',
           'Redux',
+          'Redux-Thunk',
           'Next.js',
-          'Material UI',
+          'MUI',
           'Playwright',
           'Formik',
+          'Yup',
           'Vitest',
           'Chai',
           'Mocha',
           'Axios',
-          'React-Query',
+          'TanStack Query',
           'Git',
           'Vite',
           'Azure DevOps',
@@ -171,25 +150,19 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
             year: 2024,
           },
         },
-        description: `Worked on the project, development of a website, a versatile study resource that
-	presents the Book of Mormon text accompanied by an array of supportive elements like
-	narrative synopsis, images, commentary, audio, etc.`,
+        description: `Built a study platform featuring synopses, commentary, images, and audio`,
         achievements: [
           {
-            text: `I migrated Sendbird SDK from version 3 to version 4, which is used for creating study groups, and direct message rooms between users, which made chat integrations faster and users experience better. `,
-            keywords: ['Sendbird SDK'],
+            text: `Migrated the chat system Sendbird SDK from v3 to v4, improving load speed and responsiveness by approximately 20%`,
+            keywords: ['by approximately 20%'],
           },
           {
-            text: `I integrated React-gluejar, React-cropper, React-drag-drop-files and developed an image uploading module, which is used to upload user image and change group image, also I integrated React-quill and developed an advanced editor for sending messages.`,
-            keywords: ['React-gluejar', 'React-cropper', 'React-drag-drop-files', 'React-quill'],
+            text: `Created a dynamic search feature for quick navigation across maps, people, and locations, improving usability and reducing search time by nearly 30%`,
+            keywords: ['by nearly 30%'],
           },
           {
-            text: `I developed a settings menu for playback speed and volume for the video-player component of the website.`,
-            keywords: [],
-          },
-          {
-            text: `I fixed more than 20 bugs which increased user experience and functionality of the website.`,
-            keywords: ['more than 20 bugs'],
+            text: `Implemented image upload with cropping and drag-and-drop, increasing user engagement and simplifying media sharing, which led to over 15% growth in media interactions`,
+            keywords: ['to over 15%'],
           },
         ],
         technologies: [
@@ -197,9 +170,14 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
           'CSS',
           'JS',
           'SCSS',
+          'Bootstrap',
           'Git',
           'ReactJS',
           'React-Router',
+          'React-Quill',
+          'React-Cropper',
+          'React-Drag-Drop-Files',
+          'React-Input-Range',
           'Sendbird SDK',
         ],
       },
@@ -216,48 +194,38 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
             year: 2024,
           },
         },
-        description: `Брав участь у розвитку передових страхових проектів для міжнародних компаній.`,
+        description: `Брав участь у розробці міжнародних страхових платформ із використанням сучасних вебтехнологій`,
         achievements: [
           {
-            text: `Я створював, стилізував і постачав високоякісні страхові портали для різноманітних клієнтів, використовуючи такі технології, як React, Next.js, Redux, JS, TS, Material UI, Figma тощо.`,
-            keywords: ['React', 'Next.js', 'Redux', 'JS', 'TS', 'Material UI', 'Figma'],
-          },
-          {
-            text: `Я працював разом із менеджерами продуктів і проектів, дизайнерами та іншими інженерами, щоб перетворити творчі концепції на вишуканий цифровий досвід за гнучкого (2 тижнового) темпу.`,
-            keywords: [
-              'менеджерами продуктів',
-              'проектів',
-              'дизайнерами',
-              'іншими інженерами',
-              'гнучкого (2 тижнового)',
-            ],
-          },
-          {
-            text: `Я створював багаторазові, сучасні та продуктивні компоненти для компактних, чистих і швидко реагуючих макетів.`,
+            text: `Розробив динамічну форму з підтримкою кількох кінцевих точок, умовним рендерингом і валідацією в реальному часі, що запобігає введенню некоректних даних і адаптується до контексту введення користувача`,
             keywords: [],
           },
           {
-            text: `Я розробляв дуже складну та продуктивну взаємодію з сервером, що створювало швидкі та надійні системи.`,
-            keywords: [''],
+            text: `Створив гнучкий компонент введення, який поєднує вільний текст і автозаповнення, що спростило введення даних і підвищило успішність введення адрес у прикордонних випадках більш ніж на 25%`,
+            keywords: ['більш ніж на 25%'],
+          },
+          {
+            text: `Оптимізував CI/CD-пайплайн, реалізувавши матричні E2E-тести, що дозволило скоротити час тестування приблизно на 35%`,
+            keywords: ['приблизно на 35%'],
           },
         ],
         technologies: [
-          'HTML',
-          'CSS',
-          'SCSS',
+          'HTML5',
+          'CSS3',
           'TS',
-          'JS',
           'React',
           'Redux',
+          'Redux-Thunk',
           'Next.js',
-          'Material UI',
+          'MUI',
           'Playwright',
           'Formik',
+          'Yup',
           'Vitest',
           'Chai',
           'Mocha',
           'Axios',
-          'React-Query',
+          'TanStack Query',
           'Git',
           'Vite',
           'Azure DevOps',
@@ -275,25 +243,19 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
             year: 2024,
           },
         },
-        description: `Працював над проектом, розробкою сайту, універсального навчального ресурсу, який
-				представляє текст Книги Мормона, що супроводжується низкою допоміжних елементів, як-от
-				короткий опис, зображення, коментарі, аудіо тощо.`,
+        description: `Розробив навчальну платформу з конспектами, коментарями, зображеннями та аудіо`,
         achievements: [
           {
-            text: `Я переніс Sendbird SDK із версії 3 до версії 4, яка використовується для створення навчальних груп і кімнат для прямого спілкування між користувачами, завдяки чому інтеграція чату стала швидшою, а користувачам було краще.`,
-            keywords: ['Sendbird SDK'],
+            text: `Мігровано чат-систему Sendbird SDK з версії 3 на версію 4, що покращило швидкість завантаження та чутливість інтерфейсу приблизно на 20%`,
+            keywords: ['приблизно на 20%'],
           },
           {
-            text: `Я інтегрував файли React-gluejar, React-cropper, React-drag-drop і розробив модуль завантаження зображень, який використовується для завантаження зображення користувача та зміни зображення групи, також я інтегрував React-quill і розробив розширений редактор для надсилання повідомлень.`,
-            keywords: ['React-gluejar', 'React-cropper', 'React-drag-drop', 'React-quill'],
+            text: `Реалізував динамічний пошук для швидкої навігації по мапах, людях і локаціях, що покращило зручність користування та зменшило час пошуку майже на 30%`,
+            keywords: ['майже на 30%'],
           },
           {
-            text: `Я розробив меню налаштувань швидкості та гучності відтворення для відеопрогравача веб-сайту.`,
-            keywords: [],
-          },
-          {
-            text: `Я виправив понад 20 помилок, що покращило взаємодію з користувачем та функціональність веб-сайту.`,
-            keywords: ['понад 20 помилок'],
+            text: `Впровадив завантаження зображень з можливістю обрізки та drag-and-drop, що підвищило залучення користувачів і спростило обмін медіа — це призвело до зростання взаємодії з медіа більш ніж на 15%`,
+            keywords: ['більш ніж на 15%'],
           },
         ],
         technologies: [
@@ -301,14 +263,15 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
           'CSS',
           'JS',
           'SCSS',
+          'Bootstrap',
           'Git',
           'ReactJS',
           'React-Router',
+          'React-Quill',
+          'React-Cropper',
+          'React-Drag-Drop-Files',
+          'React-Input-Range',
           'Sendbird SDK',
-          'React-gluejar',
-          'React-cropper',
-          'React-drag-drop',
-          'React-quill',
         ],
       },
     ],
@@ -444,8 +407,8 @@ export const skillsData: ILanguageData<ISkillsDataElement> = {
   en: {
     title: 'Skills',
     skills: [
-      'HTML',
-      'CSS',
+      'HTML | HTML5',
+      'CSS | CSS3',
       'SCSS',
       'JS',
       'TS',
@@ -453,31 +416,47 @@ export const skillsData: ILanguageData<ISkillsDataElement> = {
       'REST API',
       'React.js',
       'Redux',
+      'Redux-Thunk',
       'RTK',
-      'React Query',
+      'TanStack Query',
+      'Openapi-fetch',
       'Axios',
       'Next.js',
       'Formik',
+      'Yup',
+      'Zustand',
       'Vitest',
       'Chai',
       'Mocha',
+      'Jest',
+      'React Testing Library',
       'Playwright',
       'Material UI',
       'Boostrap',
+      'Tailwind',
       'Styled-Components',
-      'VS Code',
+      'i18n',
+      'Date-fns',
       'Photoshop',
       'Figma',
       'Git',
+      'Azure DevOps',
+      'CI/CD',
+      'GitHub Actions',
+      'Sentry',
+      'Datadog',
       'Webpack',
       'Vite',
+      'Jira',
+      'Slack',
+      'Linear',
     ],
   },
   ua: {
     title: 'Навички',
     skills: [
-      'HTML',
-      'CSS',
+      'HTML | HTML5',
+      'CSS | CSS3',
       'SCSS',
       'JS',
       'TS',
@@ -485,24 +464,40 @@ export const skillsData: ILanguageData<ISkillsDataElement> = {
       'REST API',
       'React.js',
       'Redux',
+      'Redux-Thunk',
       'RTK',
-      'React Query',
+      'TanStack Query',
+      'Openapi-fetch',
       'Axios',
       'Next.js',
       'Formik',
+      'Yup',
+      'Zustand',
       'Vitest',
       'Chai',
       'Mocha',
+      'Jest',
+      'React Testing Library',
       'Playwright',
       'Material UI',
       'Boostrap',
+      'Tailwind',
       'Styled-Components',
-      'VS Code',
+      'i18n',
+      'Date-fns',
       'Photoshop',
       'Figma',
       'Git',
+      'Azure DevOps',
+      'CI/CD',
+      'GitHub Actions',
+      'Sentry',
+      'Datadog',
       'Webpack',
       'Vite',
+      'Jira',
+      'Slack',
+      'Linear',
     ],
   },
 };

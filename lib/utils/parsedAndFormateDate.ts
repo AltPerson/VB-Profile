@@ -52,16 +52,18 @@ export const parsedAndFormateDate = (term: DateValues, language: LanguageEnum) =
 
   let formattedEndDate = dateLocalizationValues.todayEmptyDate;
 
-  let yearsDifference = differenceInYears(new Date(), new Date(startDateParsed));
+  let yearsDifference = differenceInYears(new Date(Date.now()), new Date(startDateParsed));
 
-  let monthsDifference = differenceInMonths(new Date(), new Date(startDateParsed)) % 12;
+  let monthsDifference =
+    (differenceInMonths(new Date(Date.now()), new Date(startDateParsed)) % 12) + 1;
 
   if (endDate) {
     const endDateParsed = new Date(endDate.year, endDate.month);
 
     yearsDifference = differenceInYears(new Date(endDateParsed), new Date(startDateParsed));
 
-    monthsDifference = differenceInMonths(new Date(endDateParsed), new Date(startDateParsed)) % 12;
+    monthsDifference =
+      (differenceInMonths(new Date(endDateParsed), new Date(startDateParsed)) % 12) + 1;
 
     formattedEndDate = dateLocalizationValues.formatDate(endDateParsed);
   }
