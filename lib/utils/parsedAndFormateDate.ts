@@ -1,81 +1,67 @@
-import { LanguageEnum } from '@/types/enums';
-import { differenceInMonths, differenceInYears, format } from 'date-fns';
+import { differenceInMonths, endOfMonth, format, startOfMonth } from 'date-fns';
 import { enUS, uk } from 'date-fns/locale';
 
-export interface DateObject {
+export type MonthOneBased = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+
+export interface DateObjectOneBased {
   year: number;
-  month: number;
+  month: MonthOneBased;
 }
 
-const DATE_MONTH_YEAR_TEMPLATE = 'MMMM yyyy';
-
-export interface DateValues {
-  startDate: DateObject;
-  endDate?: DateObject;
+export interface DateValuesOneBased {
+  startDate: DateObjectOneBased;
+  endDate?: DateObjectOneBased;
 }
 
-const dateLocalizationMap = {
+export const toDateFromOneBased = ({ year, month }: DateObjectOneBased) =>
+  new Date(year, month - 1, 1);
+
+const DATE_UA = 'LLLL yyyy';
+const DATE_EN = 'MMMM yyyy';
+
+const i18n = {
   ua: {
     todayEmptyDate: 'До теперішнього часу',
     years: 'р',
     months: 'міс',
-    formatDate: (date: Date): string => {
-      let formattedDate = format(date, DATE_MONTH_YEAR_TEMPLATE, {
-        locale: uk,
-      });
-
-      formattedDate = formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
-
-      return formattedDate;
+    formatDate: (d: Date) => {
+      const s = format(d, DATE_UA, { locale: uk });
+      return s.charAt(0).toUpperCase() + s.slice(1);
     },
   },
   en: {
     todayEmptyDate: 'Present',
     years: 'yr',
     months: 'mos',
-    locale: enUS,
-    formatDate: (date: Date): string =>
-      format(date, DATE_MONTH_YEAR_TEMPLATE, {
-        locale: enUS,
-      }),
+    formatDate: (d: Date) => format(d, DATE_EN, { locale: enUS }),
   },
-};
+} as const;
 
-export const parsedAndFormateDate = (term: DateValues, language: LanguageEnum) => {
-  const { startDate, endDate } = term;
+export function parsedAndFormateDate(
+  term: DateValuesOneBased,
+  language: keyof typeof i18n,
+  inclusive = true,
+) {
+  const L = i18n[language];
+  const start = startOfMonth(toDateFromOneBased(term.startDate));
+  const end = endOfMonth(term.endDate ? toDateFromOneBased(term.endDate) : new Date());
 
-  const dateLocalizationValues = dateLocalizationMap[language];
+  const formattedStart = L.formatDate(start);
+  const formattedEnd = term.endDate ? L.formatDate(end) : L.todayEmptyDate;
 
-  const startDateParsed = new Date(startDate.year, startDate.month);
+  const totalMonths = differenceInMonths(end, start) + (inclusive ? 1 : 0);
+  const years = Math.floor(totalMonths / 12);
+  const months = totalMonths % 12;
 
-  const formattedStartDate = dateLocalizationValues.formatDate(startDateParsed);
-
-  let formattedEndDate = dateLocalizationValues.todayEmptyDate;
-
-  let yearsDifference = differenceInYears(new Date(Date.now()), new Date(startDateParsed));
-
-  let monthsDifference =
-    (differenceInMonths(new Date(Date.now()), new Date(startDateParsed)) % 12) + 1;
-
-  if (endDate) {
-    const endDateParsed = new Date(endDate.year, endDate.month);
-
-    yearsDifference = differenceInYears(new Date(endDateParsed), new Date(startDateParsed));
-
-    monthsDifference =
-      (differenceInMonths(new Date(endDateParsed), new Date(startDateParsed)) % 12) + 1;
-
-    formattedEndDate = dateLocalizationValues.formatDate(endDateParsed);
-  }
-
-  const formattedTerm = `${formattedStartDate} - ${formattedEndDate} · ${
-    yearsDifference > 0 ? `${yearsDifference} ${dateLocalizationValues.years}` : ''
-  } ${monthsDifference > 0 ? `${monthsDifference} ${dateLocalizationValues.months}` : ''}`;
-
-  const experience = yearsDifference ? yearsDifference * 12 + monthsDifference : monthsDifference;
+  const duration = [
+    years > 0 ? `${years} ${L.years}` : '',
+    months > 0 ? `${months} ${L.months}` : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return {
-    formattedTerm,
-    experience,
+    formattedTerm: `${formattedStart} - ${formattedEnd} · ${duration}`.trim(),
+    experience: totalMonths,
   };
-};
+}

@@ -18,7 +18,7 @@ const getExperience = (workPlaces: IWorkPlace[], language: LanguageEnum) => {
     experience += workPlaceExperience;
   });
 
-  experience /= 12;
+  experience = Math.floor((experience / 12) * 2) / 2;
 
   if (isFloat(experience)) {
     experience = Number(experience.toFixed(1));
