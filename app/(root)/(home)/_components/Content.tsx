@@ -9,10 +9,7 @@ import { LanguageEnum } from '@/types/enums';
 import parse from 'html-react-parser';
 
 const getExperience = (workPlaces: IWorkPlace[], language: LanguageEnum) => {
-  const yearsMappedValues = {
-    ua: ['роком', 'роками', 'роками'],
-    en: ['year', 'years', 'years'],
-  };
+  const yearsMappedValues = { ua: ['роком', 'роками', 'роками'], en: ['year', 'years', 'years'] };
 
   let experience = 0;
 
@@ -29,7 +26,7 @@ const getExperience = (workPlaces: IWorkPlace[], language: LanguageEnum) => {
 
   const languageExperienceWord = declOfNum(experience, yearsMappedValues[language]);
 
-  return `${experience} ${languageExperienceWord}`;
+  return `${experience}+ ${languageExperienceWord}`;
 };
 
 const Content = () => {
