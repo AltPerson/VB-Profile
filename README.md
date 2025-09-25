@@ -5,11 +5,9 @@
 <p>This is a portfolio website showcasing my work as a frontend developer, highlighting projects, skills, and experience in building dynamic and responsive web applications. 
 </p>
 
-
 👉 Live Demo: <a href='https://vb-profile.netlify.app'>VB Profile</a>
 
 <h3>Build with:</h3>
-
 
 » Next.js <br>
 » TS <br>

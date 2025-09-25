@@ -65,26 +65,30 @@ export interface ILanguageData<T> {
 
 export const homeData: ILanguageData<IHomeDataElement> = {
   en: {
-    title: 'Vladislav Bondarchuk',
+    title: 'Vladyslav Bondarchuk',
     subtitle: 'Frontend developer',
     text: `<span className="text-white">Frontend developer</span> with
-		<span className="text-white">over <span id="exp"></span></span> of commercial experience, contributing to teams of 2–10 people. 
+		<span className="text-white"><span id="exp"></span></span> of experience building complete web apps end-to-end — from page architecture and routing to data flows, UI systems, and release. 
 		<br>
-		<span className="text-white">Participated in full development cycles </span> — from requirements gathering to building and deploying production-ready features with test coverage and performance monitoring. 
+		Strong in dynamic single-page UX, reliable API integrations, accessibility, performance, and monitoring. 
 		<br>
-		<span className="text-white">Experienced in Agile development </span> environments. Continuously seeking to improve both <span className="text-white">code quality</span> and <span className="text-white">user experience</span>.`,
+		Worked in <span className="text-white">international</span> cross-functional teams (2–10) on <span className="text-white">insurance</span> and <span className="text-white">e-learning</span> products using <span className="text-white">Agile practices</span>.
+		<br>
+		Continuously seeking to improve both <span className="text-white">code quality</span> and <span className="text-white">user experience</span>.`,
+
     buttonText: 'CHECK MY CV',
   },
   ua: {
     title: 'Владислав Бондарчук',
-    subtitle: 'Фронтенд розробник',
-    text: `<span className="text-white">Фронтенд розробник</span> з 
-<span className="text-white">понад <span id="exp"></span></span> комерційного досвіду, працював у командах від 2 до 10 осіб.
-<br />
-<span className="text-white">Брав участь у повних циклах розробки</span> — від збору вимог до створення та деплою продакшен-функцій з тестовим покриттям і моніторингом продуктивності.
-<br />
-<span className="text-white">Має досвід у розробці за Agile-підходом</span>. Постійно прагну покращувати як <span className="text-white">якість коду</span>, так і <span className="text-white">користувацький досвід</span>.
-`,
+    subtitle: 'Фронтенд-розробник',
+    text: `<span className="text-white">Фронтенд-розробник</span> з
+		<span className="text-white"><span id="exp"></span></span> досвіду у створенні повноцінних веб-застосунків end-to-end — від архітектури сторінок і маршрутизації до потоків даних, UI-систем і релізу.
+		<br>
+		Сильний у динамічному UX односторінкових застосунків, надійних інтеграціях з API, доступності, продуктивності та моніторингу.
+		<br>
+		Працював у <span className="text-white">міжнародних</span> кросфункціональних командах (2–10) над продуктами у сфері <span className="text-white">страхування</span> та <span className="text-white">e-learning</span>, використовуючи <span className="text-white">Agile-практики</span>.
+		<br>
+	Постійно прагну покращувати і <span className="text-white">якість коду</span>, і <span className="text-white">користувацький досвід</span>.`,
     buttonText: 'ПЕРЕГЛЯНУТИ РЕЗЮМЕ',
   },
 };
@@ -101,15 +105,15 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
             year: 2024,
           },
         },
-        description: `Contributed to the development of cutting-edge insurance projects for international companies.`,
+        description: `Worked on the development of international insurance platforms using modern web technologies`,
         achievements: [
           {
             text: `Built a dynamic multi-endpoint form with conditional rendering and real-time validation, preventing invalid data entries and adapting to user input context`,
             keywords: [],
           },
           {
-            text: `Created a flexible input component combining free text and autocomplete, streamlining data entry and increasing address entry success rate in edge cases by over 25%`,
-            keywords: ['by over 25%'],
+            text: `Created a flexible input component combining free text and autocomplete, streamlining data entry and increasing address entry success rate in edge cases`,
+            keywords: [],
           },
           {
             text: `Optimized CI/CD pipeline by enabling matrix-based E2E test runs, reducing test time by approximately 35%`,
@@ -119,23 +123,24 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
         technologies: [
           'HTML5',
           'CSS3',
-          'TS',
           'React',
           'Redux',
           'Redux-Thunk',
           'Next.js',
-          'MUI',
-          'Playwright',
+          'TypeScript',
           'Formik',
           'Yup',
-          'Vitest',
-          'Chai',
-          'Mocha',
-          'Axios',
           'TanStack Query',
-          'Git',
-          'Vite',
+          'Playwright',
+          'Material UI',
+          'Vitest',
+          'Axios',
+          'Openapi-fetch',
+          'Storybook',
+          'Sentry',
+          'Datadog',
           'Azure DevOps',
+          'Vite',
         ],
       },
       {
@@ -150,35 +155,32 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
             year: 2024,
           },
         },
-        description: `Built a study platform featuring synopses, commentary, images, and audio`,
+        description: `Delivered an e-learning platform with synopses, comments, image uploads, and audio playback`,
         achievements: [
           {
-            text: `Migrated the chat system Sendbird SDK from v3 to v4, improving load speed and responsiveness by approximately 20%`,
-            keywords: ['by approximately 20%'],
+            text: `Migrated Sendbird Chat SDK v3→v4, trimmed unused modules and improved initial load & chat responsiveness`,
+            keywords: [''],
           },
           {
-            text: `Created a dynamic search feature for quick navigation across maps, people, and locations, improving usability and reducing search time by nearly 30%`,
-            keywords: ['by nearly 30%'],
+            text: `Created a dynamic search feature for quick navigation across maps, people, and locations, improving usability and reducing search time`,
+            keywords: [''],
           },
           {
-            text: `Implemented image upload with cropping and drag-and-drop, increasing user engagement and simplifying media sharing, which led to over 15% growth in media interactions`,
-            keywords: ['to over 15%'],
+            text: `Implemented image upload with cropping and drag-and-drop, increasing user engagement and simplifying media sharing`,
+            keywords: [''],
           },
         ],
         technologies: [
-          'HTML',
-          'CSS',
+          'HTML5',
+          'CSS3',
           'JS',
           'SCSS',
           'Bootstrap',
-          'Git',
-          'ReactJS',
-          'React-Router',
-          'React-Quill',
+          'React',
+          'Sendbird SDK',
           'React-Cropper',
           'React-Drag-Drop-Files',
-          'React-Input-Range',
-          'Sendbird SDK',
+          'Webpack',
         ],
       },
     ],
@@ -187,52 +189,53 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
     title: 'Досвід',
     workPlaces: [
       {
-        title: 'Frontend розробник - Radity',
+        title: 'Фронтенд-розробник — Radity',
         term: {
           startDate: {
             month: 2,
             year: 2024,
           },
         },
-        description: `Брав участь у розробці міжнародних страхових платформ із використанням сучасних вебтехнологій`,
+        description: `Працював над розробкою міжнародних страхових платформ із використанням сучасних вебтехнологій`,
         achievements: [
           {
-            text: `Розробив динамічну форму з підтримкою кількох кінцевих точок, умовним рендерингом і валідацією в реальному часі, що запобігає введенню некоректних даних і адаптується до контексту введення користувача`,
+            text: `Створив динамічну форму з кількома кінцевими точками, з умовним рендерингом і валідацією в реальному часі, що запобігає введенню некоректних даних та адаптується до контексту введення користувача`,
             keywords: [],
           },
           {
-            text: `Створив гнучкий компонент введення, який поєднує вільний текст і автозаповнення, що спростило введення даних і підвищило успішність введення адрес у прикордонних випадках більш ніж на 25%`,
-            keywords: ['більш ніж на 25%'],
+            text: `Розробив гнучкий компонент введення, який поєднує вільний текст та автозаповнення, що спростило введення даних і підвищило успішність введення адрес у граничних випадках`,
+            keywords: [],
           },
           {
-            text: `Оптимізував CI/CD-пайплайн, реалізувавши матричні E2E-тести, що дозволило скоротити час тестування приблизно на 35%`,
+            text: `Оптимізував CI/CD-пайплайн, увімкнувши матричні запуски E2E-тестів, що зменшило час тестування приблизно на 35%`,
             keywords: ['приблизно на 35%'],
           },
         ],
         technologies: [
           'HTML5',
           'CSS3',
-          'TS',
           'React',
           'Redux',
           'Redux-Thunk',
           'Next.js',
-          'MUI',
-          'Playwright',
+          'TypeScript',
           'Formik',
           'Yup',
-          'Vitest',
-          'Chai',
-          'Mocha',
-          'Axios',
           'TanStack Query',
-          'Git',
-          'Vite',
+          'Playwright',
+          'Material UI',
+          'Vitest',
+          'Axios',
+          'Openapi-fetch',
+          'Storybook',
+          'Sentry',
+          'Datadog',
           'Azure DevOps',
+          'Vite',
         ],
       },
       {
-        title: 'React розробник - Upwork',
+        title: 'React-розробник — Upwork',
         term: {
           startDate: {
             month: 0,
@@ -243,35 +246,32 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
             year: 2024,
           },
         },
-        description: `Розробив навчальну платформу з конспектами, коментарями, зображеннями та аудіо`,
+        description: `Реалізував e-learning платформу з конспектами, коментарями, завантаженням зображень і відтворенням аудіо`,
         achievements: [
           {
-            text: `Мігровано чат-систему Sendbird SDK з версії 3 на версію 4, що покращило швидкість завантаження та чутливість інтерфейсу приблизно на 20%`,
-            keywords: ['приблизно на 20%'],
+            text: `Мігрував Sendbird Chat SDK з v3 на v4, прибрав непотрібні модулі та покращив початкове завантаження і чутливість чату`,
+            keywords: [''],
           },
           {
-            text: `Реалізував динамічний пошук для швидкої навігації по мапах, людях і локаціях, що покращило зручність користування та зменшило час пошуку майже на 30%`,
-            keywords: ['майже на 30%'],
+            text: `Створив динамічний пошук для швидкої навігації за мапами, людьми та локаціями, що покращило зручність і скоротило час пошуку`,
+            keywords: [''],
           },
           {
-            text: `Впровадив завантаження зображень з можливістю обрізки та drag-and-drop, що підвищило залучення користувачів і спростило обмін медіа — це призвело до зростання взаємодії з медіа більш ніж на 15%`,
-            keywords: ['більш ніж на 15%'],
+            text: `Реалізував завантаження зображень з обрізанням та drag-and-drop, що підвищило залученість користувачів і спростило обмін медіафайлами`,
+            keywords: [''],
           },
         ],
         technologies: [
-          'HTML',
-          'CSS',
+          'HTML5',
+          'CSS3',
           'JS',
           'SCSS',
           'Bootstrap',
-          'Git',
-          'ReactJS',
-          'React-Router',
-          'React-Quill',
+          'React',
+          'Sendbird SDK',
           'React-Cropper',
           'React-Drag-Drop-Files',
-          'React-Input-Range',
-          'Sendbird SDK',
+          'Webpack',
         ],
       },
     ],
@@ -282,6 +282,14 @@ export const projectsData: ILanguageData<IProjectDataElement> = {
   en: {
     title: 'Projects',
     projects: [
+      {
+        title: 'VB Profile',
+        description:
+          'This is a portfolio website showcasing my work as a frontend developer, highlighting projects, skills, and experience in building dynamic and responsive web applications.',
+        technologies: ['Next.js', 'TS', 'Tailwind'],
+        link: 'https://vb-profile.netlify.app/',
+        bgName: 'projectThird',
+      },
       {
         title: 'Farang E-Commerce',
         description:
@@ -343,6 +351,14 @@ export const projectsData: ILanguageData<IProjectDataElement> = {
   ua: {
     title: 'Проєкти',
     projects: [
+      {
+        title: 'VB Profile',
+        description:
+          'Це сайт-портфоліо, що демонструє мою роботу як фронтенд-розробника, акцентуючи на проєктах, навичках і досвіді у створенні динамічних та адаптивних веб-застосунків.',
+        technologies: ['Next.js', 'TS', 'Tailwind'],
+        link: 'https://vb-profile.netlify.app/',
+        bgName: 'projectThird',
+      },
       {
         title: 'Farang E-Commerce',
         description:

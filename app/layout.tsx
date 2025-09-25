@@ -4,7 +4,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'VB',
-  description: 'Vladislav Bondarchuk portfolio website',
+  description: 'Vladyslav Bondarchuk portfolio website',
 };
 
 export default async function RootLayout({
