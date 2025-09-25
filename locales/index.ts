@@ -1,4 +1,4 @@
-import { DateValues } from '@/lib/utils/parsedAndFormateDate';
+import { DateValuesOneBased } from '@/lib/utils/parsedAndFormateDate';
 import githubIcon from '@/public/assets/icons/github.svg';
 import googleIcon from '@/public/assets/icons/google.svg';
 import linkedinIcon from '@/public/assets/icons/linkedin.svg';
@@ -16,7 +16,7 @@ type TLinksDataElement = Record<AppRoutesLabelsEnum, string>;
 
 export interface IWorkPlace {
   title: string;
-  term: DateValues;
+  term: DateValuesOneBased;
   description: string;
   technologies: string[];
   achievements: { text: string; keywords: string[] }[];
@@ -96,7 +96,7 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
     workPlaces: [
       {
         title: 'Frontend Developer - Radity',
-        term: { startDate: { month: 2, year: 2024 } },
+        term: { startDate: { month: 3, year: 2024 } },
         description: `Worked on the development of international insurance platforms using modern web technologies`,
         achievements: [
           {
@@ -137,7 +137,7 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
       },
       {
         title: 'React Developer - Upwork',
-        term: { startDate: { month: 10, year: 2022 }, endDate: { month: 2, year: 2024 } },
+        term: { startDate: { month: 11, year: 2022 }, endDate: { month: 3, year: 2024 } },
         description: `Delivered an e-learning platform with synopses, comments, image uploads, and audio playback`,
         achievements: [
           {
@@ -173,7 +173,7 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
     workPlaces: [
       {
         title: 'Фронтенд-розробник — Radity',
-        term: { startDate: { month: 2, year: 2024 } },
+        term: { startDate: { month: 3, year: 2024 } },
         description: `Працював над розробкою міжнародних страхових платформ із використанням сучасних вебтехнологій`,
         achievements: [
           {
@@ -214,7 +214,7 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
       },
       {
         title: 'React-розробник — Upwork',
-        term: { startDate: { month: 11, year: 2022 }, endDate: { month: 2, year: 2024 } },
+        term: { startDate: { month: 11, year: 2022 }, endDate: { month: 3, year: 2024 } },
         description: `Реалізував e-learning платформу з конспектами, коментарями, завантаженням зображень і відтворенням аудіо`,
         achievements: [
           {
