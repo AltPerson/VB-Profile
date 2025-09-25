@@ -84,8 +84,9 @@ body {
   }
 
   .central-bg-mobile-0 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-      url('/assets/images/ellipse.png'), url('/assets/gifs/bg.gif');
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/assets/images/ellipse.png'),
+      url('/assets/gifs/bg.gif');
     padding: 0 15px;
     background-repeat: no-repeat, no-repeat, no-repeat;
     background-size:
@@ -547,7 +548,8 @@ body {
   .project-main-link-button {
     @apply hover-opacity w-[30px] h-[30px];
     border-radius: 50%;
-    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.3) 45%, rgba(0, 0, 0, 0.2) 45%),
+    background:
+      linear-gradient(to bottom right, rgba(0, 0, 0, 0.3) 45%, rgba(0, 0, 0, 0.2) 45%),
       url('/assets/icons/github.svg');
   }
 

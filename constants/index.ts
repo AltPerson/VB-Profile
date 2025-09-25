@@ -19,3 +19,6 @@ export const links: ILink[] = [
     label: AppRoutesLabelsEnum.CONTACT,
   },
 ];
+
+export const resumeLink =
+  'https://drive.google.com/file/d/1ylI_iGUa0ANvIH8k8c0NJ_LcEsnbZ8pB/view?usp=sharing';
