@@ -19,10 +19,7 @@ export interface IWorkPlace {
   term: DateValues;
   description: string;
   technologies: string[];
-  achievements: {
-    text: string;
-    keywords: string[];
-  }[];
+  achievements: { text: string; keywords: string[] }[];
 }
 
 export interface IProject {
@@ -99,12 +96,7 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
     workPlaces: [
       {
         title: 'Frontend Developer - Radity',
-        term: {
-          startDate: {
-            month: 2,
-            year: 2024,
-          },
-        },
+        term: { startDate: { month: 2, year: 2024 } },
         description: `Worked on the development of international insurance platforms using modern web technologies`,
         achievements: [
           {
@@ -145,16 +137,7 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
       },
       {
         title: 'React Developer - Upwork',
-        term: {
-          startDate: {
-            month: 0,
-            year: 2023,
-          },
-          endDate: {
-            month: 2,
-            year: 2024,
-          },
-        },
+        term: { startDate: { month: 10, year: 2022 }, endDate: { month: 2, year: 2024 } },
         description: `Delivered an e-learning platform with synopses, comments, image uploads, and audio playback`,
         achievements: [
           {
@@ -190,12 +173,7 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
     workPlaces: [
       {
         title: 'Фронтенд-розробник — Radity',
-        term: {
-          startDate: {
-            month: 2,
-            year: 2024,
-          },
-        },
+        term: { startDate: { month: 2, year: 2024 } },
         description: `Працював над розробкою міжнародних страхових платформ із використанням сучасних вебтехнологій`,
         achievements: [
           {
@@ -236,16 +214,7 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
       },
       {
         title: 'React-розробник — Upwork',
-        term: {
-          startDate: {
-            month: 0,
-            year: 2023,
-          },
-          endDate: {
-            month: 2,
-            year: 2024,
-          },
-        },
+        term: { startDate: { month: 11, year: 2022 }, endDate: { month: 2, year: 2024 } },
         description: `Реалізував e-learning платформу з конспектами, коментарями, завантаженням зображень і відтворенням аудіо`,
         achievements: [
           {
@@ -522,46 +491,18 @@ export const contactData: ILanguageData<IContactDataElement> = {
   en: {
     title: 'Contact',
     contacts: [
-      {
-        title: 'email',
-        link: 'nothinghardforyou@gmail.com',
-        img: googleIcon,
-      },
-      {
-        title: 'linkedin',
-        link: 'https://www.linkedin.com/in/altperson/',
-        img: linkedinIcon,
-      },
-      {
-        title: 'gitHub',
-        link: 'https://github.com/AltPerson',
-        img: githubIcon,
-      },
-      {
-        title: 'telegram',
-        link: 'https://t.me/alt_person',
-        img: telegramIcon,
-      },
+      { title: 'email', link: 'nothinghardforyou@gmail.com', img: googleIcon },
+      { title: 'linkedin', link: 'https://www.linkedin.com/in/altperson/', img: linkedinIcon },
+      { title: 'gitHub', link: 'https://github.com/AltPerson', img: githubIcon },
+      { title: 'telegram', link: 'https://t.me/alt_person', img: telegramIcon },
     ],
   },
   ua: {
     title: 'Контакти',
     contacts: [
-      {
-        title: 'email',
-        link: 'nothinghardforyou@gmail.com',
-        img: googleIcon,
-      },
-      {
-        title: 'linkedin',
-        link: 'https://www.linkedin.com/in/altperson/',
-        img: linkedinIcon,
-      },
-      {
-        title: 'gitHub',
-        link: 'https://github.com/AltPerson',
-        img: githubIcon,
-      },
+      { title: 'email', link: 'nothinghardforyou@gmail.com', img: googleIcon },
+      { title: 'linkedin', link: 'https://www.linkedin.com/in/altperson/', img: linkedinIcon },
+      { title: 'gitHub', link: 'https://github.com/AltPerson', img: githubIcon },
     ],
   },
 };
