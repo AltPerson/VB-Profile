@@ -97,19 +97,21 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
       {
         title: 'Frontend Developer - Radity',
         term: { startDate: { month: 3, year: 2024 } },
-        description: `Worked on the development of international insurance platforms using modern web technologies`,
+        description: `Worked on the development of international insurance portals using React, Next.js`,
         achievements: [
           {
-            text: `Built a dynamic multi-endpoint form with conditional rendering and real-time validation, preventing invalid data entries and adapting to user input context`,
+            text: `Built a dynamic multi-endpoint form using Formik and TanStack Query with conditional rendering and real-time
+validation, preventing invalid data entries and adapting to user input context`,
             keywords: [],
           },
           {
-            text: `Created a flexible input component combining free text and autocomplete, streamlining data entry and increasing address entry success rate in edge cases`,
+            text: `Created a flexible input component (free text + autocomplete) with fallback using MUI, streamlining entry and
+reducing drop-offs in tricky cases`,
             keywords: [],
           },
           {
-            text: `Optimized CI/CD pipeline by enabling matrix-based E2E test runs, reducing test time by approximately 35%`,
-            keywords: ['by approximately 35%'],
+            text: `Optimized CI/CD pipeline by enabling matrix-based E2E test runs, reducing test time by ~35%`,
+            keywords: ['by ~35%'],
           },
         ],
         technologies: [
@@ -141,16 +143,19 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
         description: `Delivered an e-learning platform with synopses, comments, image uploads, and audio playback`,
         achievements: [
           {
-            text: `Migrated Sendbird Chat SDK v3→v4, trimmed unused modules and improved initial load & chat responsiveness`,
+            text: `Migrated Sendbird Chat SDK v3→v4, trimmed unused modules which leads to improved of initial load & chat
+responsiveness for ~25%`,
+            keywords: ['for ~25%'],
+          },
+          {
+            text: `Implemented image upload with cropping and drag-and-drop using React-Cropper and React-Drag-Drop-Files
+to simplify media sharing`,
             keywords: [''],
           },
           {
-            text: `Created a dynamic search feature for quick navigation across maps, people, and locations, improving usability and reducing search time`,
-            keywords: [''],
-          },
-          {
-            text: `Implemented image upload with cropping and drag-and-drop, increasing user engagement and simplifying media sharing`,
-            keywords: [''],
+            text: `Shipped a dynamic site-wide search for faster navigation across the platform, improving usability and reducing
+search time up to 30%`,
+            keywords: ['up to 30%'],
           },
         ],
         technologies: [
@@ -172,20 +177,20 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
     title: 'Досвід',
     workPlaces: [
       {
-        title: 'Фронтенд-розробник — Radity',
+        title: 'Frontend розробник — Radity',
         term: { startDate: { month: 3, year: 2024 } },
-        description: `Працював над розробкою міжнародних страхових платформ із використанням сучасних вебтехнологій`,
+        description: `Працював над розробкою міжнародних страхових порталів з використанням React, Next.js`,
         achievements: [
           {
-            text: `Створив динамічну форму з кількома кінцевими точками, з умовним рендерингом і валідацією в реальному часі, що запобігає введенню некоректних даних та адаптується до контексту введення користувача`,
+            text: `Створив динамічну форму з використанням Formik і TanStack Query з умовним відображенням та валідацією в реальному часі, що запобігає некоректним введенням і адаптується до контексту користувача`,
             keywords: [],
           },
           {
-            text: `Розробив гнучкий компонент введення, який поєднує вільний текст та автозаповнення, що спростило введення даних і підвищило успішність введення адрес у граничних випадках`,
+            text: `Створив гнучкий компонент введення (вільний текст + автодоповнення) з fallback на MUI, що спростив введення та зменшив відмови в складних випадках`,
             keywords: [],
           },
           {
-            text: `Оптимізував CI/CD-пайплайн, увімкнувши матричні запуски E2E-тестів, що зменшило час тестування приблизно на 35%`,
+            text: `Оптимізував CI/CD, увімкнувши матричні E2E-запуски, скоротивши час тестів приблизно на 35%`,
             keywords: ['приблизно на 35%'],
           },
         ],
@@ -215,19 +220,19 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
       {
         title: 'React-розробник — Upwork',
         term: { startDate: { month: 11, year: 2022 }, endDate: { month: 3, year: 2024 } },
-        description: `Реалізував e-learning платформу з конспектами, коментарями, завантаженням зображень і відтворенням аудіо`,
+        description: `Розробив платформу е-навчання з конспектами, коментарями, завантаженням зображень та відтворенням аудіо`,
         achievements: [
           {
-            text: `Мігрував Sendbird Chat SDK з v3 на v4, прибрав непотрібні модулі та покращив початкове завантаження і чутливість чату`,
+            text: `Мігровано Sendbird Chat SDK v3→v4, прибравши невикористані модулі, що поліпшило початкове завантаження та чутливість чату приблизно на 25%`,
+            keywords: ['приблизно на 25%'],
+          },
+          {
+            text: `Реалізував завантаження зображень із кадруванням і drag-and-drop за допомогою React-Cropper та React-Drag-Drop-Files, спростивши обмін медіа`,
             keywords: [''],
           },
           {
-            text: `Створив динамічний пошук для швидкої навігації за мапами, людьми та локаціями, що покращило зручність і скоротило час пошуку`,
-            keywords: [''],
-          },
-          {
-            text: `Реалізував завантаження зображень з обрізанням та drag-and-drop, що підвищило залученість користувачів і спростило обмін медіафайлами`,
-            keywords: [''],
+            text: `Додав динамічний пошук по всій платформі для швидшої навігації, підвищивши зручність та скоротивши час пошуку до 30%`,
+            keywords: ['до 30%'],
           },
         ],
         technologies: [
