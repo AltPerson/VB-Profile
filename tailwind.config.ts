@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        agencyFb: ['var(--font-agencyFb)'],
+        rationale: ['var(--font-rationale)'],
         tomorrow: ['var(--font-tomorrow)'],
         rajdhani: ['var(--font-rajdhani)'],
       },

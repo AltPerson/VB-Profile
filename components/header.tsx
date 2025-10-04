@@ -63,7 +63,7 @@ const Header = () => {
         <div className="h-full flex justify-end items-center relative">
           <div
             className={classNames(
-              'settings-hint absolute min-w-[380px] max-sm:min-w-[250px] z-[5] font-agencyFb tracking-widest font-normal border-white border-solid border-[2px] bg-slate-900 p-[5px] top-[80%] right-[80%]',
+              'settings-hint absolute min-w-[380px] max-sm:min-w-[250px] z-[5] font-rationale tracking-widest font-normal border-white border-solid border-[2px] bg-slate-900 p-[5px] top-[80%] right-[80%]',
               showHint ? 'settings-hint-active' : '',
             )}
           >
@@ -78,7 +78,7 @@ const Header = () => {
               showModal && 'settings-modal-active'
             }`}
           >
-            <div className="bg-black flex p-3 gap-[10px] font-agencyFb text-[1.25em] justify-center items-center">
+            <div className="bg-black flex p-3 gap-[10px] font-rationale text-[1.25em] justify-center items-center">
               <button
                 onClick={togglePlayMusic}
                 className={`${

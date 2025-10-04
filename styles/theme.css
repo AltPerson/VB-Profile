@@ -252,35 +252,46 @@ body {
   }
 
   .home-title {
-    @apply font-agencyFb text-[5.9375em] font-normal leading-[114px] text-white uppercase;
+    @apply font-rationale text-[5.9375em] font-normal leading-[114px] text-white uppercase;
   }
 
   .logo-title {
-    @apply font-agencyFb text-[1.6875em] font-bold leading-[33px] uppercase;
+    @apply font-rationale text-[1.6875em] font-bold leading-[33px] uppercase;
   }
 
   .link-text {
-    @apply font-agencyFb text-[1.6875em] font-normal leading-[33px] text-grayLight;
+    @apply font-rationale text-[1.6875em] font-normal leading-[33px] text-grayLight;
   }
 
   .hover-opacity {
     @apply transition-opacity ease-linear duration-200 hover:opacity-[0.7];
   }
 
-  .home-title-animation-up {
-    position: absolute;
-    transform: rotate(90deg);
-    width: 100%;
-    right: -45px;
-    animation: home-title-up 1s linear 1 forwards;
+  .vertical-text-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    height: fit-content;
+    position: relative;
   }
 
-  .home-title-animation-down {
-    position: absolute;
-    left: -45px;
-    width: 100%;
-    transform: rotate(-90deg);
-    animation: home-title-down 1s linear 1 forwards;
+  .home-title {
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    white-space: nowrap;
+    line-height: 0.8;
+  }
+
+  .home-title-slide-down {
+    transform: translateY(-44%) rotate(180deg);
+    animation: slideFromTop 0.8s ease-out backwards;
+  }
+
+  .home-title-slide-up {
+    transform: translateY(25%);
+    animation: slideFromBottom 0.8s ease-out 0.2s backwards;
   }
 
   .container-app {
@@ -535,7 +546,7 @@ body {
   }
 
   .project-card a {
-    @apply font-agencyFb font-medium text-2xl max-md:text-xl max-sm:text-base underline text-aureolin underline-offset-2 block w-fit mx-auto;
+    @apply font-rationale font-medium text-2xl max-md:text-xl max-sm:text-base underline text-aureolin underline-offset-2 block w-fit mx-auto;
   }
 
   .project-main-link {

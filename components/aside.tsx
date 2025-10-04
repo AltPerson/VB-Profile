@@ -7,15 +7,17 @@ const Aside = () => {
   const pathname = usePathname();
   return (
     <aside className="flex-[1_0_50%] flex aside bg-black max-[992px]:hidden">
-      <div className="flex-[1_0_50%] h-full text-white bg-black neon-wrapper-border aside-text relative">
-        <h2 className="home-title home-title-animation-down">
-          <span className="text-redlight pulsed-text">Front</span>
-          <span className="pulsed-text-white">end</span>
-        </h2>
-        <h2 className="home-title home-title-animation-up">
-          <span className="text-redlight pulsed-text">Dev</span>
-          <span className="pulsed-text-white">eloper</span>
-        </h2>
+      <div className="flex-[1_0_50%] h-full text-white bg-black neon-wrapper-border aside-text flex items-center justify-center overflow-hidden">
+        <div className="vertical-text-container">
+          <h2 className="home-title home-title-slide-down">
+            <span className="text-redlight pulsed-text">Front</span>
+            <span className="pulsed-text-white">end</span>
+          </h2>
+          <h2 className="home-title home-title-slide-up">
+            <span className="text-redlight pulsed-text">Dev</span>
+            <span className="pulsed-text-white">eloper</span>
+          </h2>
+        </div>
       </div>
       <div
         className={classNames(
