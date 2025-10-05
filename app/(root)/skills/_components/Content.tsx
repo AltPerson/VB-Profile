@@ -8,7 +8,7 @@ const Content = () => {
   return (
     <DefaultLayout>
       <h3 className="greetings-title projects-greetings-title">{skillsData[language]['title']}</h3>
-      <ul className="flex gap-y-9 gap-x-9 flex-wrap px-2 justify-center skills-wrapper overflow-auto overflow-x-hidden mb-5">
+      <ul className="flex gap-y-9 gap-x-9 flex-wrap px-2 justify-center skills-wrapper overflow-auto overflow-x-hidden mb-5 max-[992px]:mb-0">
         {skillsData[language].skills.map((skill, index) => (
           <li
             key={index}
