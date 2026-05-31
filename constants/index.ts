@@ -9,4 +9,4 @@ export const links: ILink[] = [
 ];
 
 export const resumeLink =
-  'https://drive.google.com/file/d/13u3MFsi09irHluQtIpXUyOrooTbOrkWm/view?usp=sharing';
+  'https://drive.google.com/file/d/17XRyW1FEyCqsNCdOesZRCKPJ4iCwrIAY/view?usp=sharing';

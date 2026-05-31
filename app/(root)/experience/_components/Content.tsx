@@ -7,6 +7,7 @@ import WorkPlacesList from './List';
 
 const Content = () => {
   const { language } = useChangeLanguage();
+  const { workPlaces } = experienceData[language];
 
   return (
     <DefaultLayout>
@@ -15,7 +16,7 @@ const Content = () => {
       </h3>
 
       <div className="flex flex-col gap-6 overflow-auto work-place-wrapper pr-2 overflow-x-hidden">
-        <WorkPlacesList workPlaces={experienceData[language]['workPlaces']} />
+        <WorkPlacesList workPlaces={workPlaces} />
       </div>
     </DefaultLayout>
   );

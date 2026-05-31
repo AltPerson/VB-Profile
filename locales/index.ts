@@ -63,29 +63,29 @@ export interface ILanguageData<T> {
 export const homeData: ILanguageData<IHomeDataElement> = {
   en: {
     title: 'Vladyslav Bondarchuk',
-    subtitle: 'Frontend developer',
-    text: `<span className="text-white">Frontend developer</span> with
-		<span className="text-white"><span id="exp"></span></span> of experience building complete web apps end-to-end — from page architecture and routing to data flows, UI systems, and release. 
+    subtitle: 'Middle Frontend Developer',
+    text: `<span className="text-white">Middle Frontend Developer</span> with
+		<span className="text-white"><span id="exp"></span></span> of experience building production React and Next.js applications for international product teams.
 		<br>
-		Strong in dynamic single-page UX, reliable API integrations, accessibility, performance, and monitoring. 
+		Strong in <span className="text-white">TypeScript</span>, complex forms, API integration, async data flows, performance optimization, and production-quality UI.
 		<br>
-		Worked in <span className="text-white">international</span> cross-functional teams (2–10) on <span className="text-white">insurance</span> and <span className="text-white">e-learning</span> products using <span className="text-white">Agile practices</span>.
+		Experienced in delivering user-facing features from UI architecture and state management to testing, monitoring, and release.
 		<br>
-		Continuously seeking to improve both <span className="text-white">code quality</span> and <span className="text-white">user experience</span>.`,
+		Actively use <span className="text-white">AI-assisted development tools</span> such as Claude Code, Codex, Cursor, and ChatGPT for code exploration, refactoring support, debugging, documentation lookup, test-case ideation, and faster UI iteration while keeping final implementation decisions and code review under my ownership.`,
 
     buttonText: 'CHECK MY CV',
   },
   ua: {
     title: 'Владислав Бондарчук',
-    subtitle: 'Фронтенд-розробник',
-    text: `<span className="text-white">Фронтенд-розробник</span> з
-		<span className="text-white"><span id="exp"></span></span> досвіду у створенні повноцінних веб-застосунків end-to-end — від архітектури сторінок і маршрутизації до потоків даних, UI-систем і релізу.
+    subtitle: 'Middle Frontend Developer',
+    text: `<span className="text-white">Middle Frontend Developer</span> з
+		<span className="text-white"><span id="exp"></span></span> досвіду у створенні production React та Next.js застосунків для міжнародних продуктових команд.
 		<br>
-		Сильний у динамічному UX односторінкових застосунків, надійних інтеграціях з API, доступності, продуктивності та моніторингу.
+		Сильний у <span className="text-white">TypeScript</span>, складних формах, API-інтеграціях, асинхронних потоках даних, оптимізації продуктивності та production-quality UI.
 		<br>
-		Працював у <span className="text-white">міжнародних</span> кросфункціональних командах (2–10) над продуктами у сфері <span className="text-white">страхування</span> та <span className="text-white">e-learning</span>, використовуючи <span className="text-white">Agile-практики</span>.
+		Маю досвід доставки user-facing функціоналу від UI-архітектури та state management до тестування, моніторингу і релізу.
 		<br>
-	Постійно прагну покращувати і <span className="text-white">якість коду</span>, і <span className="text-white">користувацький досвід</span>.`,
+		Активно використовую <span className="text-white">AI-assisted development tools</span>, зокрема Claude Code, Codex, Cursor і ChatGPT, для дослідження коду, підтримки рефакторингу, дебагу, пошуку документації, ідей для тестів і швидшої UI-ітерації, залишаючи фінальні рішення та code review за собою.`,
     buttonText: 'ПЕРЕГЛЯНУТИ РЕЗЮМЕ',
   },
 };
@@ -95,22 +95,27 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
     title: 'Experience',
     workPlaces: [
       {
-        title: 'Frontend Developer - Radity',
+        title: 'Radity - Frontend Developer',
         term: { startDate: { month: 3, year: 2024 } },
-        description: `Worked on the development of international insurance portals using React, Next.js`,
+        description: `Built and maintained production insurance portals using React, Next.js, TypeScript, Redux, TanStack Query, and Material UI`,
         achievements: [
           {
-            text: `Built a dynamic multi-endpoint form using Formik and TanStack Query with conditional rendering and real-time
-validation, preventing invalid data entries and adapting to user input context`,
+            text: `Contributed across UI architecture, API integration, validation logic, testing, monitoring, and release`,
             keywords: [],
           },
           {
-            text: `Created a flexible input component (free text + autocomplete) with fallback using MUI, streamlining entry and
-reducing drop-offs in tricky cases`,
+            text: `Implemented complex multi-endpoint form flows with Formik, Yup, and TanStack Query, including conditional rendering,
+async data handling, and real-time validation for business-critical user journeys`,
             keywords: [],
           },
           {
-            text: `Optimized CI/CD pipeline by enabling matrix-based E2E test runs, reducing test time by ~35%`,
+            text: `Created a flexible input component with free-text, autocomplete, and fallback behavior using Material UI, improving data
+entry for edge cases and reducing friction in complex form scenarios`,
+            keywords: [],
+          },
+          {
+            text: `Optimized CI/CD feedback by introducing matrix-based E2E test execution, reducing test runtime by ~35% and helping the
+team catch regressions faster before release`,
             keywords: ['by ~35%'],
           },
         ],
@@ -138,23 +143,27 @@ reducing drop-offs in tricky cases`,
         ],
       },
       {
-        title: 'React Developer - Upwork',
+        title: 'Upwork - Frontend Developer',
         term: { startDate: { month: 11, year: 2022 }, endDate: { month: 3, year: 2024 } },
-        description: `Delivered an e-learning platform with synopses, comments, image uploads, and audio playback`,
+        description: `Delivered frontend features for an e-learning platform, including synopses, comments, image uploads, audio playback, and content search`,
         achievements: [
           {
-            text: `Migrated Sendbird Chat SDK v3→v4, trimmed unused modules which leads to improved of initial load & chat
-responsiveness for ~25%`,
-            keywords: ['for ~25%'],
+            text: `Focused on smooth user interaction and maintainable React implementation`,
+            keywords: [],
           },
           {
-            text: `Implemented image upload with cropping and drag-and-drop using React-Cropper and React-Drag-Drop-Files
-to simplify media sharing`,
-            keywords: [''],
+            text: `Migrated Sendbird Chat SDK from v3 to v4, removed unused integration parts, and improved chat-related initial load and
+responsiveness by ~25%`,
+            keywords: ['by ~25%'],
           },
           {
-            text: `Shipped a dynamic site-wide search for faster navigation across the platform, improving usability and reducing
-search time up to 30%`,
+            text: `Implemented client-side media workflows including image upload, crop, and drag-and-drop, simplifying content creation
+and media sharing for users`,
+            keywords: [],
+          },
+          {
+            text: `Built a site-wide search experience that improved content discovery and reduced time spent navigating across the
+platform by up to 30%`,
             keywords: ['up to 30%'],
           },
         ],
@@ -177,21 +186,28 @@ search time up to 30%`,
     title: 'Досвід',
     workPlaces: [
       {
-        title: 'Frontend розробник — Radity',
+        title: 'Radity — Frontend Developer',
         term: { startDate: { month: 3, year: 2024 } },
-        description: `Працював над розробкою міжнародних страхових порталів з використанням React, Next.js`,
+        description: `Розробляв і підтримував production страхові портали з використанням React, Next.js, TypeScript, Redux, TanStack Query та Material UI`,
         achievements: [
           {
-            text: `Створив динамічну форму з використанням Formik і TanStack Query з умовним відображенням та валідацією в реальному часі, що запобігає некоректним введенням і адаптується до контексту користувача`,
+            text: `Працював над UI-архітектурою, API-інтеграціями, логікою валідації, тестуванням, моніторингом і релізом`,
             keywords: [],
           },
           {
-            text: `Створив гнучкий компонент введення (вільний текст + автодоповнення) з fallback на MUI, що спростив введення та зменшив відмови в складних випадках`,
+            text: `Реалізував складні multi-endpoint form flows з Formik, Yup і TanStack Query, включно з умовним відображенням,
+асинхронною обробкою даних і валідацією в реальному часі для business-critical user journeys`,
             keywords: [],
           },
           {
-            text: `Оптимізував CI/CD, увімкнувши матричні E2E-запуски, скоротивши час тестів приблизно на 35%`,
-            keywords: ['приблизно на 35%'],
+            text: `Створив гнучкий input component з free-text, autocomplete і fallback behavior на Material UI, покращивши введення
+даних для edge cases і зменшивши friction у складних form scenarios`,
+            keywords: [],
+          },
+          {
+            text: `Оптимізував CI/CD feedback, запровадивши matrix-based E2E test execution, скоротивши test runtime на ~35% і допомігши
+команді швидше ловити регресії перед релізом`,
+            keywords: ['на ~35%'],
           },
         ],
         technologies: [
@@ -218,20 +234,26 @@ search time up to 30%`,
         ],
       },
       {
-        title: 'React-розробник — Upwork',
+        title: 'Upwork — Frontend Developer',
         term: { startDate: { month: 11, year: 2022 }, endDate: { month: 3, year: 2024 } },
-        description: `Розробив платформу е-навчання з конспектами, коментарями, завантаженням зображень та відтворенням аудіо`,
+        description: `Розробляв frontend features для e-learning платформи, включно з конспектами, коментарями, image uploads, audio playback і content search`,
         achievements: [
           {
-            text: `Мігровано Sendbird Chat SDK v3→v4, прибравши невикористані модулі, що поліпшило початкове завантаження та чутливість чату приблизно на 25%`,
-            keywords: ['приблизно на 25%'],
+            text: `Фокусувався на плавній взаємодії користувача та maintainable React implementation`,
+            keywords: [],
           },
           {
-            text: `Реалізував завантаження зображень із кадруванням і drag-and-drop за допомогою React-Cropper та React-Drag-Drop-Files, спростивши обмін медіа`,
-            keywords: [''],
+            text: `Мігрував Sendbird Chat SDK з v3 на v4, прибрав невикористані частини інтеграції та покращив chat-related initial load
+і responsiveness на ~25%`,
+            keywords: ['на ~25%'],
           },
           {
-            text: `Додав динамічний пошук по всій платформі для швидшої навігації, підвищивши зручність та скоротивши час пошуку до 30%`,
+            text: `Реалізував client-side media workflows, включно з image upload, crop і drag-and-drop, спростивши content creation
+та media sharing для користувачів`,
+            keywords: [],
+          },
+          {
+            text: `Побудував site-wide search experience, що покращив content discovery і скоротив час навігації платформою до 30%`,
             keywords: ['до 30%'],
           },
         ],
@@ -397,97 +419,111 @@ export const skillsData: ILanguageData<ISkillsDataElement> = {
   en: {
     title: 'Skills',
     skills: [
-      'HTML | HTML5',
-      'CSS | CSS3',
-      'SCSS',
-      'JS',
-      'TS',
-      'Browser API',
-      'REST API',
-      'React.js',
-      'Redux',
-      'Redux-Thunk',
-      'RTK',
-      'TanStack Query',
-      'Openapi-fetch',
-      'Axios',
+      'TypeScript',
+      'JavaScript ES2020+',
+      'React',
       'Next.js',
-      'Formik',
-      'Yup',
+      'React Router',
+      'HTML5',
+      'CSS3 | SCSS',
+      'Core Web Vitals',
+      'TanStack Query',
+      'Redux Toolkit',
+      'Redux Thunk',
       'Zustand',
-      'Vitest',
-      'Chai',
-      'Mocha',
+      'REST APIs',
+      'Axios',
+      'Openapi-fetch',
+      'GraphQL | Apollo',
+      'Formik',
+      'React Hook Form',
+      'Yup',
+      'Zod',
+      'Conditional validation',
+      'Multi-endpoint forms',
+      'Material UI',
+      'Tailwind CSS',
+      'Styled Components',
+      'Bootstrap',
+      'shadcn/ui | Radix',
+      'Storybook',
+      'Responsive UI',
+      'Accessibility',
       'Jest',
       'React Testing Library',
       'Playwright',
-      'Material UI',
-      'Boostrap',
-      'Tailwind',
-      'Styled-Components',
-      'i18n',
-      'Date-fns',
-      'Photoshop',
-      'Figma',
+      'Vitest',
+      'Mocha | Chai',
+      'ESLint',
+      'Prettier',
+      'Vite',
+      'Webpack',
       'Git',
+      'GitHub Actions',
       'Azure DevOps',
       'CI/CD',
-      'GitHub Actions',
       'Sentry',
       'Datadog',
-      'Webpack',
-      'Vite',
+      'Figma handoff',
+      'Agile',
       'Jira',
-      'Slack',
       'Linear',
+      'Distributed international teams',
     ],
   },
   ua: {
     title: 'Навички',
     skills: [
-      'HTML | HTML5',
-      'CSS | CSS3',
-      'SCSS',
-      'JS',
-      'TS',
-      'Browser API',
-      'REST API',
-      'React.js',
-      'Redux',
-      'Redux-Thunk',
-      'RTK',
-      'TanStack Query',
-      'Openapi-fetch',
-      'Axios',
+      'TypeScript',
+      'JavaScript ES2020+',
+      'React',
       'Next.js',
-      'Formik',
-      'Yup',
+      'React Router',
+      'HTML5',
+      'CSS3 | SCSS',
+      'Core Web Vitals',
+      'TanStack Query',
+      'Redux Toolkit',
+      'Redux Thunk',
       'Zustand',
-      'Vitest',
-      'Chai',
-      'Mocha',
+      'REST APIs',
+      'Axios',
+      'Openapi-fetch',
+      'GraphQL | Apollo',
+      'Formik',
+      'React Hook Form',
+      'Yup',
+      'Zod',
+      'Conditional validation',
+      'Multi-endpoint forms',
+      'Material UI',
+      'Tailwind CSS',
+      'Styled Components',
+      'Bootstrap',
+      'shadcn/ui | Radix',
+      'Storybook',
+      'Responsive UI',
+      'Accessibility',
       'Jest',
       'React Testing Library',
       'Playwright',
-      'Material UI',
-      'Boostrap',
-      'Tailwind',
-      'Styled-Components',
-      'i18n',
-      'Date-fns',
-      'Photoshop',
-      'Figma',
+      'Vitest',
+      'Mocha | Chai',
+      'ESLint',
+      'Prettier',
+      'Vite',
+      'Webpack',
       'Git',
+      'GitHub Actions',
       'Azure DevOps',
       'CI/CD',
-      'GitHub Actions',
       'Sentry',
       'Datadog',
-      'Webpack',
-      'Vite',
+      'Figma handoff',
+      'Agile',
       'Jira',
-      'Slack',
       'Linear',
+      'Distributed international teams',
     ],
   },
 };
@@ -498,7 +534,7 @@ export const contactData: ILanguageData<IContactDataElement> = {
     contacts: [
       { title: 'email', link: 'nothinghardforyou@gmail.com', img: googleIcon },
       { title: 'linkedin', link: 'https://www.linkedin.com/in/altperson/', img: linkedinIcon },
-      { title: 'gitHub', link: 'https://github.com/AltPerson', img: githubIcon },
+      { title: 'GitHub', link: 'https://github.com/AltPerson', img: githubIcon },
       { title: 'telegram', link: 'https://t.me/alt_person', img: telegramIcon },
     ],
   },
@@ -507,7 +543,8 @@ export const contactData: ILanguageData<IContactDataElement> = {
     contacts: [
       { title: 'email', link: 'nothinghardforyou@gmail.com', img: googleIcon },
       { title: 'linkedin', link: 'https://www.linkedin.com/in/altperson/', img: linkedinIcon },
-      { title: 'gitHub', link: 'https://github.com/AltPerson', img: githubIcon },
+      { title: 'GitHub', link: 'https://github.com/AltPerson', img: githubIcon },
+      { title: 'telegram', link: 'https://t.me/alt_person', img: telegramIcon },
     ],
   },
 };
