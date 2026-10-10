@@ -14,7 +14,7 @@ const Content = () => {
             key={index}
             style={{
               opacity: 0,
-              animation: `showOpacity 1s linear forwards 1 ${index == 0 ? 0 : index / 4 + 0.1}s`,
+              animation: `showOpacity 0.6s linear forwards 1 ${index === 0 ? 0 : Math.min(index / 12 + 0.1, 2)}s`,
             }}
             className="card-shape-container text-center card-shape-container-second py-[12px] px-[24px] font-rajdhani font-semibold text-base text-blueNeon min-h-[42px] flex justify-center items-center max-w-[260px] min-w-[152px] w-fit leading-tight break-words"
           >
