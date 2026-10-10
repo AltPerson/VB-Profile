@@ -8,5 +8,4 @@ export const links: ILink[] = [
   { path: AppRoutesEnum.CONTACT, label: AppRoutesLabelsEnum.CONTACT },
 ];
 
-export const resumeLink =
-  'https://drive.google.com/file/d/17XRyW1FEyCqsNCdOesZRCKPJ4iCwrIAY/view?usp=sharing';
+export const resumeLink = '/Vladyslav_Bondarchuk_Frontend_Engineer_CV.pdf';

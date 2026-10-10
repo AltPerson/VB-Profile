@@ -63,13 +63,13 @@ export interface ILanguageData<T> {
 export const homeData: ILanguageData<IHomeDataElement> = {
   en: {
     title: 'Vladyslav Bondarchuk',
-    subtitle: 'Middle Frontend Developer',
-    text: `<span className="text-white">Middle Frontend Developer</span> with
-		<span className="text-white"><span id="exp"></span></span> of experience building production React and Next.js applications for international product teams.
+    subtitle: 'Frontend Engineer',
+    text: `<span className="text-white">Frontend Engineer</span> specializing in React, Next.js, and TypeScript, with
+		<span className="text-white"><span id="exp"></span></span> of experience building production web applications across InsurTech and EdTech.
 		<br>
-		Strong in <span className="text-white">TypeScript</span>, complex forms, API integration, async data flows, performance optimization, and production-quality UI.
+		Strong in complex, data-driven interfaces, frontend architecture, API integrations, and performance optimization.
 		<br>
-		Experienced in delivering user-facing features from UI architecture and state management to testing, monitoring, and release.
+		Experienced in owning frontend features end-to-end, from implementation and testing to production release.
 		<br>
 		Actively use <span className="text-white">AI-assisted development tools</span> such as Claude Code, Codex, Cursor, and ChatGPT for code exploration, refactoring support, debugging, documentation lookup, test-case ideation, and faster UI iteration while keeping final implementation decisions and code review under my ownership.`,
 
@@ -77,13 +77,13 @@ export const homeData: ILanguageData<IHomeDataElement> = {
   },
   ua: {
     title: 'Владислав Бондарчук',
-    subtitle: 'Middle Frontend Developer',
-    text: `<span className="text-white">Middle Frontend Developer</span> з
-		<span className="text-white"><span id="exp"></span></span> досвіду у створенні production React та Next.js застосунків для міжнародних продуктових команд.
+    subtitle: 'Frontend Engineer',
+    text: `<span className="text-white">Frontend Engineer</span>, що спеціалізується на React, Next.js і TypeScript, з
+		<span className="text-white"><span id="exp"></span></span> досвіду розробки production вебзастосунків у сферах InsurTech та EdTech.
 		<br>
-		Сильний у <span className="text-white">TypeScript</span>, складних формах, API-інтеграціях, асинхронних потоках даних, оптимізації продуктивності та production-quality UI.
+		Маю сильну експертизу у складних data-driven інтерфейсах, frontend-архітектурі, API-інтеграціях та оптимізації продуктивності.
 		<br>
-		Маю досвід доставки user-facing функціоналу від UI-архітектури та state management до тестування, моніторингу і релізу.
+		Самостійно веду frontend-функціонал протягом усього циклу: від реалізації й тестування до production-релізу.
 		<br>
 		Активно використовую <span className="text-white">AI-assisted development tools</span>, зокрема Claude Code, Codex, Cursor і ChatGPT, для дослідження коду, підтримки рефакторингу, дебагу, пошуку документації, ідей для тестів і швидшої UI-ітерації, залишаючи фінальні рішення та code review за собою.`,
     buttonText: 'ПЕРЕГЛЯНУТИ РЕЗЮМЕ',
@@ -97,26 +97,19 @@ export const experienceData: ILanguageData<IExperienceDataElement> = {
       {
         title: 'Radity - Frontend Developer',
         term: { startDate: { month: 3, year: 2024 } },
-        description: `Built and maintained production insurance portals using React, Next.js, TypeScript, Redux, TanStack Query, and Material UI`,
+        description: `Owned end-to-end frontend delivery of business-critical features using React, Next.js, and TypeScript, from component development and API integration to testing and production release`,
         achievements: [
           {
-            text: `Contributed across UI architecture, API integration, validation logic, testing, monitoring, and release`,
+            text: `Implemented a complex, data-driven form workflow from scratch using Formik, Yup, and TanStack Query, featuring dynamic rendering, conditional logic, and asynchronous API integrations`,
             keywords: [],
           },
           {
-            text: `Implemented complex multi-endpoint form flows with Formik, Yup, and TanStack Query, including conditional rendering,
-async data handling, and real-time validation for business-critical user journeys`,
+            text: `Improved application completion and user experience by implementing flexible input handling and fallback mechanisms, eliminating critical blockers in customer workflows`,
             keywords: [],
           },
           {
-            text: `Created a flexible input component with free-text, autocomplete, and fallback behavior using Material UI, improving data
-entry for edge cases and reducing friction in complex form scenarios`,
-            keywords: [],
-          },
-          {
-            text: `Optimized CI/CD feedback by introducing matrix-based E2E test execution, reducing test runtime by ~35% and helping the
-team catch regressions faster before release`,
-            keywords: ['by ~35%'],
+            text: `Optimized CI/CD pipelines by introducing parallel Playwright E2E test sharding in GitHub Actions, reducing test execution time by ~33% and accelerating regression feedback before release`,
+            keywords: ['by ~33%'],
           },
         ],
         technologies: [
@@ -134,36 +127,30 @@ team catch regressions faster before release`,
           'Material UI',
           'Vitest',
           'Axios',
-          'Openapi-fetch',
+          'OpenAPI',
           'Storybook',
           'Sentry',
           'Datadog',
           'Azure DevOps',
+          'GitHub Actions',
           'Vite',
         ],
       },
       {
         title: 'Upwork - Frontend Developer',
         term: { startDate: { month: 11, year: 2022 }, endDate: { month: 3, year: 2024 } },
-        description: `Delivered frontend features for an e-learning platform, including synopses, comments, image uploads, audio playback, and content search`,
+        description: `Developed interactive features for an e-learning platform, including content summaries, user discussions, and audio playback, enhancing content accessibility and user engagement`,
         achievements: [
           {
-            text: `Focused on smooth user interaction and maintainable React implementation`,
-            keywords: [],
-          },
-          {
-            text: `Migrated Sendbird Chat SDK from v3 to v4, removed unused integration parts, and improved chat-related initial load and
-responsiveness by ~25%`,
+            text: `Migrated Sendbird Chat SDK from v3 to v4, refactoring legacy integrations and removing unused functionality to improve chat initialization performance by ~25%`,
             keywords: ['by ~25%'],
           },
           {
-            text: `Implemented client-side media workflows including image upload, crop, and drag-and-drop, simplifying content creation
-and media sharing for users`,
+            text: `Implemented client-side media workflows for image uploading, cropping, and drag-and-drop interactions, simplifying content creation and sharing across the platform`,
             keywords: [],
           },
           {
-            text: `Built a site-wide search experience that improved content discovery and reduced time spent navigating across the
-platform by up to 30%`,
+            text: `Built site-wide content search, improving content discoverability and reducing the time users spent navigating educational materials by up to 30%`,
             keywords: ['up to 30%'],
           },
         ],
@@ -188,26 +175,19 @@ platform by up to 30%`,
       {
         title: 'Radity — Frontend Developer',
         term: { startDate: { month: 3, year: 2024 } },
-        description: `Розробляв і підтримував production страхові портали з використанням React, Next.js, TypeScript, Redux, TanStack Query та Material UI`,
+        description: `Відповідав за повний цикл frontend-розробки критично важливого бізнес-функціоналу на React, Next.js і TypeScript: від компонентів та API-інтеграцій до тестування і production-релізу`,
         achievements: [
           {
-            text: `Працював над UI-архітектурою, API-інтеграціями, логікою валідації, тестуванням, моніторингом і релізом`,
+            text: `З нуля реалізував складний data-driven процес заповнення форми на Formik, Yup і TanStack Query із динамічним рендерингом, умовною логікою та асинхронними API-інтеграціями`,
             keywords: [],
           },
           {
-            text: `Реалізував складні multi-endpoint form flows з Formik, Yup і TanStack Query, включно з умовним відображенням,
-асинхронною обробкою даних і валідацією в реальному часі для business-critical user journeys`,
+            text: `Покращив завершення заявок і користувацький досвід завдяки гнучкій обробці введення та fallback-механізмам, усунувши критичні блокери в клієнтських сценаріях`,
             keywords: [],
           },
           {
-            text: `Створив гнучкий input component з free-text, autocomplete і fallback behavior на Material UI, покращивши введення
-даних для edge cases і зменшивши friction у складних form scenarios`,
-            keywords: [],
-          },
-          {
-            text: `Оптимізував CI/CD feedback, запровадивши matrix-based E2E test execution, скоротивши test runtime на ~35% і допомігши
-команді швидше ловити регресії перед релізом`,
-            keywords: ['на ~35%'],
+            text: `Оптимізував CI/CD pipelines, запровадивши паралельний sharding Playwright E2E-тестів у GitHub Actions, скоротивши час виконання тестів на ~33% і прискоривши виявлення регресій перед релізом`,
+            keywords: ['на ~33%'],
           },
         ],
         technologies: [
@@ -225,35 +205,30 @@ platform by up to 30%`,
           'Material UI',
           'Vitest',
           'Axios',
-          'Openapi-fetch',
+          'OpenAPI',
           'Storybook',
           'Sentry',
           'Datadog',
           'Azure DevOps',
+          'GitHub Actions',
           'Vite',
         ],
       },
       {
         title: 'Upwork — Frontend Developer',
         term: { startDate: { month: 11, year: 2022 }, endDate: { month: 3, year: 2024 } },
-        description: `Розробляв frontend features для e-learning платформи, включно з конспектами, коментарями, image uploads, audio playback і content search`,
+        description: `Розробляв інтерактивний функціонал для e-learning платформи, зокрема стислий виклад контенту, обговорення користувачів та відтворення аудіо, покращуючи доступність матеріалів і залученість користувачів`,
         achievements: [
           {
-            text: `Фокусувався на плавній взаємодії користувача та maintainable React implementation`,
-            keywords: [],
-          },
-          {
-            text: `Мігрував Sendbird Chat SDK з v3 на v4, прибрав невикористані частини інтеграції та покращив chat-related initial load
-і responsiveness на ~25%`,
+            text: `Мігрував Sendbird Chat SDK з v3 на v4, рефакторив legacy-інтеграції та видалив невикористаний функціонал, покращивши швидкість ініціалізації чату на ~25%`,
             keywords: ['на ~25%'],
           },
           {
-            text: `Реалізував client-side media workflows, включно з image upload, crop і drag-and-drop, спростивши content creation
-та media sharing для користувачів`,
+            text: `Реалізував клієнтські процеси завантаження й обрізання зображень та drag-and-drop взаємодію, спростивши створення контенту й обмін ним на платформі`,
             keywords: [],
           },
           {
-            text: `Побудував site-wide search experience, що покращив content discovery і скоротив час навігації платформою до 30%`,
+            text: `Створив глобальний пошук контенту, покращивши знаходження матеріалів і скоротивши час навігації навчальним контентом до 30%`,
             keywords: ['до 30%'],
           },
         ],
@@ -420,21 +395,26 @@ export const skillsData: ILanguageData<ISkillsDataElement> = {
     title: 'Skills',
     skills: [
       'TypeScript',
-      'JavaScript ES2020+',
+      'JavaScript ES6+',
       'React',
       'Next.js',
+      'SSR | SSG',
+      'App Router',
+      'React Server Components',
+      'Server Actions',
       'React Router',
       'HTML5',
       'CSS3 | SCSS',
-      'Core Web Vitals',
       'TanStack Query',
       'Redux Toolkit',
+      'RTK Query',
       'Redux Thunk',
       'Zustand',
       'REST APIs',
       'Axios',
-      'Openapi-fetch',
+      'OpenAPI',
       'GraphQL | Apollo',
+      'WebSockets',
       'Formik',
       'React Hook Form',
       'Yup',
@@ -444,11 +424,10 @@ export const skillsData: ILanguageData<ISkillsDataElement> = {
       'Material UI',
       'Tailwind CSS',
       'Styled Components',
+      'CSS Modules',
       'Bootstrap',
       'shadcn/ui | Radix',
       'Storybook',
-      'Responsive UI',
-      'Accessibility',
       'Jest',
       'React Testing Library',
       'Playwright',
@@ -464,32 +443,38 @@ export const skillsData: ILanguageData<ISkillsDataElement> = {
       'CI/CD',
       'Sentry',
       'Datadog',
-      'Figma handoff',
-      'Agile',
+      'Figma',
       'Jira',
-      'Linear',
-      'Distributed international teams',
+      'OpenAI Codex',
+      'Claude Code',
+      'Cursor',
+      'GitHub Copilot',
     ],
   },
   ua: {
     title: 'Навички',
     skills: [
       'TypeScript',
-      'JavaScript ES2020+',
+      'JavaScript ES6+',
       'React',
       'Next.js',
+      'SSR | SSG',
+      'App Router',
+      'React Server Components',
+      'Server Actions',
       'React Router',
       'HTML5',
       'CSS3 | SCSS',
-      'Core Web Vitals',
       'TanStack Query',
       'Redux Toolkit',
+      'RTK Query',
       'Redux Thunk',
       'Zustand',
       'REST APIs',
       'Axios',
-      'Openapi-fetch',
+      'OpenAPI',
       'GraphQL | Apollo',
+      'WebSockets',
       'Formik',
       'React Hook Form',
       'Yup',
@@ -499,11 +484,10 @@ export const skillsData: ILanguageData<ISkillsDataElement> = {
       'Material UI',
       'Tailwind CSS',
       'Styled Components',
+      'CSS Modules',
       'Bootstrap',
       'shadcn/ui | Radix',
       'Storybook',
-      'Responsive UI',
-      'Accessibility',
       'Jest',
       'React Testing Library',
       'Playwright',
@@ -519,11 +503,12 @@ export const skillsData: ILanguageData<ISkillsDataElement> = {
       'CI/CD',
       'Sentry',
       'Datadog',
-      'Figma handoff',
-      'Agile',
+      'Figma',
       'Jira',
-      'Linear',
-      'Distributed international teams',
+      'OpenAI Codex',
+      'Claude Code',
+      'Cursor',
+      'GitHub Copilot',
     ],
   },
 };
