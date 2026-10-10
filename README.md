@@ -18,7 +18,7 @@
 <h3 align='center'>Home Page 🏡</h3>
 
 <div align='center'>
-<img src='https://github.com/user-attachments/assets/717dd4ab-291b-4c98-a31f-a94a1af1cb7f'/>
+<img src="https://github.com/user-attachments/assets/25c83888-620c-40a3-a060-0537c05306d4"/>
 </div>
 
 <br><br>
@@ -26,7 +26,7 @@
 <h3 align='center'>Experience Page 💼</h3>
 
 <div align='center'>
-<img src='https://github.com/user-attachments/assets/4bdba399-9434-4685-b99f-89eeec5bd162'/>
+<img src="https://github.com/user-attachments/assets/31b5b4da-55be-4244-8eb8-15d67be5a155"/>
 
 <br>
 <br>
