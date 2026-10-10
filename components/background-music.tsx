@@ -9,8 +9,10 @@ const BackgroundMusic = () => {
     const player = document.getElementsByClassName('audio-element')[0] as HTMLAudioElement;
     if (playMusic) {
       player.volume = 0.2;
-      player.play();
       player.muted = false;
+      void player.play().catch(() => {
+        // Browsers may reject playback until the user explicitly interacts with the page.
+      });
     } else {
       player.pause();
       player.muted = true;
@@ -19,8 +21,8 @@ const BackgroundMusic = () => {
 
   return (
     <>
-      <audio className="audio-element" loop>
-        <source src="/assets/music/bg-song.weba" />
+      <audio className="audio-element" loop preload="none">
+        <source src="/assets/music/bg-song.weba" type="audio/webm" />
       </audio>
     </>
   );

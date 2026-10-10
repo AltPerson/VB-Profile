@@ -7,6 +7,7 @@ const CC_BY = () => {
   return (
     <>
       <button
+        type="button"
         onClick={(e) => {
           e.preventDefault();
           setOpen(true);

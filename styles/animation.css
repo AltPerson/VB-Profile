@@ -279,9 +279,9 @@
 @-webkit-keyframes slide-from-right {
   0% {
     -webkit-opacity: 0;
-    -webkit-transform: transalteX(100%);
+    -webkit-transform: translateX(100%);
     opacity: 0;
-    transform: transalteX(100%);
+    transform: translateX(100%);
   }
   100% {
     -webkit-opacity: 1;
@@ -294,9 +294,9 @@
 @keyframes slide-from-right {
   0% {
     -webkit-opacity: 0;
-    -webkit-transform: transalteX(100%);
+    -webkit-transform: translateX(100%);
     opacity: 0;
-    transform: transalteX(100%);
+    transform: translateX(100%);
   }
   100% {
     -webkit-opacity: 1;

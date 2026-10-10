@@ -462,12 +462,12 @@ body {
     border-radius: 10px;
   }
 
-  .projects-slider button {
+  .projects-slider > button {
     @apply flex-shrink-0;
     opacity: 0;
     animation: showOpacity 1s linear forwards 1 0.6s;
-    width: '30px';
-    height: '30px';
+    width: 30px;
+    height: 30px;
   }
 
   .projects-wrapper {
@@ -476,7 +476,7 @@ body {
     scrollbar-width: none;
   }
 
-  .projects-wrapper::webkit-scrollbar {
+  .projects-wrapper::-webkit-scrollbar {
     display: none;
   }
 

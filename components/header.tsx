@@ -9,7 +9,6 @@ import parse from 'html-react-parser';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { clearTimeout } from 'timers';
 
 const Header = () => {
   const pathname = usePathname();
@@ -70,24 +69,36 @@ const Header = () => {
             {parse(settingsHint[language])}
           </div>
           <button
+            type="button"
             onClick={handleShowModal}
             className="settings-button w-[20px] h-[20px] hover-opacity"
+            aria-label={showModal ? 'Close settings' : 'Open settings'}
+            aria-expanded={showModal}
+            aria-controls="settings-menu"
           />
           <div
+            id="settings-menu"
+            aria-hidden={!showModal}
             className={`absolute right-[150%] bg-linear-gradient p-[1px] settings-modal ${
               showModal && 'settings-modal-active'
             }`}
           >
             <div className="bg-black flex p-3 gap-[10px] font-rationale text-[1.25em] justify-center items-center">
               <button
+                type="button"
                 onClick={togglePlayMusic}
                 className={`${
                   playMusic ? 'bg-onMusic' : 'bg-offMusic'
                 } w-[20px] min-h-[20px] bg-button-common h-full hover-opacity`}
+                aria-label={playMusic ? 'Pause background music' : 'Play background music'}
+                tabIndex={showModal ? 0 : -1}
               />
               <button
+                type="button"
                 onClick={toggleLanguage}
                 className="w-[30px] min-h-[20px] bg-language bg-button-common h-full hover-opacity"
+                aria-label="Change language"
+                tabIndex={showModal ? 0 : -1}
               />
               <span className="text-grayLight w-[16px] text-[1.0625em] uppercase">{language}</span>
             </div>

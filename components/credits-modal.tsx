@@ -13,15 +13,32 @@ export function CreditsModal({ open, onClose }: { open: boolean; onClose: () => 
       lastActive.current = document.activeElement as HTMLElement;
       dialogRef.current?.querySelector<HTMLElement>('[data-autofocus]')?.focus();
       document.body.classList.add('overflow-hidden');
-    } else {
+    }
+
+    return () => {
       document.body.classList.remove('overflow-hidden');
       lastActive.current?.focus();
-    }
+    };
   }, [open]);
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if (e.key === 'Escape') onClose();
+      if (e.key !== 'Tab' || !dialogRef.current) return;
+
+      const focusable = dialogRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      );
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last?.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first?.focus();
+      }
     }
     if (open) window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
@@ -35,7 +52,6 @@ export function CreditsModal({ open, onClose }: { open: boolean; onClose: () => 
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
-      aria-hidden={false}
     >
       <div
         ref={dialogRef}
@@ -50,6 +66,7 @@ export function CreditsModal({ open, onClose }: { open: boolean; onClose: () => 
             Design credits
           </h2>
           <button
+            type="button"
             data-autofocus
             onClick={onClose}
             className="rounded px-2 py-1 text-sm text-gray-300 hover:text-white
