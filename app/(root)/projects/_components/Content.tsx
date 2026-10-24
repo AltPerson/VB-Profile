@@ -1,212 +1,38 @@
 'use client';
+
 import DefaultLayout from '@/components/default-layout';
 import TypewriterText from '@/components/typewriter-text';
 import { useChangeLanguage } from '@/contexts/language-context';
 import { projectsData } from '@/locales';
-import arrowLeft from '@/public/assets/icons/arrow_left.svg';
-import arrowRight from '@/public/assets/icons/arrow_right.svg';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import ProjectsDataDeck from './ProjectsDataDeck';
+import { deckCopy } from './deck-copy';
+import './projects-data-deck.css';
 
-const calculateIndexDelay = (index: number) => index * 0.08;
-
-const getBgName = (bgName: string) => {
-  switch (bgName) {
-    case 'projectOne':
-      return 'bg-projectOne';
-    case 'projectTwo':
-      return 'bg-projectTwo';
-    default:
-      return 'bg-projectThird';
-  }
-};
-
-const Content = () => {
+export default function Content() {
   const { language } = useChangeLanguage();
-  const [showProjectTechnologies, setProjectTechnologies] = useState('');
-  const [tooltipTop, setTooltipTop] = useState(0);
-
-  const sliderRefContainer = useRef<HTMLDivElement>(null);
-
-  const [showsArrows, setShowArrows] = useState({
-    showLeft: false,
-    showRight: true,
-  });
-
-  const updateArrows = useCallback(() => {
-    const slider = sliderRefContainer.current;
-    if (!slider) return;
-
-    const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
-    const threshold = 2;
-
-    setShowArrows({
-      showLeft: slider.scrollLeft > threshold,
-      showRight: slider.scrollLeft < maxScrollLeft - threshold,
-    });
-  }, []);
-
-  useEffect(() => {
-    updateArrows();
-    window.addEventListener('resize', updateArrows);
-    return () => window.removeEventListener('resize', updateArrows);
-  }, [language, updateArrows]);
-
-  const sliderClick = (side: string) => {
-    const slider = sliderRefContainer.current;
-    const firstCard = slider?.firstElementChild as HTMLDivElement | null;
-    if (!slider || !firstCard) return;
-
-    const extraOffset = 22;
-    const distance = firstCard.clientWidth + extraOffset;
-
-    slider.scrollBy({ left: side === 'left' ? -distance : distance, behavior: 'smooth' });
-  };
-
+  const data = projectsData[language];
   return (
-    <DefaultLayout key={language}>
-      <h3 className="greetings-title projects-greetings-title">
-        <TypewriterText text={projectsData[language]['title']} />
-      </h3>
-      <div className="after-typing projects-content flex flex-col justify-between flex-grow gap-4">
-        <div className="projects-slider">
-          <button
-            type="button"
-            onClick={() => sliderClick('left')}
-            disabled={!showsArrows.showLeft}
-            aria-label="Previous project"
-          >
-            <Image
-              src={arrowLeft}
-              alt="arrow_left"
-              style={{}}
-              className={!showsArrows.showLeft ? 'opacity-50' : 'hover-opacity'}
-            />
-          </button>
-          <div className="projects-wrapper" ref={sliderRefContainer} onScroll={updateArrows}>
-            {projectsData[language]['projects'].map((project, projectIndex) => (
-              <div
-                id={project.title}
-                className={`project-card ${getBgName(project.bgName)} overflow-y-auto relative`}
-                key={project.title}
-                onScroll={(event) => {
-                  if (showProjectTechnologies === project.title) {
-                    setTooltipTop(event.currentTarget.scrollTop);
-                  }
-                }}
-              >
-                <h5>{project.title}</h5>
-                <div className="flex flex-col justify-between gap-5 flex-grow">
-                  <div>
-                    <p>{project.description}</p>
-                    <div className="relative">
-                      <button
-                        type="button"
-                        className="technologies-trigger-name"
-                        onMouseEnter={(event) => {
-                          setTooltipTop(
-                            event.currentTarget.closest('.project-card')?.scrollTop ?? 0,
-                          );
-                          setProjectTechnologies(project.title);
-                        }}
-                        onMouseLeave={() => setProjectTechnologies('')}
-                        onFocus={(event) => {
-                          setTooltipTop(
-                            event.currentTarget.closest('.project-card')?.scrollTop ?? 0,
-                          );
-                          setProjectTechnologies(project.title);
-                        }}
-                        onBlur={() => setProjectTechnologies('')}
-                        aria-expanded={showProjectTechnologies === project.title}
-                        aria-controls={`technologies-${projectIndex}`}
-                      >
-                        TECHNOLOGIES
-                      </button>
-                    </div>
-                  </div>
-                  <Link href={project.link} target="_blank">
-                    Web
-                  </Link>
-                </div>
-                <ul
-                  id={`technologies-${projectIndex}`}
-                  className={`technologies-hidden-list ${
-                    showProjectTechnologies === project.title ? 'flex' : 'hidden'
-                  }`}
-                  style={{
-                    top: `${tooltipTop}px`,
-                  }}
-                >
-                  {project.technologies.map((technology, index) => (
-                    <li
-                      id="tooltip-text-item"
-                      key={index}
-                      className="card-shape-container px-3 py-1 w-fit font-bold"
-                    >
-                      {technology}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-          <button
-            type="button"
-            onClick={() => sliderClick('right')}
-            disabled={!showsArrows.showRight}
-            aria-label="Next project"
-          >
-            <Image
-              src={arrowRight}
-              alt="arrow_right"
-              className={!showsArrows.showRight ? 'opacity-50' : 'hover-opacity'}
-            />
-          </button>
+    <div className="projects-deck">
+      <DefaultLayout>
+        <div className="projects-deck__showcase">
+          <h3 className="greetings-title projects-greetings-title">
+            <TypewriterText text={data.title} />
+          </h3>
+          <ProjectsDataDeck projects={data.projects} copy={deckCopy[language]} />
         </div>
-        <div className="projects-list">
-          {projectsData[language]['projects'].map((project, index) => (
-            <div
-              className="project-card overflow-auto"
-              key={project.title}
-              style={{
-                animation: `slide-from-right 0.5s linear forwards 1 ${calculateIndexDelay(index)}s`,
-              }}
-            >
-              <h5>{project.title}</h5>
-              <div className="flex flex-col justify-between gap-3 flex-grow">
-                <div>
-                  <p>{project.description}</p>
-                  <ul className="flex gap-2 mt-2 flex-wrap">
-                    {project.technologies.map((technology, index) => (
-                      <li
-                        key={index}
-                        className="card-shape-container px-3 py-1 w-fit whitespace-nowrap font-bold text-base max-md:text-sm max-sm:text-xs bg-cyan-950"
-                      >
-                        {technology}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <Link href={project.link} target="_blank">
-                  Web
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
-        <Link
+        <a
           href="https://github.com/AltPerson"
-          className="project-main-link"
+          className="projects-deck__github"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <span className="project-main-link-button" aria-hidden="true" />
-          <h6>gitHub</h6>
-        </Link>
-      </div>
-    </DefaultLayout>
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+            <path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.86c-2.78.61-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.64-1.33-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03a9.6 9.6 0 0 1 5 0c1.91-1.3 2.75-1.03 2.75-1.03.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2Z" />
+          </svg>
+          <span>gitHub</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      </DefaultLayout>
+    </div>
   );
-};
-
-export default Content;
+}
