@@ -1,5 +1,6 @@
 'use client';
 import DefaultLayout from '@/components/default-layout';
+import TypewriterText from '@/components/typewriter-text';
 import { useChangeLanguage } from '@/contexts/language-context';
 import { experienceData } from '@/locales';
 
@@ -10,12 +11,12 @@ const Content = () => {
   const { workPlaces } = experienceData[language];
 
   return (
-    <DefaultLayout>
+    <DefaultLayout key={language}>
       <h3 className="greetings-title experience-greetings-title">
-        {experienceData[language]['title']}
+        <TypewriterText text={experienceData[language]['title']} />
       </h3>
 
-      <div className="flex flex-col gap-6 overflow-auto work-place-wrapper pr-2 overflow-x-hidden">
+      <div className="after-typing flex flex-col gap-6 overflow-auto work-place-wrapper pr-2 overflow-x-hidden">
         <WorkPlacesList workPlaces={workPlaces} />
       </div>
     </DefaultLayout>

@@ -1,5 +1,6 @@
 'use client';
 import DefaultLayout from '@/components/default-layout';
+import TypewriterText from '@/components/typewriter-text';
 import { resumeLink } from '@/constants';
 import { useChangeLanguage } from '@/contexts/language-context';
 import { parsedAndFormateDate } from '@/lib/utils/parsedAndFormateDate';
@@ -31,18 +32,21 @@ const getExperience = (workPlaces: IWorkPlace[], language: LanguageEnum) => {
 
 const Content = () => {
   const { language } = useChangeLanguage();
+  const title = homeData[language].title;
 
   const workPlaces = experienceData[language]['workPlaces'];
 
   const experience = getExperience(workPlaces, language);
 
   return (
-    <DefaultLayout>
+    <DefaultLayout key={language}>
       <div>
-        <h1 className="greetings-title home-greeting-title">{homeData[language]['title']}</h1>
-        <h4 className="greetings-subtitle">{homeData[language]['subtitle']}</h4>
+        <h1 className="greetings-title home-greeting-title">
+          <TypewriterText text={title} />
+        </h1>
+        <h4 className="greetings-subtitle after-typing">{homeData[language]['subtitle']}</h4>
       </div>
-      <p className="greetings-text text-justify">
+      <p className="greetings-text text-justify after-typing">
         {parse(homeData[language]['text'], {
           replace(domNode: any) {
             if (domNode.attribs && domNode.attribs.id === 'exp') {
@@ -51,7 +55,7 @@ const Content = () => {
           },
         })}
       </p>
-      <div className="button-shadow">
+      <div className="button-shadow after-typing">
         <a
           target="_blank"
           href={resumeLink}

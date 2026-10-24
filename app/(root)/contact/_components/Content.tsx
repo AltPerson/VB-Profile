@@ -1,5 +1,6 @@
 'use client';
 import DefaultLayout from '@/components/default-layout';
+import TypewriterText from '@/components/typewriter-text';
 import { useChangeLanguage } from '@/contexts/language-context';
 import { contactData } from '@/locales';
 import Image from 'next/image';
@@ -8,9 +9,11 @@ import Link from 'next/link';
 const Content = () => {
   const { language } = useChangeLanguage();
   return (
-    <DefaultLayout>
-      <h3 className="greetings-title projects-greetings-title">{contactData[language]['title']}</h3>
-      <ul className="flex flex-col gap-11">
+    <DefaultLayout key={language}>
+      <h3 className="greetings-title projects-greetings-title">
+        <TypewriterText text={contactData[language]['title']} />
+      </h3>
+      <ul className="after-typing flex flex-col gap-11">
         {contactData[language].contacts.map((contact, index) => (
           <li
             key={index}
@@ -18,9 +21,7 @@ const Content = () => {
             style={{
               opacity: 0,
               transform: 'translateX(100%)',
-              animation: `slide-from-right 1s linear forwards 1 ${
-                index == 0 ? 0.5 : index / 2 + 0.5
-              }s`,
+              animation: `slide-from-right 0.5s linear forwards 1 ${index * 0.12}s`,
             }}
           >
             <div className="flex-shrink">

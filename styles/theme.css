@@ -60,8 +60,8 @@ body {
     transform: perspective(100px) translateZ(-360px);
     opacity: 0;
     animation:
-      slide-fwd-center 0.5s linear forwards 1 2s,
-      shadowPulseYellow 1.5s linear 1 forwards alternate 1s;
+      slide-fwd-center 0.5s linear forwards 1 0.55s,
+      shadowPulseYellow 1.5s linear 1 forwards alternate 0.55s;
   }
 
   .button-bg {
@@ -293,7 +293,7 @@ body {
   }
 
   .home-title-slide-up {
-    transform: translateY(25%);
+    transform: translateY(var(--engineer-offset, 0px));
     animation: slideFromBottom 0.8s ease-out 0.2s backwards;
   }
 
@@ -304,36 +304,49 @@ body {
 
   .greetings-title {
     @apply font-rajdhani text-[4.25em] font-medium leading-[87px] tracking-[2px] text-redNeon overflow-hidden h-fit whitespace-nowrap max-w-fit pr-[0.2em] pb-4 flex-shrink-0;
-    border-right: 0.2em solid rgba(247, 80, 73, 0.77);
+    position: relative;
+    border-right: 0.2em solid transparent;
     text-shadow: 0.15em 0.25em 0.14em rgba(247, 80, 73, 0.77);
   }
 
-  .experience-greetings-title {
-    animation:
-      typing 2.5s steps(40, end),
-      blink-caret 0.2s steps(10, end) 6 forwards;
+  .typewriter {
+    display: inline-block;
+    position: relative;
   }
 
-  .projects-greetings-title {
-    animation:
-      typing 2.5s steps(40, end),
-      blink-caret 0.2s steps(10, end) 5 forwards;
+  .typewriter-reserve {
+    visibility: hidden;
   }
 
-  .home-greeting-title {
-    animation:
-      typing 2.5s steps(40, end),
-      blink-caret 0.2s steps(10, end) 12 forwards;
+  .typewriter-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .typewriter-caret {
+    display: inline-block;
+    width: 0.12em;
+    height: 0.9em;
+    margin-left: 0.04em;
+    vertical-align: -0.05em;
+    background: rgba(247, 80, 73, 0.77);
   }
 
   .greetings-subtitle {
     @apply font-rajdhani text-[2em] font-medium leading-[32px] tracking-[2px] text-white opacity-0;
-    animation: showUp 0.5s linear 1 forwards 1.5s;
+    animation: showUp 0.4s linear 1 forwards 0.2s;
   }
 
   .greetings-text {
     @apply font-rajdhani text-[1.5625em] font-medium leading-[32px] text-redNeon opacity-0;
-    animation: showUp 0.7s linear 1 forwards 2s;
+    animation: showUp 0.5s linear 1 forwards 0.35s;
+  }
+
+  [data-typing-complete='false'] .after-typing,
+  [data-typing-complete='false'] .after-typing * {
+    animation: none !important;
+    visibility: hidden;
   }
 
   .work-place-title {
@@ -441,11 +454,18 @@ body {
     opacity: 1;
   }
 
+  .projects-content {
+    min-height: 0;
+    overflow: hidden;
+  }
+
   .projects-slider {
     @apply flex gap-4 flex-grow;
+    min-height: 0;
   }
 
   .projects-list {
+    min-height: 0;
     @apply hidden pr-1;
   }
 
@@ -468,13 +488,15 @@ body {
   .projects-slider > button {
     @apply flex-shrink-0;
     opacity: 0;
-    animation: showOpacity 1s linear forwards 1 0.6s;
+    animation: showOpacity 0.4s linear forwards 1;
     width: 30px;
     height: 30px;
   }
 
   .projects-wrapper {
     @apply flex gap-5 overflow-auto;
+    min-width: 0;
+    min-height: 0;
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
@@ -554,9 +576,10 @@ body {
 
   .project-main-link {
     @apply flex gap-3 justify-center align-bottom max-w-fit mx-auto;
+    flex-shrink: 0;
     opacity: 0;
     transform: translateY(200%);
-    animation: slide-top 0.5s linear forwards 1 0.6s;
+    animation: slide-top 0.5s linear forwards 1 0.15s;
   }
 
   .project-main-link-button {
@@ -597,11 +620,11 @@ body {
     opacity: 0;
   }
   .projects-wrapper .project-card:nth-child(even) {
-    animation: showOpacity 0.5s linear forwards 1 0.6s;
+    animation: showOpacity 0.5s linear forwards 1 0.08s;
   }
   .projects-wrapper .project-card:nth-child(odd) {
     transform: translateX(100%);
-    animation: slide-from-right 0.5s linear forwards 1 0.5s;
+    animation: slide-from-right 0.5s linear forwards 1;
   }
 }
 
@@ -614,7 +637,7 @@ body {
   }
   .projects-wrapper .project-card:first-child {
     transform: unset;
-    animation: showOpacity 0.5s linear forwards 1 0.6s;
+    animation: showOpacity 0.5s linear forwards 1;
     opacity: 0;
   }
 }
@@ -631,9 +654,6 @@ body {
 @media (max-width: 1025px) {
   .greetings-title {
     font-size: 3.15em;
-    animation:
-      typing 2.5s steps(40, end),
-      blink-caret 0.2s steps(10, end) 13 forwards;
   }
 }
 
@@ -686,11 +706,6 @@ body {
   .container-app {
     padding: 0px;
   }
-  .greetings-title {
-    animation:
-      typing 2.5s steps(40, end),
-      blink-caret 0.2s steps(10, end) 10 forwards;
-  }
   .projects-slider {
     display: none;
   }
@@ -712,9 +727,6 @@ body {
   }
   .greetings-title {
     padding-bottom: 0px;
-    animation:
-      typing 2.5s steps(40, end),
-      blink-caret 0.2s steps(10, end) 8 forwards;
   }
 }
 
@@ -732,9 +744,6 @@ body {
   }
   .greetings-title {
     font-size: 3em;
-    animation:
-      typing 2.5s steps(40, end),
-      blink-caret 0.2s steps(10, end) 12 forwards;
   }
   .greetings-subtitle {
     font-size: 1.8em;
@@ -780,8 +789,5 @@ body {
   }
   .greetings-title {
     font-size: 2.25em;
-    animation:
-      typing 2.5s steps(40, end),
-      blink-caret 0.2s steps(10, end) 14 forwards;
   }
 }

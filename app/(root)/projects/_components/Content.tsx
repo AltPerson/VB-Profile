@@ -1,5 +1,6 @@
 'use client';
 import DefaultLayout from '@/components/default-layout';
+import TypewriterText from '@/components/typewriter-text';
 import { useChangeLanguage } from '@/contexts/language-context';
 import { projectsData } from '@/locales';
 import arrowLeft from '@/public/assets/icons/arrow_left.svg';
@@ -8,7 +9,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-const calculateIndexDelay = (index: number) => (index === 0 ? 1 : index + 0.5);
+const calculateIndexDelay = (index: number) => index * 0.08;
 
 const getBgName = (bgName: string) => {
   switch (bgName) {
@@ -64,11 +65,11 @@ const Content = () => {
   };
 
   return (
-    <DefaultLayout>
+    <DefaultLayout key={language}>
       <h3 className="greetings-title projects-greetings-title">
-        {projectsData[language]['title']}
+        <TypewriterText text={projectsData[language]['title']} />
       </h3>
-      <div className="flex flex-col justify-between flex-grow gap-4 max-lg:overflow-auto">
+      <div className="after-typing projects-content flex flex-col justify-between flex-grow gap-4">
         <div className="projects-slider">
           <button
             type="button"

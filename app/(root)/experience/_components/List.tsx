@@ -4,7 +4,7 @@ import { IWorkPlace } from '@/locales';
 import { LanguageEnum } from '@/types/enums';
 import parse from 'html-react-parser';
 
-const calculateIndexDelay = (index: number) => (index === 0 ? 1.5 : index + 1);
+const calculateIndexDelay = (index: number) => index * 0.12;
 
 const formatKeyWordsInAchievement = (text: string, keyWords: string[]) => {
   let tempString = text;
