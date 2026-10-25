@@ -106,12 +106,9 @@ export default function SkillsMatrix() {
   }
 
   return (
-    <motion.div
-      className="skills-matrix__content"
+    <div
+      className="skills-matrix__content after-typing"
       data-view={searching ? 'search' : detail ? 'category' : 'overview'}
-      initial={reduced ? false : { opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: reduced ? 0 : 0.3, ease: skillEase }}
     >
       <div className="skills-matrix__toolbar">
         <div className="skills-matrix__search">
@@ -286,6 +283,6 @@ export default function SkillsMatrix() {
             ? `${active.label}: ${visibleSkills.length}`
             : copy.categories}
       </span>
-    </motion.div>
+    </div>
   );
 }

@@ -75,6 +75,7 @@
   margin: 0;
 }
 .skills-matrix__content {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: clamp(12px, 1.8dvh, 20px);
@@ -83,6 +84,56 @@
     linear-gradient(var(--skill-grid-line) 1px, transparent 1px),
     linear-gradient(90deg, var(--skill-grid-line) 1px, transparent 1px);
   background-size: 24px 24px;
+  animation: skills-content-reveal 600ms var(--skill-ease-out) both;
+}
+.skills-matrix__content::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    linear-gradient(90deg, transparent, rgb(94 246 255 / 85%), transparent) 0 0 / 100% 1px no-repeat,
+    linear-gradient(90deg, transparent, rgb(94 246 255 / 12%), transparent) 0 0 / 100% 8px no-repeat;
+  animation: skills-content-scan 600ms var(--skill-ease-out) both;
+}
+.skills-matrix [data-typing-complete='false'] .skills-matrix__content::after {
+  animation: none;
+}
+@keyframes skills-content-reveal {
+  from {
+    clip-path: inset(0 0 100% 0);
+    opacity: 0.25;
+    transform: translateY(10px);
+  }
+  99% {
+    clip-path: inset(0);
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    clip-path: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes skills-content-scan {
+  from {
+    opacity: 0.85;
+    background-position:
+      0 0,
+      0 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  to {
+    opacity: 0;
+    background-position:
+      0 100%,
+      0 100%;
+  }
 }
 .skills-matrix__toolbar {
   display: flex;

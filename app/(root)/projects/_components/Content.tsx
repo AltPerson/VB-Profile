@@ -21,7 +21,7 @@ export default function Content() {
         </div>
         <a
           href="https://github.com/AltPerson"
-          className="projects-deck__github"
+          className="projects-deck__github after-typing"
           target="_blank"
           rel="noopener noreferrer"
         >

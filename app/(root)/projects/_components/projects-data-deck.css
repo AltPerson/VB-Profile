@@ -89,7 +89,71 @@
   padding-bottom: 4px;
 }
 .projects-deck__carousel {
+  position: relative;
   min-width: 0;
+  animation: projects-content-reveal 600ms var(--deck-ease) both;
+}
+.projects-deck__github {
+  animation: projects-footer-reveal 250ms var(--deck-ease) 400ms both;
+}
+.projects-deck__carousel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    linear-gradient(90deg, transparent, rgb(94 246 255 / 85%), transparent) 0 0 / 100% 1px no-repeat,
+    linear-gradient(90deg, transparent, rgb(94 246 255 / 12%), transparent) 0 0 / 100% 8px no-repeat;
+  animation: projects-content-scan 600ms var(--deck-ease) both;
+}
+.projects-deck [data-typing-complete='false'] .projects-deck__carousel::after {
+  animation: none;
+}
+@keyframes projects-content-reveal {
+  from {
+    clip-path: inset(0 0 100% 0);
+    opacity: 0.25;
+    transform: translateY(10px);
+  }
+  99% {
+    clip-path: inset(0);
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    clip-path: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes projects-content-scan {
+  from {
+    opacity: 0.85;
+    background-position:
+      0 0,
+      0 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  to {
+    opacity: 0;
+    background-position:
+      0 100%,
+      0 100%;
+  }
+}
+@keyframes projects-footer-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 .projects-deck__stage {
   position: relative;

@@ -2,11 +2,11 @@
 
 import { IProject } from '@/constants/portfolio-data';
 import useEmblaCarousel from 'embla-carousel-react';
-import { MotionConfig, motion, useReducedMotion } from 'motion/react';
+import { MotionConfig, useReducedMotion } from 'motion/react';
 import { KeyboardEvent, useCallback, useEffect, useRef, useState } from 'react';
 import ProjectDeckCard from './ProjectDeckCard';
 import ProjectDeckControls from './ProjectDeckControls';
-import { DeckCopy, deckEase } from './deck-copy';
+import { DeckCopy } from './deck-copy';
 
 interface Props {
   projects: IProject[];
@@ -97,14 +97,11 @@ export default function ProjectsDataDeck({ projects, copy }: Props) {
 
   return (
     <MotionConfig reducedMotion="user">
-      <motion.section
-        className="projects-deck__carousel"
+      <section
+        className="projects-deck__carousel after-typing"
         aria-label={copy.carousel}
         aria-roledescription="carousel"
         onKeyDown={onKeyDown}
-        initial={reducedMotion ? false : { opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: reducedMotion ? 0 : 0.35, ease: deckEase }}
       >
         <div className="projects-deck__stage">
           <div
@@ -173,7 +170,7 @@ export default function ProjectsDataDeck({ projects, copy }: Props) {
         <span className="projects-deck__sr-only" aria-live="polite" aria-atomic="true">
           {copy.project} {selected + 1} {copy.of} {projects.length}: {projects[selected].title}
         </span>
-      </motion.section>
+      </section>
     </MotionConfig>
   );
 }
