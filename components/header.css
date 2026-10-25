@@ -5,28 +5,91 @@
   width: 100%;
 }
 .site-nav {
+  --nav-cyan: #5ef6ff;
+  --nav-coral: #f75049;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   width: 100%;
+}
+.site-nav__brand {
+  display: inline-flex;
+  align-items: baseline;
+  min-height: 44px;
+  align-self: center;
+  line-height: 44px;
+  color: #fff;
+  text-decoration: none;
+  transition: text-shadow 180ms ease;
+}
+.site-nav__brand-accent {
+  color: var(--nav-coral);
+  font-size: 0.7em;
+  line-height: 1;
+}
+.site-nav__brand[aria-current='page'] .site-nav__brand-accent {
+  text-shadow: 0 0 7px rgb(247 80 73 / 25%);
 }
 .site-nav__links {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(10px, 1.4vw, 24px);
+  gap: clamp(8px, 1vw, 18px);
   min-width: 0;
 }
-.site-nav__links a {
+.site-nav__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 5px;
   white-space: nowrap;
+  color: #e6eff1;
+  border-radius: 3px;
+  text-decoration: none;
+  transition:
+    color 200ms ease-out,
+    background-color 200ms ease-out;
 }
-.site-nav__links a[aria-current='page'] {
-  border-bottom: 2px solid #a4b8bb;
-  padding-bottom: 2px;
+.site-nav__link::before,
+.site-nav__link::after {
+  content: '';
+  position: absolute;
+  inset: 5px 1px;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.92);
+  transition:
+    opacity 200ms ease-out,
+    transform 200ms ease-out;
+}
+.site-nav__link::before {
+  background:
+    linear-gradient(var(--nav-cyan), var(--nav-cyan)) left top / 7px 1px no-repeat,
+    linear-gradient(var(--nav-cyan), var(--nav-cyan)) left top / 1px 7px no-repeat,
+    linear-gradient(var(--nav-cyan), var(--nav-cyan)) right bottom / 7px 1px no-repeat,
+    linear-gradient(var(--nav-cyan), var(--nav-cyan)) right bottom / 1px 7px no-repeat;
+}
+.site-nav__link::after {
+  background:
+    linear-gradient(var(--nav-cyan), var(--nav-cyan)) right top / 7px 1px no-repeat,
+    linear-gradient(var(--nav-cyan), var(--nav-cyan)) right top / 1px 7px no-repeat,
+    linear-gradient(var(--nav-cyan), var(--nav-cyan)) left bottom / 7px 1px no-repeat,
+    linear-gradient(var(--nav-cyan), var(--nav-cyan)) left bottom / 1px 7px no-repeat;
+}
+.site-nav__link[aria-current='page'] {
+  color: var(--nav-cyan);
+  background: rgb(94 246 255 / 4%);
+}
+.site-nav__link[aria-current='page']::before {
+  opacity: 1;
+  transform: scale(1);
 }
 .site-nav__sound {
   position: relative;
+  justify-self: end;
 }
 .sound-control {
   display: flex;
@@ -35,13 +98,18 @@
   gap: 7px;
   width: 106px;
   min-height: 44px;
+  padding: 0 8px;
   color: #a4b8bb;
-  background: transparent;
-  border: 1px solid transparent;
-  border-radius: 5px;
+  background: #02070b;
+  border: 1px solid #25474e;
+  border-radius: 4px;
   font:
     500 11px/1.5 var(--font-tomorrow),
     monospace;
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease;
 }
 .sound-control svg {
   width: 20px;
@@ -49,15 +117,18 @@
   flex: 0 0 20px;
 }
 .sound-control[aria-pressed='true'] {
-  color: #5ef6ff;
-}
-.sound-control:hover {
-  border-color: #286873;
+  color: var(--nav-cyan);
+  border-color: #386b73;
+  background: #07171b;
 }
 .site-nav a:focus-visible,
 .sound-control:focus-visible {
-  outline: 2px solid #5ef6ff;
+  outline: 2px solid var(--nav-cyan);
   outline-offset: 3px;
+}
+.sound-control:focus-visible {
+  color: var(--nav-cyan);
+  border-color: var(--nav-cyan);
 }
 .sound-status {
   position: absolute;
@@ -67,7 +138,55 @@
   overflow: hidden;
   white-space: nowrap;
 }
-@media (max-width: 1400px) and (min-width: 993px), (max-width: 600px) {
+@media (hover: hover) {
+  .site-nav__brand:hover {
+    text-shadow: 0 0 8px rgb(247 80 73 / 22%);
+  }
+  .site-nav__link:not([aria-current='page']):hover {
+    color: #9bdde2;
+    background: rgb(94 246 255 / 2%);
+  }
+  .site-nav__link:not([aria-current='page']):hover::before {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  .sound-control:hover {
+    color: var(--nav-cyan);
+    border-color: #5b9aa3;
+    background: #07171b;
+  }
+}
+.site-nav .site-nav__link:focus-visible {
+  outline: none;
+  color: var(--nav-cyan);
+  background: rgb(94 246 255 / 4%);
+}
+.site-nav .site-nav__link:focus-visible::before,
+.site-nav .site-nav__link:focus-visible::after {
+  opacity: 1;
+  transform: scale(1);
+}
+@media (max-width: 1400px) and (min-width: 993px) {
+  .site-nav__links {
+    gap: 8px;
+  }
+  .site-nav__links .site-nav__link {
+    font-size: 22px;
+  }
+}
+@media (max-width: 1200px) and (min-width: 993px) {
+  .site-nav {
+    gap: 8px;
+  }
+  .site-nav__links {
+    gap: 6px;
+  }
+  .site-nav__links .site-nav__link {
+    padding-inline: 4px;
+    font-size: 19px;
+  }
+}
+@media (max-width: 600px) {
   .sound-control {
     width: 44px;
   }
@@ -80,16 +199,60 @@
     padding-inline: 8px;
   }
   .site-nav {
-    gap: 5px;
+    gap: 6px;
   }
   .site-nav__links {
     justify-content: space-evenly;
-    gap: 7px;
+    gap: 3px;
   }
-  .site-nav__links .link-text {
-    font-size: 15px;
+  .site-nav__links .site-nav__link {
+    padding-inline: 4px;
+    font-size: 18px;
   }
   .site-nav .logo-title {
-    font-size: 20px;
+    font-size: 22px;
+  }
+}
+@media (max-width: 374px) and (min-width: 360px) {
+  .site-nav__links .site-nav__link {
+    font-size: 17px;
+  }
+}
+@media (max-width: 359px) {
+  .site-nav {
+    grid-template-rows: 44px 36px;
+    row-gap: 0;
+  }
+  .site-nav__brand {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .site-nav__sound {
+    grid-column: 3;
+    grid-row: 1;
+  }
+  .site-nav__links {
+    grid-column: 1/-1;
+    grid-row: 2;
+    justify-content: space-between;
+    gap: 4px;
+  }
+  .site-nav__links .site-nav__link {
+    min-height: 36px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-nav__brand,
+  .site-nav__link,
+  .site-nav__link::before,
+  .site-nav__link::after,
+  .sound-control {
+    transition: none;
+  }
+}
+@media (forced-colors: active) {
+  .site-nav .site-nav__link:focus-visible {
+    outline: 2px solid Highlight;
+    outline-offset: 3px;
   }
 }

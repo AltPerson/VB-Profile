@@ -13,15 +13,23 @@ export default function Header() {
   return (
     <header className="header-block site-header">
       <nav className="site-nav" aria-label="Main navigation">
-        <Link href="/" className="logo-title" aria-label="VB Home">
+        <Link
+          href="/"
+          className="logo-title site-nav__brand"
+          aria-label="VB Home"
+          aria-current={pathname === '/' ? 'page' : undefined}
+        >
           VB
+          <span className="site-nav__brand-accent" aria-hidden="true">
+            _
+          </span>
         </Link>
         <ul className="site-nav__links">
           {links.map((link) => (
             <li key={link.path}>
               <Link
                 href={link.path}
-                className="link-text hover-opacity"
+                className="link-text site-nav__link"
                 aria-current={pathname === link.path ? 'page' : undefined}
               >
                 {linksData[link.label]}
