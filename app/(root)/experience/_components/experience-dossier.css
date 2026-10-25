@@ -1,0 +1,619 @@
+.experience-dossier {
+  --career-cyan: #5ef6ff;
+  --career-coral: #f75049;
+  --career-yellow: #f8ef00;
+  --career-text: #e5f0f1;
+  --career-muted: #97adb2;
+  --career-stroke: #1a414a;
+  --career-fallback-space: calc(100dvh - 80px);
+  --career-reveal-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  color: var(--career-text);
+  font-family: var(--font-rajdhani), sans-serif;
+  min-width: 0;
+}
+.experience-dossier .content-part > div {
+  height: 100%;
+  min-height: 0;
+  gap: clamp(14px, 2dvh, 24px);
+  padding-block: clamp(12px, 2.2dvh, 28px);
+}
+.experience-dossier .content-part::before,
+.experience-dossier .content-part::after {
+  display: none;
+}
+.experience-dossier__heading {
+  display: block;
+  flex: 0 0 auto;
+}
+.experience-dossier__tab-number,
+.experience-dossier__tab-status,
+.experience-dossier__record-brow,
+.experience-dossier__section-title,
+.experience-dossier__achievement-number,
+.experience-dossier__record-footer,
+.experience-dossier__stack-toggle {
+  font-family: var(--font-tomorrow), monospace;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 1.6;
+}
+.experience-dossier .experience-dossier__title {
+  line-height: 1.15;
+  padding-bottom: 6px;
+  margin: 0;
+}
+.experience-dossier__body {
+  position: relative;
+  container-type: inline-size;
+  min-width: 0;
+  animation: career-dossier-enter 600ms var(--career-reveal-ease) both;
+  flex: 1 1 0%;
+  min-height: 0;
+}
+.experience-dossier__body::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    linear-gradient(90deg, transparent, rgb(94 246 255 / 85%), transparent) 0 0 / 100% 1px no-repeat,
+    linear-gradient(90deg, transparent, rgb(94 246 255 / 12%), transparent) 0 0 / 100% 8px no-repeat;
+  animation: career-dossier-scan 600ms var(--career-reveal-ease) both;
+}
+.experience-dossier [data-typing-complete='false'] .experience-dossier__body::after {
+  animation: none;
+}
+@keyframes career-dossier-enter {
+  from {
+    clip-path: inset(0 0 100% 0);
+    opacity: 0.25;
+    transform: translateY(10px);
+  }
+  99% {
+    clip-path: inset(0);
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    clip-path: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes career-dossier-scan {
+  from {
+    opacity: 0.85;
+    background-position:
+      0 0,
+      0 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  to {
+    opacity: 0;
+    background-position:
+      0 100%,
+      0 100%;
+  }
+}
+.experience-dossier__frame {
+  display: grid;
+  grid-template-columns: clamp(140px, 24%, 190px) minmax(0, 1fr);
+  background: #031014;
+  border: 1px solid #28636d;
+  border-radius: 14px;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  grid-template-rows: minmax(0, 1fr);
+}
+.experience-dossier__index {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border-right: 1px solid var(--career-stroke);
+  background: #07171b;
+  border-radius: 13px 0 0 13px;
+  min-height: 0;
+}
+.experience-dossier__tabs {
+  display: flex;
+  flex-direction: column;
+}
+.experience-dossier__tab {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+  text-align: left;
+  width: 100%;
+  min-width: 0;
+  padding: 18px 14px;
+  border-bottom: 1px solid var(--career-stroke);
+  background: transparent;
+  color: var(--career-text);
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+.experience-dossier__tab::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--career-cyan);
+  opacity: 0;
+}
+.experience-dossier__tab[aria-selected='true'] {
+  background: #0b2931;
+}
+.experience-dossier__tab[aria-selected='true']::before {
+  opacity: 1;
+}
+.experience-dossier__tab-number {
+  color: #6b9da7;
+  font-size: 9px;
+  grid-column: 1;
+  grid-row: 1;
+}
+.experience-dossier__tab[aria-selected='true'] .experience-dossier__tab-number {
+  color: var(--career-cyan);
+}
+.experience-dossier__company {
+  font-size: clamp(22px, 1.65vw, 28px);
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+  grid-column: 2;
+  grid-row: 1;
+}
+.experience-dossier__tab-role {
+  color: #bdd0d4;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.experience-dossier__tab-date {
+  color: var(--career-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.experience-dossier__tab-status {
+  color: var(--career-muted);
+  font-size: 8px;
+  grid-column: 1 / -1;
+  grid-row: 2;
+}
+.experience-dossier .is-current {
+  color: #90f9b6;
+}
+.experience-dossier__tab-dot {
+  display: none;
+  grid-column: 3;
+  grid-row: 1;
+}
+.experience-dossier__index-footer {
+  margin: auto 0 0;
+  padding: 20px 14px;
+  color: #6d949c;
+  font-size: 11px;
+  line-height: 1.8;
+}
+.experience-dossier__detail {
+  min-width: 0;
+  padding: clamp(16px, 1.4vw, 26px);
+  animation: career-record-switch 220ms ease-out both;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  -webkit-overflow-scrolling: touch;
+}
+@keyframes career-record-switch {
+  from {
+    opacity: 0;
+    transform: translateX(calc(var(--career-direction, 1) * 6px));
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.experience-dossier__record-brow {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--career-cyan);
+}
+.experience-dossier__record-brow > span:last-child {
+  color: var(--career-muted);
+  font-size: 9px;
+}
+.experience-dossier__record-brow > span.is-current {
+  color: #90f9b6;
+}
+.experience-dossier__detail h2 {
+  margin: 14px 0 2px;
+  font-size: clamp(32px, 2.75vw, 48px);
+  font-weight: 700;
+  line-height: 1.08;
+  overflow-wrap: anywhere;
+}
+.experience-dossier__role {
+  color: var(--career-muted);
+  font-size: clamp(20px, 1.4vw, 24px);
+  line-height: 1.4;
+  margin: 0 0 14px;
+}
+.experience-dossier__metadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--career-stroke);
+}
+.experience-dossier__metadata > span {
+  border: 1px solid #204e57;
+  color: #a8cfd4;
+  padding: 5px 7px;
+  font-size: 12px;
+  line-height: 1.5;
+  max-width: 100%;
+}
+.experience-dossier__metadata .experience-dossier__date {
+  color: var(--career-yellow);
+}
+.experience-dossier__overview {
+  padding-top: 19px;
+}
+.experience-dossier__section-title {
+  color: var(--career-cyan);
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+.experience-dossier__section-title span {
+  color: #6a969e;
+}
+.experience-dossier__overview > p,
+.experience-dossier__contributions li p {
+  font-size: clamp(16px, 1.02vw, 18px);
+  line-height: 1.6;
+  color: #c8dfe2;
+  overflow-wrap: anywhere;
+}
+.experience-dossier__overview > p {
+  margin: 10px 0 0;
+}
+.experience-dossier__contributions {
+  margin-top: 23px;
+}
+.experience-dossier__section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.experience-dossier__contributions ol {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.experience-dossier__contributions li {
+  display: grid;
+  grid-template-columns: 25px minmax(0, 1fr);
+  gap: 10px;
+  padding: 12px 12px 12px 9px;
+  border: 1px solid #173e46;
+  background: #07171b;
+  position: relative;
+}
+.experience-dossier__contributions li::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 0;
+  width: 2px;
+  background: #317781;
+}
+.experience-dossier__achievement-number {
+  color: #76adb4;
+  font-size: 9px;
+  padding-top: 4px;
+}
+.experience-dossier__contributions li p {
+  margin: 0;
+}
+.experience-dossier__contributions mark {
+  color: var(--career-yellow);
+  background: transparent;
+  font-weight: 700;
+}
+.experience-dossier__stack {
+  margin-top: 26px;
+}
+.experience-dossier__stack-toggle {
+  display: inline-flex;
+  gap: 7px;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 7px 9px;
+  border: 1px solid #2a606a;
+  border-radius: 3px;
+  background: #0a2228;
+  color: var(--career-cyan);
+  font-size: 9px;
+}
+.experience-dossier__tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.experience-dossier__tools li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  max-width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #1c464e;
+  background: #07171b;
+  color: #bcd6da;
+  font-size: 13px;
+  line-height: 1.4;
+}
+.experience-dossier__tools li[hidden] {
+  display: none;
+}
+.experience-dossier__tools li:nth-child(-n + 3) {
+  border-color: #2b606c;
+  color: var(--career-cyan);
+}
+.experience-dossier__tools svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+.experience-dossier__tools li > span {
+  overflow-wrap: anywhere;
+}
+.experience-dossier__record-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 23px;
+  padding-top: 14px;
+  border-top: 1px solid var(--career-stroke);
+  color: #638993;
+  font-size: 9px;
+}
+.experience-dossier__record-footer strong {
+  color: var(--career-cyan);
+  font-weight: 600;
+}
+.experience-dossier :is(button, [role='tabpanel']):focus-visible {
+  outline: 2px solid var(--career-cyan);
+  outline-offset: -4px;
+}
+.experience-dossier__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}
+@media (hover: hover) {
+  .experience-dossier__tab:hover {
+    background: #0b252c;
+  }
+  .experience-dossier__tab[aria-selected='true']:hover {
+    background: #0b2931;
+  }
+  .experience-dossier__stack-toggle:hover {
+    border-color: var(--career-cyan);
+  }
+}
+@container (max-width: 600px) {
+  .experience-dossier__frame {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    height: 100%;
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+  .experience-dossier__index {
+    border-right: 0;
+    border-bottom: 1px solid var(--career-stroke);
+    border-radius: 13px 13px 0 0;
+    padding: 8px;
+  }
+  .experience-dossier__index-footer {
+    display: none;
+  }
+  .experience-dossier__tabs {
+    display: grid;
+    grid-template-columns: repeat(var(--career-count), minmax(0, 1fr));
+    gap: 7px;
+  }
+  .experience-dossier__tab {
+    align-items: center;
+    gap: 7px;
+    min-height: 46px;
+    padding: 9px;
+    border: 1px solid #22454d;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
+    row-gap: 4px;
+  }
+  .experience-dossier__tab[aria-selected='true'] {
+    border-color: var(--career-cyan);
+  }
+  .experience-dossier__tab::before,
+  .experience-dossier__tab-role,
+  .experience-dossier__tab-date {
+    display: none;
+  }
+  .experience-dossier__company {
+    font-size: 18px;
+  }
+  .experience-dossier__tab-dot {
+    display: inline;
+    margin-left: auto;
+    color: var(--career-cyan);
+    font-size: 10px;
+  }
+}
+@media (max-width: 992px) {
+  .experience-dossier {
+    --career-fallback-space: calc(100dvh - 128px - env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(48px + env(safe-area-inset-bottom, 0px));
+  }
+  .experience-dossier .content-part > div {
+    padding: 12px 12px 16px;
+    gap: 14px;
+  }
+  .experience-dossier__frame {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    height: 100%;
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+  .experience-dossier__index {
+    border-right: 0;
+    border-bottom: 1px solid var(--career-stroke);
+    border-radius: 13px 13px 0 0;
+    padding: 8px;
+  }
+  .experience-dossier__index-footer {
+    display: none;
+  }
+  .experience-dossier__tabs {
+    display: grid;
+    grid-template-columns: repeat(var(--career-count), minmax(0, 1fr));
+    gap: 7px;
+  }
+  .experience-dossier__tab {
+    align-items: center;
+    gap: 7px;
+    min-height: 46px;
+    padding: 9px;
+    border: 1px solid #22454d;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
+    row-gap: 4px;
+  }
+  .experience-dossier__tab[aria-selected='true'] {
+    border-color: var(--career-cyan);
+  }
+  .experience-dossier__tab::before,
+  .experience-dossier__tab-role,
+  .experience-dossier__tab-date {
+    display: none;
+  }
+  .experience-dossier__company {
+    font-size: 18px;
+  }
+  .experience-dossier__tab-dot {
+    display: inline;
+    margin-left: auto;
+    color: var(--career-cyan);
+    font-size: 10px;
+  }
+  .experience-dossier__detail {
+    padding: 18px 14px;
+  }
+  .experience-dossier__stack-toggle {
+    min-height: 44px;
+  }
+}
+@media (max-width: 430px) {
+  .experience-dossier__record-brow {
+    font-size: 9px;
+  }
+  .experience-dossier__detail h2 {
+    font-size: 34px;
+  }
+  .experience-dossier__contributions li {
+    grid-template-columns: 20px minmax(0, 1fr);
+    gap: 7px;
+    padding: 10px 9px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .experience-dossier *,
+  .experience-dossier *::before,
+  .experience-dossier *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .experience-dossier__detail {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+.experience-dossier .content-part {
+  height: var(--career-space, var(--career-fallback-space));
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+}
+.experience-dossier[data-layout='bounded'] .content-part {
+  overflow: hidden;
+}
+.experience-dossier__tab:first-child {
+  border-top-left-radius: 12px;
+}
+.experience-dossier .content-part,
+.experience-dossier__detail {
+  scrollbar-width: thin;
+  scrollbar-color: #286873 #031014;
+}
+.experience-dossier .content-part::-webkit-scrollbar,
+.experience-dossier__detail::-webkit-scrollbar {
+  width: 6px;
+}
+.experience-dossier .content-part::-webkit-scrollbar-track,
+.experience-dossier__detail::-webkit-scrollbar-track {
+  background: #031014;
+  margin-block: 12px;
+}
+.experience-dossier .content-part::-webkit-scrollbar-thumb,
+.experience-dossier__detail::-webkit-scrollbar-thumb {
+  background: #286873;
+  border-radius: 6px;
+  border: 1px solid #031014;
+}
+.experience-dossier .content-part::-webkit-scrollbar-thumb:hover,
+.experience-dossier__detail::-webkit-scrollbar-thumb:hover {
+  background: #5b9aa3;
+}
+.experience-dossier[data-layout='natural'] .content-part {
+  overflow: auto;
+}
+.experience-dossier[data-layout='natural'] .content-part > div {
+  height: auto;
+  min-height: 100%;
+}
+.experience-dossier[data-layout='natural'] .experience-dossier__body {
+  flex: none;
+}
+.experience-dossier[data-layout='natural'] .experience-dossier__frame {
+  height: auto;
+  grid-template-rows: auto;
+}
+.experience-dossier[data-layout='natural'] .experience-dossier__detail {
+  overflow: visible;
+  scrollbar-gutter: auto;
+}

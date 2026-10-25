@@ -2,22 +2,25 @@
 import DefaultLayout from '@/components/default-layout';
 import TypewriterText from '@/components/typewriter-text';
 import { experienceData } from '@/constants/portfolio-data';
-
-import WorkPlacesList from './List';
+import './experience-dossier.css';
+import ExperienceDossier from './ExperienceDossier';
+import { useDossierViewport } from './useDossierViewport';
 
 const Content = () => {
   const { workPlaces } = experienceData;
+  const viewport = useDossierViewport();
 
   return (
-    <DefaultLayout>
-      <h3 className="greetings-title experience-greetings-title">
-        <TypewriterText text={experienceData['title']} />
-      </h3>
-
-      <div className="after-typing flex flex-col gap-6 overflow-auto work-place-wrapper pr-2 overflow-x-hidden">
-        <WorkPlacesList workPlaces={workPlaces} />
-      </div>
-    </DefaultLayout>
+    <div className="experience-dossier" ref={viewport.host} data-layout={viewport.layout}>
+      <DefaultLayout>
+        <header className="experience-dossier__heading">
+          <h1 className="greetings-title experience-dossier__title">
+            <TypewriterText text={experienceData.title} />
+          </h1>
+        </header>
+        <ExperienceDossier workPlaces={workPlaces} compact={viewport.compact} />
+      </DefaultLayout>
+    </div>
   );
 };
 
