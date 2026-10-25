@@ -574,6 +574,7 @@
 }
 .experience-dossier__tab:first-child {
   border-top-left-radius: 12px;
+  overflow: clip;
 }
 .experience-dossier .content-part,
 .experience-dossier__detail {
