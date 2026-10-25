@@ -1,6 +1,6 @@
 'use client';
 
-import { IProject } from '@/locales';
+import { IProject } from '@/constants/portfolio-data';
 import useEmblaCarousel from 'embla-carousel-react';
 import { MotionConfig, motion, useReducedMotion } from 'motion/react';
 import { KeyboardEvent, useCallback, useEffect, useRef, useState } from 'react';

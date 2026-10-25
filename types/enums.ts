@@ -13,8 +13,3 @@ export enum AppRoutesLabelsEnum {
   SKILLS = 'Skills',
   CONTACT = 'Contact',
 }
-
-export enum LanguageEnum {
-  UKRAINE = 'ua',
-  ENGLISH = 'en',
-}

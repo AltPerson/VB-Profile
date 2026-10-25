@@ -1,73 +1,118 @@
 'use client';
+
 import DefaultLayout from '@/components/default-layout';
-import TypewriterText from '@/components/typewriter-text';
-import { resumeLink } from '@/constants';
-import { useChangeLanguage } from '@/contexts/language-context';
-import { parsedAndFormateDate } from '@/lib/utils/parsedAndFormateDate';
-import { declOfNum, isFloat } from '@/lib/utils/utlis';
-import { IWorkPlace, experienceData, homeData } from '@/locales';
-import { LanguageEnum } from '@/types/enums';
-import parse from 'html-react-parser';
+import { experienceData } from '@/constants/portfolio-data';
+import { getExperienceYears } from '@/lib/utils/getExperience';
+import { useEffect, useMemo, useState } from 'react';
+import { personalCopy } from './personal-terminal-copy';
+import './personal-terminal.css';
+import SignalNetwork from './SignalNetwork';
+import { getTerminalData } from './terminal-data';
+import TerminalPrompt from './TerminalPrompt';
+import TerminalTranscript from './TerminalTranscript';
+import TerminalUtility from './TerminalUtility';
+import { finishTerminal, useTerminalSession } from './useTerminalSession';
+import { useTerminalViewport } from './useTerminalViewport';
 
-const getExperience = (workPlaces: IWorkPlace[], language: LanguageEnum) => {
-  const yearsMappedValues = { ua: ['роком', 'роками', 'роками'], en: ['year', 'years', 'years'] };
-
-  let experience = 0;
-
-  workPlaces.forEach((workPlace) => {
-    const workPlaceExperience = parsedAndFormateDate(workPlace.term, language).experience;
-    experience += workPlaceExperience;
-  });
-
-  experience = Math.floor((experience / 12) * 2) / 2;
-
-  if (isFloat(experience)) {
-    experience = Number(experience.toFixed(1));
-  }
-
-  const languageExperienceWord = declOfNum(experience, yearsMappedValues[language]);
-
-  return `${experience}+ ${languageExperienceWord}`;
-};
-
-const Content = () => {
-  const { language } = useChangeLanguage();
-  const title = homeData[language].title;
-
-  const workPlaces = experienceData[language]['workPlaces'];
-
-  const experience = getExperience(workPlaces, language);
-
+export default function Content() {
+  const [now, setNow] = useState<Date | null>(null),
+    [reduced, setReduced] = useState(false);
+  useEffect(() => {
+    const update = () => setNow(new Date());
+    update();
+    const timer = window.setInterval(update, 60_000);
+    const refresh = () => {
+      if (!document.hidden) update();
+    };
+    document.addEventListener('visibilitychange', refresh);
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const motion = () => setReduced(media.matches);
+    motion();
+    media.addEventListener('change', motion);
+    return () => {
+      window.clearInterval(timer);
+      document.removeEventListener('visibilitychange', refresh);
+      media.removeEventListener('change', motion);
+    };
+  }, []);
+  const years = now ? getExperienceYears(experienceData.workPlaces) : null;
+  const data = useMemo(() => getTerminalData(years), [years]);
+  const session = useTerminalSession(reduced),
+    copy = personalCopy;
+  const finish = () => finishTerminal();
+  const viewport = useTerminalViewport(session.phase);
   return (
-    <DefaultLayout key={language}>
-      <div>
-        <h1 className="greetings-title home-greeting-title">
-          <TypewriterText text={title} />
-        </h1>
-        <h4 className="greetings-subtitle after-typing">{homeData[language]['subtitle']}</h4>
-      </div>
-      <p className="greetings-text text-justify after-typing">
-        {parse(homeData[language]['text'], {
-          replace(domNode: any) {
-            if (domNode.attribs && domNode.attribs.id === 'exp') {
-              return <>{experience}</>;
-            }
-          },
-        })}
-      </p>
-      <div className="button-shadow after-typing">
-        <a
-          target="_blank"
-          href={resumeLink}
-          className={`bg-aureolin button-text button-clip-path ${
-            language === LanguageEnum.ENGLISH ? 'max-w-[220px]' : 'max-w-[335px]'
-          } text-left p-[14px] border-r-[2px] border-red-600 button-bg hover-opacity block`}
-        >
-          {homeData[language]['buttonText']}
-        </a>
-      </div>
-    </DefaultLayout>
+    <div
+      className="personal-terminal home-personal-terminal"
+      lang="en"
+      ref={viewport.host}
+      data-layout={viewport.layout}
+      data-ready={session.phase === 'ready'}
+      data-phase={session.phase}
+      data-stage={session.active ?? session.phase}
+      data-run={session.run}
+      onKeyDownCapture={(event) => {
+        if (event.key === 'Escape' && session.phase !== 'ready') finish();
+      }}
+    >
+      <DefaultLayout>
+        <section className="personal-terminal__window" aria-label="TERMINAL">
+          <header className="personal-terminal__topbar">
+            <span className="personal-terminal__dots" aria-hidden="true">
+              <i />
+              <i />
+              <i />
+            </span>
+            <h1 className="personal-terminal__label">TERMINAL</h1>
+            <span
+              className="personal-terminal__online"
+              aria-label={copy.online}
+              title={copy.online}
+            >
+              <i aria-hidden="true" />
+              <span aria-hidden="true">{copy.online}</span>
+            </span>
+          </header>
+          {session.phase !== 'ready' && (
+            <button type="button" className="personal-terminal__skip" onClick={finish}>
+              {copy.skip}
+            </button>
+          )}
+          <div className="personal-terminal__canvas">
+            <TerminalTranscript session={session} data={data} />
+            <div className="personal-terminal__hud">
+              <TerminalUtility reduced={reduced} />
+              <SignalNetwork key={session.run} session={session} reduced={reduced} />
+            </div>
+            <div className="personal-terminal__prompt-slot">
+              {(session.phase === 'ready' ||
+                session.phase === 'utility' ||
+                session.phase === 'auto-typing') && (
+                <TerminalPrompt
+                  reduced={reduced}
+                  ready={session.phase === 'ready'}
+                  session={session}
+                />
+              )}
+            </div>
+          </div>
+          <span
+            className="personal-terminal__sr"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            {session.phase === 'ready' &&
+              (session.announcement ? (
+                <span key={session.entries.at(-1)?.id}>
+                  {copy.completed + ': ' + session.announcement}
+                </span>
+              ) : (
+                copy.readyAnnouncement
+              ))}
+          </span>
+        </section>
+      </DefaultLayout>
+    </div>
   );
-};
-
-export default Content;
+}

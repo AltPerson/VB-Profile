@@ -1,4 +1,3 @@
-import LanguageProvider from '@/contexts/language-context';
 import PlayMusicProvider from '@/contexts/play-music-context';
 import { Rajdhani, Rationale, Tomorrow } from 'next/font/google';
 import { ReactNode } from 'react';
@@ -24,9 +23,7 @@ const rationale = Rationale({
 const Providers = ({ children }: { children: ReactNode }) => {
   return (
     <body className={`${rajdhani.variable} ${tomorrow.variable} ${rationale.variable}`}>
-      <PlayMusicProvider>
-        <LanguageProvider>{children}</LanguageProvider>
-      </PlayMusicProvider>
+      <PlayMusicProvider>{children}</PlayMusicProvider>
     </body>
   );
 };

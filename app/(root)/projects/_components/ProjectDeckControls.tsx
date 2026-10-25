@@ -1,4 +1,4 @@
-import { IProject } from '@/locales';
+import { IProject } from '@/constants/portfolio-data';
 import { motion, useReducedMotion } from 'motion/react';
 import { DeckCopy, twoDigits } from './deck-copy';
 

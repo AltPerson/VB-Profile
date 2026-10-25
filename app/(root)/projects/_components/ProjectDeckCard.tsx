@@ -1,4 +1,4 @@
-import { IProject } from '@/locales';
+import { IProject } from '@/constants/portfolio-data';
 import { AnimatePresence, motion } from 'motion/react';
 import { RefObject, useEffect, useId, useRef, useState } from 'react';
 import { DeckCopy, deckEase, twoDigits } from './deck-copy';

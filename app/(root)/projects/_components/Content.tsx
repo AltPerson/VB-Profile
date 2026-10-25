@@ -2,15 +2,14 @@
 
 import DefaultLayout from '@/components/default-layout';
 import TypewriterText from '@/components/typewriter-text';
-import { useChangeLanguage } from '@/contexts/language-context';
-import { projectsData } from '@/locales';
+import { projectsData } from '@/constants/portfolio-data';
 import ProjectsDataDeck from './ProjectsDataDeck';
 import { deckCopy } from './deck-copy';
 import './projects-data-deck.css';
 
 export default function Content() {
-  const { language } = useChangeLanguage();
-  const data = projectsData[language];
+  const data = projectsData;
+  const projects = data.projects;
   return (
     <div className="projects-deck">
       <DefaultLayout>
@@ -18,7 +17,7 @@ export default function Content() {
           <h3 className="greetings-title projects-greetings-title">
             <TypewriterText text={data.title} />
           </h3>
-          <ProjectsDataDeck projects={data.projects} copy={deckCopy[language]} />
+          <ProjectsDataDeck projects={projects} copy={deckCopy} />
         </div>
         <a
           href="https://github.com/AltPerson"

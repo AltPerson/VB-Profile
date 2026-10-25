@@ -1,7 +1,5 @@
-import { useChangeLanguage } from '@/contexts/language-context';
+import { IWorkPlace } from '@/constants/portfolio-data';
 import { parsedAndFormateDate } from '@/lib/utils/parsedAndFormateDate';
-import { IWorkPlace } from '@/locales';
-import { LanguageEnum } from '@/types/enums';
 import parse from 'html-react-parser';
 
 const calculateIndexDelay = (index: number) => index * 0.12;
@@ -19,7 +17,7 @@ const formatKeyWordsInAchievement = (text: string, keyWords: string[]) => {
   return tempString;
 };
 
-const renderWorkPlaces = (workPlaces: IWorkPlace[], language: LanguageEnum) => {
+const renderWorkPlaces = (workPlaces: IWorkPlace[]) => {
   return workPlaces.map((workPlace, index) => (
     <div
       className="work-place-box"
@@ -30,9 +28,7 @@ const renderWorkPlaces = (workPlaces: IWorkPlace[], language: LanguageEnum) => {
     >
       <h5 className="work-place-title">{workPlace.title}</h5>
 
-      <h6 className="work-place-date">
-        {parsedAndFormateDate(workPlace.term, language).formattedTerm}
-      </h6>
+      <h6 className="work-place-date">{parsedAndFormateDate(workPlace.term).formattedTerm}</h6>
 
       <p className="work-place-description mt-3">{workPlace.description}</p>
 
@@ -54,9 +50,7 @@ interface IProps {
 }
 
 const WorkPlacesList = ({ workPlaces }: IProps) => {
-  const { language } = useChangeLanguage();
-
-  return renderWorkPlaces(workPlaces, language);
+  return renderWorkPlaces(workPlaces);
 };
 
 export default WorkPlacesList;

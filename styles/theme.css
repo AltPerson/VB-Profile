@@ -423,35 +423,10 @@ body {
     position: relative;
   }
 
-  .settings-button {
-    background-image: url('/assets/icons/settings.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  .settings-modal {
-    transform: scale(0);
-    transition: transform 0.25s ease-out;
-  }
-
-  .settings-modal-active {
-    transform: scale(1);
-  }
-
   .bg-button-common {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-  }
-
-  .settings-hint {
-    opacity: 0;
-    border-radius: 10px 0px 10px 10px;
-    transition: opacity 1s linear;
-  }
-
-  .settings-hint-active {
-    opacity: 1;
   }
 
   .projects-content {

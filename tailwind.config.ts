@@ -23,7 +23,6 @@ const config: Config = {
       backgroundImage: {
         onMusic: "url('/assets/icons/on-music.svg')",
         offMusic: "url('/assets/icons/off-music.svg')",
-        language: "url('/assets/icons/language.svg')",
         projectOne:
           "linear-gradient(rgba(32, 52, 54, 0.4) 100%, rgba(32, 52, 54, 0.4) 100%),url('/assets/gifs/project_first.gif')",
         projectTwo:

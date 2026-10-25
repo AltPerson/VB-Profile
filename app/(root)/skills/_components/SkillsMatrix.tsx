@@ -11,10 +11,9 @@ import {
   getSkills,
   skillEase,
   skillsCopy,
-  SkillsLocale,
 } from './skills-taxonomy';
 
-export default function SkillsMatrix({ locale }: { locale: SkillsLocale }) {
+export default function SkillsMatrix() {
   const [selected, setSelected] = useState<CategoryId>('core-frontend');
   const [query, setQuery] = useState('');
   const [detail, setDetail] = useState(false);
@@ -30,8 +29,8 @@ export default function SkillsMatrix({ locale }: { locale: SkillsLocale }) {
   const overviewScroll = useRef(0);
   const needsFocus = useRef(false);
   const panelId = useId();
-  const copy = skillsCopy[locale];
-  const skills = useMemo(() => getSkills(locale), [locale]);
+  const copy = skillsCopy;
+  const skills = useMemo(() => getSkills(), []);
   const active = categories.find((category) => category.id === selected)!;
   const normalizedQuery = query.trim().toLocaleLowerCase();
   const searching = normalizedQuery.length > 0;
@@ -178,13 +177,13 @@ export default function SkillsMatrix({ locale }: { locale: SkillsLocale }) {
               className="skills-matrix__category"
               style={{ '--category-accent': category.accent } as CSSProperties}
               aria-pressed={(!compact || detail) && selected === category.id}
-              aria-label={`${category.labels[locale]}, ${count} ${copy.technologies.toLocaleLowerCase()}`}
+              aria-label={`${category.label}, ${count} ${copy.technologies.toLocaleLowerCase()}`}
               onClick={(event) => selectCategory(category.id, event.currentTarget)}
             >
               <span className="skills-matrix__category-icon">
                 <CategoryIcon id={category.id} />
               </span>
-              <span className="skills-matrix__category-label">{category.labels[locale]}</span>
+              <span className="skills-matrix__category-label">{category.label}</span>
               <span className="skills-matrix__category-count">
                 {String(count).padStart(2, '0')}
                 <span aria-hidden="true"> ↗</span>
@@ -225,13 +224,13 @@ export default function SkillsMatrix({ locale }: { locale: SkillsLocale }) {
                   {searching ? '⌕' : String(categories.indexOf(active) + 1).padStart(2, '0')}
                 </span>
                 <h4 id={`${panelId}-heading`} ref={heading} tabIndex={-1}>
-                  {searching ? copy.results : active.labels[locale]}
+                  {searching ? copy.results : active.label}
                 </h4>
                 <span className="skills-matrix__panel-count">
                   {visibleSkills.length} <span>{copy.technologies}</span>
                 </span>
               </div>
-              <p>{searching ? copy.all : active.descriptions[locale]}</p>
+              <p>{searching ? copy.all : active.description}</p>
             </div>
             {!reduced && !searching && (
               <motion.div
@@ -247,7 +246,7 @@ export default function SkillsMatrix({ locale }: { locale: SkillsLocale }) {
               ref={setListElement}
               tabIndex={listScrollable ? 0 : -1}
               role="region"
-              aria-label={searching ? copy.results : active.labels[locale]}
+              aria-label={searching ? copy.results : active.label}
             >
               {visibleSkills.length ? (
                 <ul className="skills-matrix__tiles">
@@ -260,9 +259,7 @@ export default function SkillsMatrix({ locale }: { locale: SkillsLocale }) {
                       searching={searching}
                       categoryLabel={
                         searching
-                          ? categories.find((category) => category.id === skill.categoryId)!.labels[
-                              locale
-                            ]
+                          ? categories.find((category) => category.id === skill.categoryId)!.label
                           : undefined
                       }
                     />
@@ -286,7 +283,7 @@ export default function SkillsMatrix({ locale }: { locale: SkillsLocale }) {
         {searching
           ? `${copy.results}: ${visibleSkills.length}`
           : !compact || detail
-            ? `${active.labels[locale]}: ${visibleSkills.length}`
+            ? `${active.label}: ${visibleSkills.length}`
             : copy.categories}
       </span>
     </motion.div>

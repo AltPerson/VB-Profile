@@ -1,21 +1,19 @@
 'use client';
 import DefaultLayout from '@/components/default-layout';
 import TypewriterText from '@/components/typewriter-text';
-import { useChangeLanguage } from '@/contexts/language-context';
-import { skillsData } from '@/locales';
+import { skillsData } from '@/constants/portfolio-data';
 import SkillsMatrix from './SkillsMatrix';
 import './skills-matrix.css';
 
 const Content = () => {
-  const { language } = useChangeLanguage();
   return (
     <div className="skills-matrix">
       <DefaultLayout>
         <div className="skills-matrix__workspace">
           <h3 className="greetings-title projects-greetings-title">
-            <TypewriterText text={skillsData[language]['title']} />
+            <TypewriterText text={skillsData['title']} />
           </h3>
-          <SkillsMatrix locale={language} />
+          <SkillsMatrix />
         </div>
       </DefaultLayout>
     </div>

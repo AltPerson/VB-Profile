@@ -1,20 +1,18 @@
 'use client';
 import DefaultLayout from '@/components/default-layout';
 import TypewriterText from '@/components/typewriter-text';
-import { useChangeLanguage } from '@/contexts/language-context';
-import { contactData } from '@/locales';
+import { contactData } from '@/constants/portfolio-data';
 import Image from 'next/image';
 import Link from 'next/link';
 
 const Content = () => {
-  const { language } = useChangeLanguage();
   return (
-    <DefaultLayout key={language}>
+    <DefaultLayout>
       <h3 className="greetings-title projects-greetings-title">
-        <TypewriterText text={contactData[language]['title']} />
+        <TypewriterText text={contactData['title']} />
       </h3>
       <ul className="after-typing flex flex-col gap-11">
-        {contactData[language].contacts.map((contact, index) => (
+        {contactData.contacts.map((contact, index) => (
           <li
             key={index}
             className="flex justify-between gap-4 items-center border-b-[1px] border-blueNeon pb-1"

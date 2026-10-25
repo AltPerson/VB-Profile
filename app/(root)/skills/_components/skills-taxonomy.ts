@@ -1,17 +1,9 @@
-import { skillsData } from '@/locales';
-
-export type SkillsLocale = 'en' | 'ua';
+import { skillsData } from '@/constants/portfolio-data';
 export const categories = [
   {
     id: 'core-frontend',
-    labels: {
-      en: 'Frontend',
-      ua: 'Фронтенд',
-    },
-    descriptions: {
-      en: 'Core UI frameworks, rendering and browser foundations.',
-      ua: 'Фреймворки, рендеринг і вебоснова.',
-    },
+    label: 'Frontend',
+    description: 'Core UI frameworks, rendering and browser foundations.',
     accent: '#5EF6FF',
     keys: [
       'JavaScript ES6+',
@@ -33,14 +25,8 @@ export const categories = [
   },
   {
     id: 'styling-ui',
-    labels: {
-      en: 'Styling & UI',
-      ua: 'Стилізація та UI',
-    },
-    descriptions: {
-      en: 'Styling systems, accessible and responsive interfaces.',
-      ua: 'Системи стилізації, доступність і адаптивні інтерфейси.',
-    },
+    label: 'Styling & UI',
+    description: 'Styling systems, accessible and responsive interfaces.',
     accent: '#ED5BBA',
     keys: [
       'CSS3',
@@ -58,14 +44,8 @@ export const categories = [
   },
   {
     id: 'state-data',
-    labels: {
-      en: 'State & Data',
-      ua: 'Стан і дані',
-    },
-    descriptions: {
-      en: 'State, API integrations and asynchronous data.',
-      ua: 'Керування станом, API та асинхронними даними.',
-    },
+    label: 'State & Data',
+    description: 'State, API integrations and asynchronous data.',
     accent: '#A480FF',
     keys: [
       'Redux Toolkit',
@@ -83,27 +63,15 @@ export const categories = [
   },
   {
     id: 'forms-validation',
-    labels: {
-      en: 'Forms & Validation',
-      ua: 'Форми та валідація',
-    },
-    descriptions: {
-      en: 'Interactive forms, schemas and validation patterns.',
-      ua: 'Інтерактивні форми, схеми та підходи до валідації.',
-    },
+    label: 'Forms & Validation',
+    description: 'Interactive forms, schemas and validation patterns.',
     accent: '#FFBC74',
     keys: ['React Hook Form', 'Formik', 'Yup', 'Zod', 'Dynamic Forms', 'Conditional Validation'],
   },
   {
     id: 'testing-quality',
-    labels: {
-      en: 'Testing & Quality',
-      ua: 'Тестування та якість',
-    },
-    descriptions: {
-      en: 'Tests, monitoring and user-facing quality.',
-      ua: 'Тести, моніторинг і якість користувацького досвіду.',
-    },
+    label: 'Testing & Quality',
+    description: 'Tests, monitoring and user-facing quality.',
     accent: '#78F4C4',
     keys: [
       'Core Web Vitals',
@@ -121,14 +89,8 @@ export const categories = [
   },
   {
     id: 'architecture',
-    labels: {
-      en: 'Architecture & Performance',
-      ua: 'Архітектура й оптимізація',
-    },
-    descriptions: {
-      en: 'Composable frontend design and performance techniques.',
-      ua: 'Компонентна архітектура та оптимізація продуктивності.',
-    },
+    label: 'Architecture & Performance',
+    description: 'Composable frontend design and performance techniques.',
     accent: '#72C8FF',
     keys: [
       'Frontend Architecture',
@@ -140,14 +102,8 @@ export const categories = [
   },
   {
     id: 'tooling-delivery',
-    labels: {
-      en: 'Tools & Delivery',
-      ua: 'Інструменти та доставка',
-    },
-    descriptions: {
-      en: 'Developer workflow, delivery and collaboration tools.',
-      ua: 'Інструменти розробки, доставки та командної роботи.',
-    },
+    label: 'Tools & Delivery',
+    description: 'Developer workflow, delivery and collaboration tools.',
     accent: '#8DE7F0',
     keys: [
       'Storybook',
@@ -163,14 +119,8 @@ export const categories = [
   },
   {
     id: 'ai-assisted',
-    labels: {
-      en: 'AI-Assisted Development',
-      ua: 'AI-інструменти розробки',
-    },
-    descriptions: {
-      en: 'AI-powered developer tools in my workflow.',
-      ua: 'AI-інструменти, які використовую в розробці.',
-    },
+    label: 'AI-Assisted Development',
+    description: 'AI-powered developer tools in my workflow.',
     accent: '#F7B44C',
     keys: ['OpenAI Codex', 'Claude Code', 'Cursor', 'GitHub Copilot'],
   },
@@ -181,26 +131,24 @@ export interface Skill {
   label: string;
   categoryId: CategoryId;
 }
-export function getSkills(locale: SkillsLocale): Skill[] {
-  const source = skillsData.en.skills;
-  const localized = skillsData[locale].skills;
+export function getSkills(): Skill[] {
+  const source = skillsData.skills;
   const assignments = categories.flatMap((category) =>
     category.keys.map((key) => ({ key, categoryId: category.id })),
   );
   if (
     assignments.length !== source.length ||
-    localized.length !== source.length ||
     new Set(assignments.map((item) => item.key)).size !== source.length ||
-    new Set(localized).size !== localized.length ||
+    new Set(source).size !== source.length ||
     assignments.some((item) => !source.includes(item.key))
   ) {
     throw new Error(
-      'Skills taxonomy must classify every source skill exactly once in both locales.',
+      'Skills taxonomy must classify every source skill exactly once in the source data.',
     );
   }
-  return source.map((key, index) => ({
+  return source.map((key) => ({
     id: key,
-    label: localized[index],
+    label: key,
     categoryId: assignments.find((item) => item.key === key)!.categoryId,
   }));
 }
@@ -210,28 +158,14 @@ export function categorySkills(categoryId: CategoryId, skills: Skill[]) {
 }
 export const skillEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
 export const skillsCopy = {
-  en: {
-    technologies: 'TECHNOLOGIES',
-    categories: 'Skill categories',
-    search: 'Search technologies…',
-    clear: 'Clear search',
-    results: 'Search results',
-    empty: 'No matching technologies',
-    emptyHint: 'Try a different technology or clear your search.',
-    back: 'Back to categories',
-    category: 'Category',
-    all: 'Across all categories',
-  },
-  ua: {
-    technologies: 'ТЕХНОЛОГІЙ',
-    categories: 'Категорії навичок',
-    search: 'Пошук технологій…',
-    clear: 'Очистити пошук',
-    results: 'Результати пошуку',
-    empty: 'Нічого не знайдено',
-    emptyHint: 'Спробуйте іншу назву технології або очистіть пошук.',
-    back: 'До категорій',
-    category: 'Категорія',
-    all: 'У всіх категоріях',
-  },
+  technologies: 'TECHNOLOGIES',
+  categories: 'Skill categories',
+  search: 'Search technologies…',
+  clear: 'Clear search',
+  results: 'Search results',
+  empty: 'No matching technologies',
+  emptyHint: 'Try a different technology or clear your search.',
+  back: 'Back to categories',
+  category: 'Category',
+  all: 'Across all categories',
 };
