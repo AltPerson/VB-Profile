@@ -34,3 +34,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Generated Lighthouse audit evidence (keep local, do not ship with application)
+/reports/lighthouse/
+/.lighthouseci/

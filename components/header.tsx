@@ -42,7 +42,7 @@ export default function Header() {
             type="button"
             className="sound-control"
             onClick={togglePlayMusic}
-            aria-label={action}
+            aria-label={`${playMusic ? 'Sound On' : 'Sound Off'} — ${action}`}
             aria-pressed={playMusic}
             aria-busy={pending}
             aria-describedby={audioError ? 'sound-status' : undefined}

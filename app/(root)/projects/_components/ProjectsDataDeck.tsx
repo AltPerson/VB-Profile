@@ -7,6 +7,7 @@ import { KeyboardEvent, useCallback, useEffect, useRef, useState } from 'react';
 import ProjectDeckCard from './ProjectDeckCard';
 import ProjectDeckControls from './ProjectDeckControls';
 import { DeckCopy } from './deck-copy';
+import { warmProjectMedia } from './project-media';
 
 interface Props {
   projects: IProject[];
@@ -112,6 +113,8 @@ export default function ProjectsDataDeck({ projects, copy }: Props) {
             aria-label={copy.carousel}
             onDragStartCapture={(event) => event.preventDefault()}
             onPointerDownCapture={(event) => {
+              warmProjectMedia(projects[(selected + 1) % projects.length]);
+              warmProjectMedia(projects[(selected + projects.length - 1) % projects.length]);
               pointerStart.current = { x: event.clientX, y: event.clientY };
               dragged.current = false;
             }}

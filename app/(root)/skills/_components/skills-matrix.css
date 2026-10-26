@@ -1,4 +1,4 @@
-.skills-matrix {
+﻿.skills-matrix {
   /* Sites's EXISTING identity */
   --skill-cyan: #5ef6ff;
   --skill-red: #f75049;
@@ -219,7 +219,7 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--skill-category-gap);
   padding: 4px;
-  margin: -4px;
+  margin: -4px 0;
 }
 .skills-matrix__category {
   position: relative;
@@ -347,7 +347,7 @@
     sans-serif;
   color: var(--skill-cyan);
 }
-.skills-matrix__panel h4 {
+.skills-matrix__panel h2 {
   font-size: 25px;
   font-weight: 700;
   line-height: 1.15;
@@ -476,7 +476,7 @@
 }
 .skills-matrix button:focus-visible,
 .skills-matrix__list:focus-visible,
-.skills-matrix__panel h4:focus-visible {
+.skills-matrix__panel h2:focus-visible {
   outline: 2px solid var(--skill-cyan);
   outline-offset: 3px;
   box-shadow: var(--skill-focus);
@@ -671,7 +671,7 @@
   .skills-matrix__panel-count > span {
     font-size: 10px;
   }
-  .skills-matrix__panel h4 {
+  .skills-matrix__panel h2 {
     font-size: 23px;
   }
   .skills-matrix__panel-index {

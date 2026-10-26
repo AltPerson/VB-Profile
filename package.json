@@ -5,6 +5,7 @@
   "type": "module",
   "packageManager": "pnpm@10.33.0",
   "scripts": {
+    "audit:lighthouse": "node scripts/lighthouse.mjs",
     "dev": "next dev -H 0.0.0.0 -p 3000",
     "build": "next build",
     "start": "next start",
@@ -31,6 +32,7 @@
     "three": "0.170.0"
   },
   "devDependencies": {
+    "@lhci/cli": "0.15.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

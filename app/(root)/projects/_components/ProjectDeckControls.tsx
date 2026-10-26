@@ -1,6 +1,7 @@
 import { IProject } from '@/constants/portfolio-data';
 import { motion, useReducedMotion } from 'motion/react';
 import { DeckCopy, twoDigits } from './deck-copy';
+import { warmProjectMedia } from './project-media';
 
 interface Props {
   projects: IProject[];
@@ -40,8 +41,14 @@ export default function ProjectDeckControls({
         className="projects-deck__nav-button"
         tabIndex={0}
         type="button"
-        aria-label={copy.previousLabel}
+        aria-label={`${copy.previous} — ${copy.previousLabel}`}
         onClick={onPrevious}
+        onPointerEnter={() =>
+          warmProjectMedia(projects[(selected + projects.length - 1) % projects.length])
+        }
+        onFocus={() =>
+          warmProjectMedia(projects[(selected + projects.length - 1) % projects.length])
+        }
         whileTap={reducedMotion ? undefined : { scale: 0.98 }}
       >
         <DeckArrow direction="left" />
@@ -57,6 +64,8 @@ export default function ProjectDeckControls({
               aria-label={`${copy.goTo} ${index + 1} ${copy.of} ${projects.length}: ${project.title}`}
               aria-current={selected === index ? 'true' : undefined}
               onClick={() => onSelect(index)}
+              onPointerEnter={() => warmProjectMedia(project)}
+              onFocus={() => warmProjectMedia(project)}
             >
               <span aria-hidden="true" />
             </button>
@@ -70,8 +79,10 @@ export default function ProjectDeckControls({
         className="projects-deck__nav-button"
         tabIndex={0}
         type="button"
-        aria-label={copy.nextLabel}
+        aria-label={`${copy.next} — ${copy.nextLabel}`}
         onClick={onNext}
+        onPointerEnter={() => warmProjectMedia(projects[(selected + 1) % projects.length])}
+        onFocus={() => warmProjectMedia(projects[(selected + 1) % projects.length])}
         whileTap={reducedMotion ? undefined : { scale: 0.98 }}
       >
         <span>{copy.next}</span>

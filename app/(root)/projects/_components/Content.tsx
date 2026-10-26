@@ -14,9 +14,9 @@ export default function Content() {
     <div className="projects-deck">
       <DefaultLayout>
         <div className="projects-deck__showcase">
-          <h3 className="greetings-title projects-greetings-title">
+          <h1 className="greetings-title projects-greetings-title">
             <TypewriterText text={data.title} />
-          </h3>
+          </h1>
           <ProjectsDataDeck projects={projects} copy={deckCopy} />
         </div>
         <a

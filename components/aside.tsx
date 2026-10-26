@@ -3,6 +3,7 @@ import { classNames } from '@/lib/utils/classnames';
 import { AppRoutesEnum } from '@/types/enums';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef } from 'react';
+import AnimatedCity from './animated-city';
 
 const Aside = () => {
   const pathname = usePathname();
@@ -58,14 +59,16 @@ const Aside = () => {
       </div>
       <div
         className={classNames(
-          `flex-[1_1_50%] h-full`,
+          `flex-[1_1_50%] h-full city-media-surface`,
           pathname === AppRoutesEnum.HOME ? 'central-bg-0' : '',
           pathname === AppRoutesEnum.EXPERIENCE ? 'central-bg-1' : '',
           pathname === AppRoutesEnum.PROJECTS ? 'central-bg-2' : '',
           pathname === AppRoutesEnum.SKILLS ? 'central-bg-3' : '',
           pathname === AppRoutesEnum.CONTACT ? 'central-bg-4' : '',
         )}
-      />
+      >
+        <AnimatedCity />
+      </div>
     </aside>
   );
 };

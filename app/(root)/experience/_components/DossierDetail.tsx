@@ -37,7 +37,7 @@ export default function DossierDetail({
 }) {
   const { source, company, role, current, period, duration, index } = record;
   return (
-    <article
+    <div
       id={`${id}-panel`}
       role="tabpanel"
       aria-labelledby={`${id}-tab-${index}`}
@@ -99,8 +99,8 @@ export default function DossierDetail({
               onClick={onToggle}
               aria-label={
                 expanded
-                  ? 'Show fewer technologies'
-                  : `Show all ${source.technologies.length} technologies`
+                  ? 'Show less — Show fewer technologies'
+                  : `Show all — Show all ${source.technologies.length} technologies`
               }
             >
               {expanded ? 'SHOW LESS' : 'SHOW ALL'}{' '}
@@ -124,6 +124,6 @@ export default function DossierDetail({
         <span>END OF RECORD</span>
         <strong>VB · EXPERIENCE</strong>
       </footer>
-    </article>
+    </div>
   );
 }

@@ -174,7 +174,6 @@ export default function SkillsMatrix() {
               className="skills-matrix__category"
               style={{ '--category-accent': category.accent } as CSSProperties}
               aria-pressed={(!compact || detail) && selected === category.id}
-              aria-label={`${category.label}, ${count} ${copy.technologies.toLocaleLowerCase()}`}
               onClick={(event) => selectCategory(category.id, event.currentTarget)}
             >
               <span className="skills-matrix__category-icon">
@@ -220,9 +219,9 @@ export default function SkillsMatrix() {
                 <span className="skills-matrix__panel-index" aria-hidden="true">
                   {searching ? '⌕' : String(categories.indexOf(active) + 1).padStart(2, '0')}
                 </span>
-                <h4 id={`${panelId}-heading`} ref={heading} tabIndex={-1}>
+                <h2 id={`${panelId}-heading`} ref={heading} tabIndex={-1}>
                   {searching ? copy.results : active.label}
-                </h4>
+                </h2>
                 <span className="skills-matrix__panel-count">
                   {visibleSkills.length} <span>{copy.technologies}</span>
                 </span>
@@ -243,7 +242,7 @@ export default function SkillsMatrix() {
               ref={setListElement}
               tabIndex={listScrollable ? 0 : -1}
               role="region"
-              aria-label={searching ? copy.results : active.label}
+              aria-label={`${searching ? copy.results : active.label} — ${copy.technologies}`}
             >
               {visibleSkills.length ? (
                 <ul className="skills-matrix__tiles">

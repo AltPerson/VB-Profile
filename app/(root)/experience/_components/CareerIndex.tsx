@@ -46,10 +46,8 @@ export default function CareerIndex({
             role="tab"
             id={`${id}-tab-${index}`}
             aria-controls={`${id}-panel`}
-            aria-describedby={`${id}-employment-${index}`}
             aria-selected={selected === index}
             tabIndex={selected === index ? 0 : -1}
-            aria-label={record.role ? `${record.company}, ${record.role}` : record.company}
             className="experience-dossier__tab"
             onClick={() => onSelect(index)}
             onKeyDown={(event) => keys(event, index)}

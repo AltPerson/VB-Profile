@@ -64,13 +64,9 @@ export default function Content() {
               <i />
             </span>
             <h1 className="personal-terminal__label">TERMINAL</h1>
-            <span
-              className="personal-terminal__online"
-              aria-label={copy.online}
-              title={copy.online}
-            >
+            <span className="personal-terminal__online" title={copy.online}>
               <i aria-hidden="true" />
-              <span aria-hidden="true">{copy.online}</span>
+              <span>{copy.online}</span>
             </span>
           </header>
           {session.phase !== 'ready' && (

@@ -104,7 +104,7 @@ export default function SignalNetwork({
               data-active={active === group}
               disabled={!ready || session.nodeTyping}
               aria-busy={session.nodeTyping}
-              aria-label={`${copy.network.run} ${command} — ${label} (${copy.network.node})`}
+              aria-label={`${short} ${label} · ${command} — ${copy.network.run} ${command} (${copy.network.node})`}
               style={
                 {
                   '--node-x': `${(x / 220) * 100}%`,

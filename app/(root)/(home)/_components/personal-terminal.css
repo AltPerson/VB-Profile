@@ -1374,3 +1374,16 @@
   grid-template-areas: 'stream';
   gap: 0;
 }
+
+/* Keep utility labels readable on compact screens without changing the HUD geometry. */
+.home-personal-terminal {
+  font-size: max(12px, 1em);
+}
+.home-personal-terminal .personal-terminal__label,
+.home-personal-terminal .personal-terminal__online,
+.home-personal-terminal .personal-terminal__utc-offset,
+.home-personal-terminal .signal-network__dot,
+.home-personal-terminal .signal-network__last,
+.home-personal-terminal .signal-network__last strong {
+  font-size: 12px;
+}

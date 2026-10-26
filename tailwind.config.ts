@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss';
+﻿import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
@@ -24,11 +24,11 @@ const config: Config = {
         onMusic: "url('/assets/icons/on-music.svg')",
         offMusic: "url('/assets/icons/off-music.svg')",
         projectOne:
-          "linear-gradient(rgba(32, 52, 54, 0.4) 100%, rgba(32, 52, 54, 0.4) 100%),url('/assets/gifs/project_first.gif')",
+          "linear-gradient(rgba(32, 52, 54, 0.4) 100%, rgba(32, 52, 54, 0.4) 100%),url('/assets/animations/project_first.webp')",
         projectTwo:
-          "linear-gradient(rgba(0, 0, 0, 0.5) 100%, rgba(32, 52, 54, 0.4) 100%),url('/assets/images/monitor-bg.png'),url('/assets/gifs/project_second.gif')",
+          "linear-gradient(rgba(0, 0, 0, 0.5) 100%, rgba(32, 52, 54, 0.4) 100%),url('/assets/images/monitor-bg.png'),url('/assets/animations/project_second.webp')",
         projectThird:
-          "linear-gradient(rgba(32, 52, 54, 0.4) 100%, rgba(32, 52, 54, 0.4) 100%),url('/assets/gifs/project_third.gif')",
+          "linear-gradient(rgba(32, 52, 54, 0.4) 100%, rgba(32, 52, 54, 0.4) 100%),url('/assets/animations/project_third.webp')",
       },
     },
   },

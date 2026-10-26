@@ -10,9 +10,9 @@ const Content = () => {
     <div className="skills-matrix">
       <DefaultLayout>
         <div className="skills-matrix__workspace">
-          <h3 className="greetings-title projects-greetings-title">
+          <h1 className="greetings-title projects-greetings-title">
             <TypewriterText text={skillsData['title']} />
-          </h3>
+          </h1>
           <SkillsMatrix />
         </div>
       </DefaultLayout>

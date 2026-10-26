@@ -110,7 +110,7 @@ export default function Content() {
                 <a
                   className="contact-uplink__send"
                   href={`mailto:${email.link}`}
-                  aria-label={`Send an email to ${email.link}`}
+                  aria-label={`Send Email to ${email.link}`}
                 >
                   Send Email <FiArrowUpRight aria-hidden="true" />
                 </a>
@@ -118,7 +118,11 @@ export default function Content() {
                   className="contact-uplink__copy"
                   type="button"
                   onClick={copyEmail}
-                  aria-label="Copy email address"
+                  aria-label={
+                    copyState === 'copied'
+                      ? 'Copied! Copy email address again'
+                      : 'Copy email address'
+                  }
                   aria-busy={copyState === 'pending'}
                   aria-describedby="uplink-copy-status"
                   data-copied={copyState === 'copied'}

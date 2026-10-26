@@ -43,7 +43,8 @@ function AnimatedText({ text, onComplete }: TypewriterTextProps) {
   }, [visibleCount, characters.length, onComplete, setTypingComplete]);
 
   return (
-    <span className="typewriter" aria-label={text}>
+    <span className="typewriter">
+      <span className="sr-only">{text}</span>
       <span className="typewriter-reserve" aria-hidden="true">
         {text}
       </span>

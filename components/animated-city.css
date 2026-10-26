@@ -1,0 +1,61 @@
+﻿/* Media-only enhancement: original cover geometry, crop positions and lighting layers. */
+.city-media-surface {
+  position: relative;
+  isolation: isolate;
+  --city-x: 20%;
+}
+.city-media-surface.central-bg-1 {
+  --city-x: 40%;
+}
+.city-media-surface.central-bg-2 {
+  --city-x: 60%;
+}
+.city-media-surface.central-bg-3 {
+  --city-x: 80%;
+}
+.city-media-surface.central-bg-4 {
+  --city-x: 100%;
+}
+.city-animation {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+}
+.city-animation[data-ready='true'] {
+  opacity: 1;
+}
+.city-animation video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--city-x) 100%;
+}
+.city-animation__lighting {
+  position: absolute;
+  inset: 0;
+  background: url('/assets/images/ellipse.webp') 700% -75% / 95% 70% no-repeat;
+}
+.city-animation[data-fallback='true'] {
+  background: url('/assets/gifs/bg.gif') var(--city-x) 100% / cover no-repeat;
+}
+.city-animation[data-fallback='true'] video {
+  display: none;
+}
+@media (max-width: 992px) {
+  .city-animation__lighting {
+    background-image:
+      linear-gradient(rgb(0 0 0 / 70%), rgb(0 0 0 / 70%)), url('/assets/images/ellipse.webp');
+    background-size:
+      cover,
+      95% 70%;
+    background-position:
+      100% 100%,
+      700% -75%;
+    background-repeat: no-repeat;
+  }
+}

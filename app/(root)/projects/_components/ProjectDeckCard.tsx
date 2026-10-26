@@ -2,12 +2,7 @@ import { IProject } from '@/constants/portfolio-data';
 import { AnimatePresence, motion } from 'motion/react';
 import { RefObject, useEffect, useId, useRef, useState } from 'react';
 import { DeckCopy, deckEase, twoDigits } from './deck-copy';
-
-const media: Record<string, string> = {
-  projectOne: '/assets/gifs/project_first.gif',
-  projectTwo: '/assets/gifs/project_second.gif',
-  projectThird: '/assets/gifs/project_third.gif',
-};
+import { projectMedia } from './project-media';
 interface Props {
   project: IProject;
   index: number;
@@ -52,7 +47,7 @@ export default function ProjectDeckCard({
     return () => observer.disconnect();
   }, [project.description, active]);
   return (
-    <motion.article
+    <motion.div
       className={`projects-deck__card ${active ? 'is-active' : 'is-inactive'}`}
       role="group"
       aria-roledescription="slide"
@@ -67,7 +62,7 @@ export default function ProjectDeckCard({
           style={{
             backgroundImage: reducedMotion
               ? undefined
-              : `url('${media[project.bgName] ?? media.projectThird}')`,
+              : `url('${projectMedia(project, active || neighbor)}')`,
           }}
         >
           <div className="projects-deck__metadata">
@@ -92,7 +87,7 @@ export default function ProjectDeckCard({
           </span>
         </div>
         <div className="projects-deck__card-body">
-          <h4 className="projects-deck__title">{project.title}</h4>
+          <h2 className="projects-deck__title">{project.title}</h2>
           <p
             ref={description}
             className="projects-deck__description"
@@ -173,6 +168,6 @@ export default function ProjectDeckCard({
           <span aria-hidden="true">{copy.preview} ↗</span>
         </button>
       )}
-    </motion.article>
+    </motion.div>
   );
 }
