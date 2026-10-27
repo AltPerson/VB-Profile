@@ -46,57 +46,46 @@
   position: relative;
   container-type: inline-size;
   min-width: 0;
-  animation: career-dossier-enter 600ms var(--career-reveal-ease) both;
   flex: 1 1 0%;
   min-height: 0;
 }
-.experience-dossier__body::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  pointer-events: none;
-  opacity: 0;
-  background:
-    linear-gradient(90deg, transparent, rgb(94 246 255 / 85%), transparent) 0 0 / 100% 1px no-repeat,
-    linear-gradient(90deg, transparent, rgb(94 246 255 / 12%), transparent) 0 0 / 100% 8px no-repeat;
-  animation: career-dossier-scan 600ms var(--career-reveal-ease) both;
+/* Open the dossier, then read down the record. No translated scroll containers. */
+.experience-dossier[data-entrance='entering'] .experience-dossier__frame {
+  animation: career-file-open 180ms var(--career-reveal-ease) both;
 }
-.experience-dossier [data-typing-complete='false'] .experience-dossier__body::after {
-  animation: none;
+.experience-dossier[data-entrance='entering'] .experience-dossier__detail > * {
+  animation: career-record-switch 200ms var(--career-reveal-ease) 80ms both;
 }
-@keyframes career-dossier-enter {
+.experience-dossier[data-entrance='entering'] .experience-dossier__overview {
+  animation-delay: 140ms;
+}
+.experience-dossier[data-entrance='entering'] .experience-dossier__contributions {
+  animation-delay: 200ms;
+}
+.experience-dossier[data-entrance='entering'] .experience-dossier__stack {
+  animation-delay: 260ms;
+}
+.experience-dossier[data-entrance='entering'] .experience-dossier__record-footer {
+  animation-delay: 300ms;
+}
+.experience-dossier[data-entrance='entering'] .experience-dossier__metadata {
+  animation-name: career-record-switch, career-divider-light;
+}
+@keyframes career-file-open {
   from {
-    clip-path: inset(0 0 100% 0);
-    opacity: 0.25;
-    transform: translateY(10px);
-  }
-  99% {
-    clip-path: inset(0);
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    clip-path: none;
-    opacity: 1;
-    transform: none;
-  }
-}
-@keyframes career-dossier-scan {
-  from {
-    opacity: 0.85;
-    background-position:
-      0 0,
-      0 0;
-  }
-  50% {
-    opacity: 0.8;
-  }
-  to {
     opacity: 0;
-    background-position:
-      0 100%,
-      0 100%;
+    border-color: var(--career-cyan);
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes career-divider-light {
+  from {
+    border-bottom-color: var(--career-cyan);
+  }
+  to {
+    border-bottom-color: var(--career-stroke);
   }
 }
 .experience-dossier__frame {
@@ -214,6 +203,9 @@
   overscroll-behavior: contain;
   scrollbar-gutter: stable;
   -webkit-overflow-scrolling: touch;
+}
+.experience-dossier__detail:focus-within {
+  animation: none;
 }
 @keyframes career-record-switch {
   from {

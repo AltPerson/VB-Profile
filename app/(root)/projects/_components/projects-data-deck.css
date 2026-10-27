@@ -46,7 +46,6 @@
   --deck-duration-ui: 220ms;
   --deck-duration-card: 380ms;
   --deck-duration-reveal: 420ms;
-  --deck-duration-scan: 550ms;
   --deck-card-height: clamp(350px, 55dvh, 540px);
   --deck-media-height: clamp(72px, 10dvh, 120px);
   --deck-heading-gap: clamp(14px, 2.5dvh, 28px);
@@ -91,68 +90,46 @@
 .projects-deck__carousel {
   position: relative;
   min-width: 0;
-  animation: projects-content-reveal 600ms var(--deck-ease) both;
 }
-.projects-deck__github {
-  animation: projects-footer-reveal 250ms var(--deck-ease) 400ms both;
+/* The frame is independent of both Embla's slide transform and Motion's card scale. */
+.projects-deck[data-entrance='entering'] .projects-deck__card-frame {
+  animation: projects-card-deal 320ms var(--deck-ease) 70ms both;
 }
-.projects-deck__carousel::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  pointer-events: none;
-  opacity: 0;
-  background:
-    linear-gradient(90deg, transparent, rgb(94 246 255 / 85%), transparent) 0 0 / 100% 1px no-repeat,
-    linear-gradient(90deg, transparent, rgb(94 246 255 / 12%), transparent) 0 0 / 100% 8px no-repeat;
-  animation: projects-content-scan 600ms var(--deck-ease) both;
+.projects-deck[data-entrance='entering']
+  .projects-deck__slide:first-child
+  .projects-deck__card-frame {
+  animation-delay: 0ms;
 }
-.projects-deck [data-typing-complete='false'] .projects-deck__carousel::after {
-  animation: none;
+.projects-deck[data-entrance='entering'] .projects-deck__card::before {
+  animation: projects-controls-connect 320ms var(--deck-ease) 70ms both;
 }
-@keyframes projects-content-reveal {
+.projects-deck[data-entrance='entering']
+  .projects-deck__slide:first-child
+  .projects-deck__card::before {
+  animation-delay: 0ms;
+}
+.projects-deck[data-entrance='entering'] .projects-deck__navigation {
+  animation: projects-controls-connect 180ms var(--deck-ease) 280ms both;
+}
+.projects-deck[data-entrance='entering'] .projects-deck__github {
+  animation: projects-controls-connect 160ms var(--deck-ease) 340ms both;
+}
+@keyframes projects-card-deal {
   from {
-    clip-path: inset(0 0 100% 0);
-    opacity: 0.25;
-    transform: translateY(10px);
-  }
-  99% {
-    clip-path: inset(0);
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 0;
+    transform: scale(0.97);
   }
   to {
-    clip-path: none;
     opacity: 1;
     transform: none;
   }
 }
-@keyframes projects-content-scan {
-  from {
-    opacity: 0.85;
-    background-position:
-      0 0,
-      0 0;
-  }
-  50% {
-    opacity: 0.8;
-  }
-  to {
-    opacity: 0;
-    background-position:
-      0 100%,
-      0 100%;
-  }
-}
-@keyframes projects-footer-reveal {
+@keyframes projects-controls-connect {
   from {
     opacity: 0;
-    transform: translateY(6px);
   }
   to {
     opacity: 1;
-    transform: none;
   }
 }
 .projects-deck__stage {
@@ -305,13 +282,6 @@
     600 8px/1.3 var(--font-tomorrow),
     sans-serif;
   letter-spacing: 0.08em;
-}
-.projects-deck__scan {
-  position: absolute;
-  inset: 0;
-  height: 60%;
-  background: linear-gradient(transparent, var(--deck-cyan), transparent);
-  pointer-events: none;
 }
 .projects-deck__card-body {
   display: flex;
@@ -789,8 +759,7 @@
   .projects-deck__media {
     background-image: linear-gradient(135deg, #10282d, #041014 70%) !important;
   }
-  .projects-deck__media::after,
-  .projects-deck__scan {
+  .projects-deck__media::after {
     display: none;
   }
 }

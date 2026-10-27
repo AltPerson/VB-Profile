@@ -86,16 +86,6 @@ export default function ProjectDeckCard({
             </span>
             <span className="projects-deck__category">{copy.category}</span>
           </div>
-          {active && !reducedMotion && (
-            <motion.span
-              key={`scan-${active}`}
-              className="projects-deck__scan"
-              aria-hidden="true"
-              initial={{ y: '-100%', opacity: 0 }}
-              animate={{ y: '200%', opacity: [0, 0.12, 0] }}
-              transition={{ duration: 0.5, ease: deckEase }}
-            />
-          )}
           <span className="projects-deck__media-coordinate" aria-hidden="true">
             {twoDigits(index + 1)} — VB / {copy.archive}
           </span>

@@ -3,6 +3,7 @@
 import DefaultLayout from '@/components/default-layout';
 import TypewriterText from '@/components/typewriter-text';
 import { contactData } from '@/constants/portfolio-data';
+import { usePageEntrance } from '@/lib/hooks/usePageEntrance';
 import { useEffect, useRef, useState } from 'react';
 import { FaLinkedinIn } from 'react-icons/fa6';
 import { FiArrowUpRight, FiCheck, FiCopy } from 'react-icons/fi';
@@ -23,6 +24,7 @@ const paths: Record<Channel, string> = {
 };
 
 export default function Content() {
+  const entrance = usePageEntrance(650);
   const email = contactData.contacts.find((contact) => contact.title.toLowerCase() === 'email')!;
   const channels = contactData.contacts.filter(
     (contact) => contact.title.toLowerCase() !== 'email',
@@ -88,11 +90,11 @@ export default function Content() {
   }
 
   return (
-    <div className="contact-uplink">
+    <div className="contact-uplink" {...entrance.entranceProps}>
       <DefaultLayout>
         <header className="contact-uplink__heading">
           <h1 className="greetings-title contact-uplink__title">
-            <TypewriterText text={contactData.title} />
+            <TypewriterText text={contactData.title} onComplete={entrance.start} />
           </h1>
         </header>
         <div className="contact-uplink__body after-typing">
@@ -154,6 +156,14 @@ export default function Content() {
           <div className="contact-uplink__conduit" aria-hidden="true">
             <svg viewBox="0 0 900 70" preserveAspectRatio="none">
               <path d="M450 0V19M450 19H150V70M450 19V70M450 19H750V70" />
+              {Object.entries(paths).map(([channel, path]) => (
+                <path
+                  key={channel}
+                  className="contact-uplink__startup-trace"
+                  pathLength="100"
+                  d={path}
+                />
+              ))}
               {active && (
                 <path
                   key={active}

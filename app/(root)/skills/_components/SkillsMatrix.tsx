@@ -173,7 +173,12 @@ export default function SkillsMatrix() {
               key={category.id}
               data-category={category.id}
               className="skills-matrix__category"
-              style={{ '--category-accent': category.accent } as CSSProperties}
+              style={
+                {
+                  '--category-accent': category.accent,
+                  '--category-enter-delay': `${60 + index * 35}ms`,
+                } as CSSProperties
+              }
               aria-pressed={(!compact || detail) && selected === category.id}
               onClick={(event) => selectCategory(category.id, event.currentTarget)}
             >
@@ -229,15 +234,6 @@ export default function SkillsMatrix() {
               </div>
               <p>{searching ? copy.all : active.description}</p>
             </div>
-            {!reduced && !searching && (
-              <motion.div
-                className="skills-matrix__scan"
-                aria-hidden="true"
-                initial={{ y: 0, opacity: 0 }}
-                animate={{ y: 80, opacity: [0, 0.12, 0] }}
-                transition={{ duration: 0.48, ease: 'linear' }}
-              />
-            )}
             <div
               className="skills-matrix__list"
               ref={setListElement}
