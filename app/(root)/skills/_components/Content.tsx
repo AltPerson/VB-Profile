@@ -2,6 +2,7 @@
 import DefaultLayout from '@/components/default-layout';
 import TypewriterText from '@/components/typewriter-text';
 import { skillsData } from '@/constants/portfolio-data';
+import { domAnimation, LazyMotion } from 'motion/react';
 import SkillsMatrix from './SkillsMatrix';
 import './skills-matrix.css';
 
@@ -13,7 +14,9 @@ const Content = () => {
           <h1 className="greetings-title projects-greetings-title">
             <TypewriterText text={skillsData['title']} />
           </h1>
-          <SkillsMatrix />
+          <LazyMotion features={domAnimation} strict>
+            <SkillsMatrix />
+          </LazyMotion>
         </div>
       </DefaultLayout>
     </div>

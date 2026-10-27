@@ -1,4 +1,4 @@
-import { motion } from 'motion/react';
+import * as motion from 'motion/react-m';
 import { TechnologyIcon } from './skills-icons';
 import { Skill, skillEase } from './skills-taxonomy';
 

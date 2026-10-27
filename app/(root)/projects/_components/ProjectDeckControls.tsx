@@ -1,5 +1,6 @@
 import { IProject } from '@/constants/portfolio-data';
-import { motion, useReducedMotion } from 'motion/react';
+import { useReducedMotion } from 'motion/react';
+import * as motion from 'motion/react-m';
 import { DeckCopy, twoDigits } from './deck-copy';
 import { warmProjectMedia } from './project-media';
 

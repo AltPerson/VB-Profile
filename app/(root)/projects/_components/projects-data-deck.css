@@ -233,6 +233,20 @@
   background-position: center;
   position: relative;
   overflow: hidden;
+  isolation: isolate;
+}
+.projects-deck__media-video {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+}
+.projects-deck__media--projectTwo .projects-deck__media-video {
+  object-position: center 45%;
 }
 .projects-deck__media::before {
   content: '';
@@ -253,7 +267,7 @@
   content: '';
   position: absolute;
   inset: 24px 35% 8px;
-  background: url('/assets/images/monitor-bg.png') center/contain no-repeat;
+  background: url('/assets/images/monitor-bg.webp') center/contain no-repeat;
   opacity: 0.2;
   pointer-events: none;
 }

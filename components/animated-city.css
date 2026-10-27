@@ -3,6 +3,15 @@
   position: relative;
   isolation: isolate;
   --city-x: 20%;
+  --city-poster: url('/assets/images/city-poster.webp');
+}
+@supports (background-image: image-set(url('') type('image/avif'))) {
+  .city-media-surface {
+    --city-poster: image-set(
+      url('/assets/images/city-poster.avif') type('image/avif'),
+      url('/assets/images/city-poster.webp') type('image/webp')
+    );
+  }
 }
 .city-media-surface.central-bg-1 {
   --city-x: 40%;

@@ -73,7 +73,8 @@ body {
   }
 
   .central-bg-0 {
-    background-image: url('/assets/images/ellipse.webp'), url('/assets/images/city-poster.webp');
+    background-image:
+      url('/assets/images/ellipse.webp'), var(--city-poster, url('/assets/images/city-poster.webp'));
     background-repeat: no-repeat, no-repeat;
     background-size:
       95% 70%,
@@ -86,7 +87,7 @@ body {
   .central-bg-mobile-0 {
     background-image:
       linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/assets/images/ellipse.webp'),
-      url('/assets/images/city-poster.webp');
+      var(--city-poster, url('/assets/images/city-poster.webp'));
     padding: 0 15px;
     background-repeat: no-repeat, no-repeat, no-repeat;
     background-size:

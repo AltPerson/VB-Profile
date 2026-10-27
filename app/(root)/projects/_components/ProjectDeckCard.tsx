@@ -1,8 +1,10 @@
 import { IProject } from '@/constants/portfolio-data';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence } from 'motion/react';
+import * as motion from 'motion/react-m';
 import { RefObject, useEffect, useId, useRef, useState } from 'react';
 import { DeckCopy, deckEase, twoDigits } from './deck-copy';
-import { projectMedia } from './project-media';
+import { projectMedia, projectVideo } from './project-media';
+import ProjectMediaVideo from './ProjectMediaVideo';
 interface Props {
   project: IProject;
   index: number;
@@ -12,6 +14,7 @@ interface Props {
   neighbor: boolean;
   stackOpen: boolean;
   reducedMotion: boolean;
+  mediaReady: boolean;
   stackButtonRef?: RefObject<HTMLButtonElement>;
   onSelect: () => void;
   onToggleStack: () => void;
@@ -25,6 +28,7 @@ export default function ProjectDeckCard({
   neighbor,
   stackOpen,
   reducedMotion,
+  mediaReady,
   stackButtonRef,
   onSelect,
   onToggleStack,
@@ -33,6 +37,9 @@ export default function ProjectDeckCard({
   const frame = useRef<HTMLDivElement>(null);
   const description = useRef<HTMLParagraphElement>(null);
   const [scrollable, setScrollable] = useState(false);
+  const [videoFailed, setVideoFailed] = useState(false);
+  const animated = mediaReady && (active || neighbor) && !reducedMotion;
+  const videoSource = videoFailed ? undefined : projectVideo(project);
   useEffect(() => {
     frame.current?.toggleAttribute('inert', !active);
   }, [active]);
@@ -62,9 +69,16 @@ export default function ProjectDeckCard({
           style={{
             backgroundImage: reducedMotion
               ? undefined
-              : `url('${projectMedia(project, active || neighbor)}')`,
+              : `url('${projectMedia(project, animated && !videoSource)}')`,
           }}
         >
+          {animated && videoSource && (
+            <ProjectMediaVideo
+              src={videoSource}
+              poster={projectMedia(project, false)}
+              onFailure={() => setVideoFailed(true)}
+            />
+          )}
           <div className="projects-deck__metadata">
             <span>
               {copy.project.toUpperCase()} {twoDigits(index + 1)}{' '}

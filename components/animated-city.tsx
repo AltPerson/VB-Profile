@@ -61,7 +61,7 @@ export default function AnimatedCity({ mobileOnly = false }: { mobileOnly?: bool
         loop
         playsInline
         preload="none"
-        poster="/assets/images/city-poster.webp"
+        poster="/assets/images/city-poster.avif"
         tabIndex={-1}
         onLoadedData={() => setReady(true)}
         onError={() => setFailed(true)}

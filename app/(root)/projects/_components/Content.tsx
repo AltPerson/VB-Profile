@@ -3,11 +3,15 @@
 import DefaultLayout from '@/components/default-layout';
 import TypewriterText from '@/components/typewriter-text';
 import { projectsData } from '@/constants/portfolio-data';
+import { domAnimation, LazyMotion } from 'motion/react';
+import { useCallback, useState } from 'react';
 import ProjectsDataDeck from './ProjectsDataDeck';
 import { deckCopy } from './deck-copy';
 import './projects-data-deck.css';
 
 export default function Content() {
+  const [mediaReady, setMediaReady] = useState(false);
+  const revealMedia = useCallback(() => setMediaReady(true), []);
   const data = projectsData;
   const projects = data.projects;
   return (
@@ -15,9 +19,11 @@ export default function Content() {
       <DefaultLayout>
         <div className="projects-deck__showcase">
           <h1 className="greetings-title projects-greetings-title">
-            <TypewriterText text={data.title} />
+            <TypewriterText text={data.title} onComplete={revealMedia} />
           </h1>
-          <ProjectsDataDeck projects={projects} copy={deckCopy} />
+          <LazyMotion features={domAnimation} strict>
+            <ProjectsDataDeck projects={projects} copy={deckCopy} mediaReady={mediaReady} />
+          </LazyMotion>
         </div>
         <a
           href="https://github.com/AltPerson"

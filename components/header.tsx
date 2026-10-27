@@ -3,11 +3,12 @@ import { links } from '@/constants';
 import { linksData } from '@/constants/portfolio-data';
 import { useChangeMusic } from '@/contexts/play-music-context';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import './header.css';
 
 export default function Header() {
   const pathname = usePathname();
+  const router = useRouter();
   const { playMusic, pending, audioError, togglePlayMusic } = useChangeMusic();
   const action = playMusic || pending ? 'Turn sound off' : 'Turn sound on';
   return (
@@ -15,6 +16,9 @@ export default function Header() {
       <nav className="site-nav" aria-label="Main navigation">
         <Link
           href="/"
+          prefetch={false}
+          onMouseEnter={() => router.prefetch('/')}
+          onFocus={() => router.prefetch('/')}
           className="logo-title site-nav__brand"
           aria-label="VB Home"
           aria-current={pathname === '/' ? 'page' : undefined}
@@ -29,6 +33,9 @@ export default function Header() {
             <li key={link.path}>
               <Link
                 href={link.path}
+                prefetch={false}
+                onMouseEnter={() => router.prefetch(link.path)}
+                onFocus={() => router.prefetch(link.path)}
                 className="link-text site-nav__link"
                 aria-current={pathname === link.path ? 'page' : undefined}
               >

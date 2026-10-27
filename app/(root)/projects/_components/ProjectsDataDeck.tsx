@@ -12,9 +12,10 @@ import { warmProjectMedia } from './project-media';
 interface Props {
   projects: IProject[];
   copy: DeckCopy;
+  mediaReady: boolean;
 }
 
-export default function ProjectsDataDeck({ projects, copy }: Props) {
+export default function ProjectsDataDeck({ projects, copy, mediaReady }: Props) {
   const prefersReducedMotion = useReducedMotion();
   // Keep server and first client markup identical, including the scan element.
   const [hydrated, setHydrated] = useState(false);
@@ -153,6 +154,7 @@ export default function ProjectsDataDeck({ projects, copy }: Props) {
                     }
                     stackOpen={stackIndex === index}
                     reducedMotion={!!reducedMotion}
+                    mediaReady={mediaReady}
                     stackButtonRef={selected === index ? stackButton : undefined}
                     onSelect={() => goTo(index)}
                     onToggleStack={toggleStack}

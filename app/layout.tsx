@@ -18,7 +18,8 @@ export default async function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/assets/images/city-poster.webp"
+          href="/assets/images/city-poster.avif"
+          type="image/avif"
           fetchPriority="high"
         />
         <noscript>

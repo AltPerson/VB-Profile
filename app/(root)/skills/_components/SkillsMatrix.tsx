@@ -1,6 +1,7 @@
 'use client';
 
-import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
+import { AnimatePresence, useReducedMotion } from 'motion/react';
+import * as motion from 'motion/react-m';
 import { CSSProperties, useEffect, useId, useMemo, useRef, useState } from 'react';
 import SkillTile from './SkillTile';
 import { CategoryIcon } from './skills-icons';
