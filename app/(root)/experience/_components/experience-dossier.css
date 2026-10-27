@@ -218,11 +218,9 @@
 @keyframes career-record-switch {
   from {
     opacity: 0;
-    transform: translateX(calc(var(--career-direction, 1) * 6px));
   }
   to {
     opacity: 1;
-    transform: none;
   }
 }
 .experience-dossier__record-brow {
