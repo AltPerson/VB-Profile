@@ -15,17 +15,35 @@ export default function TerminalTranscript({
 }) {
   const host = useRef<HTMLDivElement>(null);
   const mounted = useRef(false);
+  const boot = session.phase === 'boot' || session.phase === 'boot-exit';
   const token =
     session.run + '/' + session.entries.map((entry) => entry.id + ':' + entry.revealed).join('|');
   useEffect(() => {
     const node = host.current;
     if (!node) return;
-    if (!mounted.current) {
-      mounted.current = true;
-      node.scrollTop = scrollTopInDocument;
+    // A restored route can briefly render its server boot snapshot. That viewport
+    // must not consume or overwrite the command history's saved scroll position.
+    if (boot) {
+      node.scrollTop = 0;
       return;
     }
     const latest = getTerminalSession().entries.at(-1);
+    if (!mounted.current) {
+      mounted.current = true;
+      const saved = latest ? scrollTopInDocument : 0;
+      let restoreFrame = 0;
+      const frame = requestAnimationFrame(() => {
+        // Allow the mobile viewport measurement to establish the final scroll box.
+        restoreFrame = requestAnimationFrame(() => {
+          node.scrollTop = saved;
+          scrollTopInDocument = node.scrollTop;
+        });
+      });
+      return () => {
+        cancelAnimationFrame(frame);
+        cancelAnimationFrame(restoreFrame);
+      };
+    }
     if (!latest) {
       node.scrollTop = 0;
       scrollTopInDocument = 0;
@@ -45,8 +63,7 @@ export default function TerminalTranscript({
       }
     });
     return () => cancelAnimationFrame(frame);
-  }, [token]);
-  const boot = session.phase === 'boot' || session.phase === 'boot-exit';
+  }, [token, boot]);
   const copy = personalCopy;
   return (
     <div
@@ -56,7 +73,7 @@ export default function TerminalTranscript({
       aria-label={copy.output}
       tabIndex={0}
       onScroll={(event) => {
-        scrollTopInDocument = event.currentTarget.scrollTop;
+        if (!boot) scrollTopInDocument = event.currentTarget.scrollTop;
       }}
     >
       {boot ? (

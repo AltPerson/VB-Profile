@@ -41,6 +41,7 @@ export default function Content() {
     copy = personalCopy;
   const finish = () => finishTerminal();
   const viewport = useTerminalViewport(session.phase);
+  const boot = session.phase === 'boot' || session.phase === 'boot-exit';
   return (
     <div
       className="personal-terminal home-personal-terminal"
@@ -75,7 +76,9 @@ export default function Content() {
             </button>
           )}
           <div className="personal-terminal__canvas">
-            <TerminalTranscript session={session} data={data} />
+            {/* Boot output and command history occupy different layouts. Replace the boot
+                viewport instead of moving its existing scroll region below the new HUD. */}
+            <TerminalTranscript key={boot ? 'boot' : 'commands'} session={session} data={data} />
             <div className="personal-terminal__hud">
               <TerminalUtility reduced={reduced} />
               <SignalNetwork key={session.run} session={session} reduced={reduced} />
