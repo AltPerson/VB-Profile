@@ -180,6 +180,26 @@
 }
 .experience-dossier .is-current {
   color: #90f9b6;
+  animation: career-status-pulse 2200ms ease-in-out infinite;
+}
+.experience-dossier__status-dot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  margin-right: 3px;
+  vertical-align: 0.15em;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 5px rgb(144 249 182 / 35%);
+}
+@keyframes career-status-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.65;
+  }
 }
 .experience-dossier__tab-dot {
   display: none;

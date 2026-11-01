@@ -14,6 +14,8 @@ import {
   skillsCopy,
 } from './skills-taxonomy';
 
+const telemetryWave = 'M0 13h8l8-8 12 13 12-15 10 9 8-5 12 7 10-1';
+
 export default function SkillsMatrix() {
   const [selected, setSelected] = useState<CategoryId>('core-frontend');
   const [query, setQuery] = useState('');
@@ -156,7 +158,10 @@ export default function SkillsMatrix() {
           <strong>{skills.length}</strong>
           <span>{copy.technologies}</span>
           <svg viewBox="0 0 80 20" fill="none" stroke="currentColor" aria-hidden="true">
-            <path d="M0 13h8l8-8 12 13 12-15 10 9 8-5 12 7h10" />
+            <g className="skills-matrix__telemetry-wave">
+              <path d={telemetryWave} />
+              <path d={telemetryWave} transform="translate(80 0)" />
+            </g>
           </svg>
         </div>
       </div>

@@ -10,7 +10,7 @@ export default function MailHologram() {
         </g>
         <path
           className="contact-uplink__mail-signal"
-          d="M13 95H43M137 95h30M90 13v29M90 150v27"
+          d="M13 95H43M137 95h30M90 13v54M90 128v49"
           stroke="#5ef6ff"
           strokeWidth="1.5"
           strokeDasharray="4 7"
@@ -22,8 +22,12 @@ export default function MailHologram() {
           strokeWidth="1.2"
         />
         <path d="M82 92h16v16H82z" fill="#061d24" stroke="#5ef6ff" />
-        <circle cx="143" cy="40" r="4" fill="#f75049" />
-        <circle cx="22" cy="142" r="3.5" fill="#f8ef00" />
+        <g className="contact-uplink__mail-orbit contact-uplink__mail-orbit--coral">
+          <circle cx="143" cy="40" r="4" fill="#f75049" />
+        </g>
+        <g className="contact-uplink__mail-orbit contact-uplink__mail-orbit--yellow">
+          <circle cx="22" cy="142" r="3.5" fill="#f8ef00" />
+        </g>
       </svg>
     </div>
   );

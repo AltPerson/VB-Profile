@@ -49,7 +49,24 @@ export default function DossierDetail({
         <span>
           FILE {recordNumber(index)} / {String(count).padStart(2, '0')}
         </span>
-        <span className={current ? 'is-current' : ''}>{current ? '● ACTIVE' : '◌ ARCHIVED'}</span>
+        <span
+          className={current ? 'is-current' : ''}
+          onAnimationStart={(event) => {
+            if (!current || event.animationName !== 'career-status-pulse') return;
+            // Keep a reopened record on the persistent Career Index pulse clock.
+            const anchor = event.currentTarget
+              .closest('.experience-dossier')
+              ?.querySelector('.experience-dossier__tab-status.is-current');
+            const isPulse = (animation: Animation) =>
+              'animationName' in animation && animation.animationName === 'career-status-pulse';
+            const reference = anchor?.getAnimations().find(isPulse);
+            const pulse = event.currentTarget.getAnimations().find(isPulse);
+            if (pulse && reference?.startTime != null) pulse.startTime = reference.startTime;
+          }}
+        >
+          {current && <span className="experience-dossier__status-dot" aria-hidden="true" />}
+          {current ? 'ACTIVE' : '◌ ARCHIVED'}
+        </span>
       </div>
       <h2>{company}</h2>
       <p className="experience-dossier__role">{role}</p>

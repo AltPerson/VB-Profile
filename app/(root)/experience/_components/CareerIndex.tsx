@@ -60,7 +60,10 @@ export default function CareerIndex({
               id={`${id}-employment-${index}`}
               className={`experience-dossier__tab-status ${record.current ? 'is-current' : ''}`}
             >
-              {record.current ? '● ACTIVE RECORD' : 'ARCHIVE ENTRY'}
+              {record.current && (
+                <span className="experience-dossier__status-dot" aria-hidden="true" />
+              )}
+              {record.current ? 'ACTIVE RECORD' : 'ARCHIVE ENTRY'}
             </span>
             <span className="experience-dossier__tab-dot" aria-hidden="true">
               {selected === index ? '●' : '◦'}

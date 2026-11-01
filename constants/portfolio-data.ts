@@ -140,6 +140,9 @@ export const experienceData: IExperienceDataElement = {
     },
   ],
 };
+// Repeat the three established illustrations in their current first-project order.
+const projectBackgrounds = ['projectThird', 'projectOne', 'projectTwo'] as const;
+
 export const projectsData: IProjectDataElement = {
   title: 'Projects',
   projects: [
@@ -149,7 +152,6 @@ export const projectsData: IProjectDataElement = {
         'This is a portfolio website showcasing my work as a frontend developer, highlighting projects, skills, and experience in building dynamic and responsive web applications.',
       technologies: ['Next.js', 'TS', 'Tailwind'],
       link: 'https://vb-profile.netlify.app/',
-      bgName: 'projectThird',
     },
     {
       title: 'Farang E-Commerce',
@@ -157,7 +159,6 @@ export const projectsData: IProjectDataElement = {
         'This is a Farang e-commerce website. This website was created as a pet-project, as reference was using the original website of Team Farang. The website has a convenient and clear design, which will allow you to feel the experience of buying goods more easily.',
       technologies: ['React', 'TS', 'SCSS', 'React-Router'],
       link: 'https://farang-e-commerce.netlify.app/',
-      bgName: 'projectOne',
     },
     {
       title: 'Currency Exchanger App',
@@ -165,7 +166,6 @@ export const projectsData: IProjectDataElement = {
         'Currency Exchanger App is SPA which converts currency and shows latest currencies values. It allows users to convert currency by the query noted in the template. Also users can check latest currency values, and compare 1 to 1 currency that they need.',
       technologies: ['React', 'JS', 'Redux', 'React-Router', 'REST API (ExchangerRate)'],
       link: 'https://altperson.github.io/Currency-Exchanger/',
-      bgName: 'projectTwo',
     },
     {
       title: 'Orders-n-Products',
@@ -181,7 +181,6 @@ export const projectsData: IProjectDataElement = {
         'Bootstrap(SCSS)',
       ],
       link: 'https://orders-n-products.netlify.app/',
-      bgName: 'projectThird',
     },
     {
       title: 'Note-App',
@@ -189,7 +188,6 @@ export const projectsData: IProjectDataElement = {
         'Note App is a SPA that simulates a simplified notepad from MacOs. It allows users to write a note by using markdown text or simple text. Users can save, delete or edit notes that are saved in indexDB of the browser.',
       technologies: ['React', 'JS', 'React-Icons', 'IndexDB'],
       link: 'https://altperson.github.io/Note-App/',
-      bgName: 'projectOne',
     },
     {
       title: 'Music Search App',
@@ -197,7 +195,6 @@ export const projectsData: IProjectDataElement = {
         'Website for searching for music with simple and user-friendly interface which will allow you to feel the experience of searching and listening to music more easily.',
       technologies: ['React', 'JS', 'React-Router', 'REST API(Deezer)'],
       link: 'https://altperson.github.io/Music-Search-App/',
-      bgName: 'projectTwo',
     },
     {
       title: 'Todo-List-App',
@@ -205,9 +202,11 @@ export const projectsData: IProjectDataElement = {
         'Todo List App is a SPA which represents a simple todo list app. Users can add, delete or edit a note in the todo list. Deployed version of website using a simple backend server on express.js for state management. The Github version has the Frontend and Backend part.',
       technologies: ['React', 'TS', 'React-Query', 'Tailwind', 'Node.js', 'Express.js'],
       link: 'https://test-pet-todolist.netlify.app',
-      bgName: 'projectThird',
     },
-  ],
+  ].map((project, index) => ({
+    ...project,
+    bgName: projectBackgrounds[index % projectBackgrounds.length],
+  })),
 };
 export const skillsData: ISkillsDataElement = {
   title: 'Skills',

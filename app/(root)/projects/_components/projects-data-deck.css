@@ -225,6 +225,13 @@
 .projects-deck__media--projectTwo .projects-deck__media-video {
   object-position: center 45%;
 }
+/* The portrait room's upper monitors contain most of its animated detail. */
+.projects-deck__media--projectOne {
+  background-position: center 25%;
+}
+.projects-deck__media--projectOne .projects-deck__media-video {
+  object-position: center 25%;
+}
 .projects-deck__media::before {
   content: '';
   position: absolute;

@@ -4,7 +4,7 @@ import DefaultLayout from '@/components/default-layout';
 import TypewriterText from '@/components/typewriter-text';
 import { contactData } from '@/constants/portfolio-data';
 import { usePageEntrance } from '@/lib/hooks/usePageEntrance';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { FaLinkedinIn } from 'react-icons/fa6';
 import { FiArrowUpRight, FiCheck, FiCopy } from 'react-icons/fi';
 import { SiGithub, SiTelegram } from 'react-icons/si';
@@ -24,7 +24,8 @@ const paths: Record<Channel, string> = {
 };
 
 export default function Content() {
-  const entrance = usePageEntrance(650);
+  const entrance = usePageEntrance(730);
+  const conduitMask = `${useId()}-conduit-build`;
   const email = contactData.contacts.find((contact) => contact.title.toLowerCase() === 'email')!;
   const channels = contactData.contacts.filter(
     (contact) => contact.title.toLowerCase() !== 'email',
@@ -155,26 +156,46 @@ export default function Content() {
           </section>
           <div className="contact-uplink__conduit" aria-hidden="true">
             <svg viewBox="0 0 900 70" preserveAspectRatio="none">
-              <path d="M450 0V19M450 19H150V70M450 19V70M450 19H750V70" />
-              {Object.entries(paths).map(([channel, path]) => (
-                <path
-                  key={channel}
-                  className="contact-uplink__startup-trace"
-                  pathLength="100"
-                  d={path}
-                />
-              ))}
-              {active && (
-                <path
-                  key={active}
-                  className="contact-uplink__trace"
-                  data-trace={active}
-                  pathLength="100"
-                  d={paths[active]}
-                />
-              )}
-              <circle cx="450" cy="19" r="6" />
-              <circle className="contact-uplink__core" cx="450" cy="19" r="2" />
+              <defs>
+                <mask
+                  id={conduitMask}
+                  maskUnits="userSpaceOnUse"
+                  x="-8"
+                  y="-8"
+                  width="916"
+                  height="86"
+                >
+                  <path
+                    className="contact-uplink__build-stroke contact-uplink__build-stem"
+                    d="M450 0V19"
+                    pathLength="100"
+                  />
+                  {['M450 19H150V70', 'M450 19V70', 'M450 19H750V70'].map((path) => (
+                    <path
+                      key={path}
+                      className="contact-uplink__build-stroke"
+                      d={path}
+                      pathLength="100"
+                    />
+                  ))}
+                </mask>
+              </defs>
+              <g mask={`url(#${conduitMask})`}>
+                <path d="M450 0V19M450 19H150V70M450 19V70M450 19H750V70" />
+                {Object.entries(paths).map(([channel, path]) => (
+                  <path
+                    key={channel}
+                    className="contact-uplink__route"
+                    data-channel={channel}
+                    data-lit={active === channel}
+                    d={path}
+                  />
+                ))}
+              </g>
+              <g className="contact-uplink__junction">
+                <circle cx="450" cy="19" r="6" />
+                <circle className="contact-uplink__core" cx="450" cy="19" r="2" />
+              </g>
             </svg>
           </div>
           <ul className="contact-uplink__channels" aria-label="Other contact channels">
@@ -197,8 +218,10 @@ export default function Content() {
                       if (
                         event.pointerType !== 'touch' &&
                         window.matchMedia('(hover: hover)').matches
-                      )
+                      ) {
                         setHovered(key);
+                        entrance.entranceProps.onFocusCapture();
+                      }
                     }}
                     onPointerLeave={() => setHovered(null)}
                     onFocus={() => setFocused(key)}

@@ -44,13 +44,13 @@
   animation: uplink-connect 250ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 .contact-uplink[data-entrance='entering'] .contact-uplink__channels > li {
-  animation: uplink-channel-connect 180ms ease-out 350ms both;
+  animation: uplink-channel-connect 180ms ease-out 430ms both;
 }
 .contact-uplink[data-entrance='entering'] .contact-uplink__channels > li:nth-child(2) {
-  animation-delay: 410ms;
+  animation-delay: 490ms;
 }
 .contact-uplink[data-entrance='entering'] .contact-uplink__channels > li:nth-child(3) {
-  animation-delay: 470ms;
+  animation-delay: 550ms;
 }
 .contact-uplink__primary {
   position: relative;
@@ -190,6 +190,18 @@
   max-width: 195px;
   height: auto;
 }
+.contact-uplink__mail-signal {
+  animation: uplink-mail 1400ms linear infinite;
+}
+.contact-uplink__mail-orbit {
+  transform-box: view-box;
+  transform-origin: 90px 95px;
+  animation: uplink-mail-orbit 18s linear infinite;
+}
+.contact-uplink__mail-orbit--yellow {
+  animation-duration: 24s;
+  animation-direction: reverse;
+}
 .contact-uplink__conduit {
   height: clamp(36px, 6dvh, 71px);
   flex: 0 0 auto;
@@ -207,27 +219,6 @@
   stroke-width: 1.2;
   vector-effect: non-scaling-stroke;
 }
-.contact-uplink__conduit .contact-uplink__trace {
-  stroke: var(--uplink-cyan);
-  stroke-width: 2;
-  stroke-dasharray: 9 100;
-  animation: uplink-pulse 900ms ease-out both;
-}
-.contact-uplink__conduit .contact-uplink__startup-trace {
-  stroke: var(--uplink-cyan);
-  stroke-width: 2;
-  stroke-dasharray: 9 100;
-  opacity: 0;
-}
-.contact-uplink[data-entrance='entering'] .contact-uplink__startup-trace {
-  animation: uplink-pulse 220ms ease-out 250ms both;
-}
-.contact-uplink[data-entrance='entering'] .contact-uplink__startup-trace:nth-of-type(3) {
-  animation-delay: 310ms;
-}
-.contact-uplink[data-entrance='entering'] .contact-uplink__startup-trace:nth-of-type(4) {
-  animation-delay: 370ms;
-}
 .contact-uplink__conduit circle {
   fill: #071e24;
   stroke: #4b939d;
@@ -236,6 +227,49 @@
 .contact-uplink__conduit .contact-uplink__core {
   fill: var(--uplink-cyan);
   stroke: none;
+}
+.contact-uplink__conduit .contact-uplink__build-stroke {
+  stroke: #fff;
+  stroke-width: 8;
+  vector-effect: none;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 0;
+}
+.contact-uplink[data-entrance='entering'] .contact-uplink__build-stroke {
+  animation: uplink-build-route 160ms ease-out 330ms both;
+}
+.contact-uplink[data-entrance='entering'] .contact-uplink__build-stem {
+  animation-duration: 80ms;
+  animation-delay: 250ms;
+}
+.contact-uplink[data-entrance='entering'] .contact-uplink__junction {
+  animation: uplink-build-junction 80ms ease-out 300ms both;
+}
+@keyframes uplink-build-route {
+  from {
+    stroke-dashoffset: 100;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes uplink-build-junction {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.contact-uplink__conduit .contact-uplink__route {
+  stroke: var(--uplink-cyan);
+  stroke-width: 1.8;
+  opacity: 0;
+  transition: opacity 220ms ease-out;
+  filter: drop-shadow(0 0 2px rgb(94 246 255 / 30%));
+}
+.contact-uplink__conduit .contact-uplink__route[data-lit='true'] {
+  opacity: 1;
 }
 .contact-uplink__channels {
   display: grid;
@@ -363,22 +397,14 @@
     filter: none;
   }
 }
-@keyframes uplink-pulse {
-  from {
-    stroke-dashoffset: 10;
-    opacity: 1;
-  }
-  80% {
-    opacity: 1;
-  }
-  to {
-    stroke-dashoffset: -100;
-    opacity: 0;
-  }
-}
 @keyframes uplink-mail {
   to {
     stroke-dashoffset: -44;
+  }
+}
+@keyframes uplink-mail-orbit {
+  to {
+    transform: rotate(360deg);
   }
 }
 @media (hover: hover) {
@@ -392,9 +418,6 @@
   .contact-uplink__copy:hover {
     background: #0e3037;
     border-color: var(--uplink-cyan);
-  }
-  .contact-uplink__primary:hover .contact-uplink__mail-signal {
-    animation: uplink-mail 900ms linear 1;
   }
 }
 @container (max-width: 680px) {
@@ -529,9 +552,6 @@
     animation: none !important;
     transition: none !important;
     scroll-behavior: auto !important;
-  }
-  .contact-uplink__conduit .contact-uplink__trace {
-    opacity: 0;
   }
 }
 /* Compact heights retain readable content while reducing decorative spacing first. */

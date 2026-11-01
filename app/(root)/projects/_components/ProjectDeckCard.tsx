@@ -46,11 +46,18 @@ export default function ProjectDeckCard({
   useEffect(() => {
     const node = description.current;
     if (!node) return;
-    node.scrollTop = 0;
-    const measure = () => setScrollable(node.scrollHeight > node.clientHeight + 1);
+    let resetScroll = true;
+    const measure = () => {
+      // ResizeObserver supplies the initial measurement after layout. Read before
+      // resetting scroll, rather than forcing layout in the passive effect.
+      setScrollable(node.scrollHeight > node.clientHeight + 1);
+      if (resetScroll) {
+        node.scrollTop = 0;
+        resetScroll = false;
+      }
+    };
     const observer = new ResizeObserver(measure);
     observer.observe(node);
-    measure();
     return () => observer.disconnect();
   }, [project.description, active]);
   return (
