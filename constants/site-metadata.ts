@@ -12,7 +12,7 @@ const image = {
 
 export const siteMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: title, template: '%s | Vladyslav Bondarchuk' },
+  title: { default: 'VB Portfolio', template: '%s | VB Portfolio' },
   description,
   alternates: { canonical: `${siteUrl}/` },
   robots: { index: true, follow: true },
