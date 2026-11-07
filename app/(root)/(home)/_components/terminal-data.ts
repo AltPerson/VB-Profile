@@ -40,12 +40,12 @@ export function getTerminalData(years: number | null) {
     profileRows: [
       { id: 'experience', label: copy.keys[0], value: formatted },
       { id: 'core_stack', label: copy.keys[1], value: 'React / Next.js / TypeScript' },
-      { id: 'domains', label: copy.keys[2], value: 'InsurTech / EdTech' },
+      { id: 'domains', label: copy.keys[2], value: 'FinTech / InsurTech / EdTech' },
       { id: 'specialization', label: copy.keys[3], value: copy.specialization },
     ],
     approach: [
       {
-        title: 'AI-assisted development',
+        title: 'AI-Native development',
         text: 'I use AI tools to accelerate research and development while keeping technical decisions and code quality under my control.',
       },
       {

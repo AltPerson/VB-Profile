@@ -548,6 +548,20 @@
     min-height: 44px;
   }
 }
+/* Three career records need readable labels in the narrow dossier selector. */
+@container (max-width: 430px) {
+  .experience-dossier__tabs {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .experience-dossier__tab-status {
+    grid-column: 3;
+    grid-row: 1;
+    white-space: nowrap;
+  }
+  .experience-dossier__tab-dot {
+    display: none;
+  }
+}
 @media (max-width: 430px) {
   .experience-dossier__record-brow {
     font-size: 9px;

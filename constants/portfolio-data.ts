@@ -53,22 +53,67 @@ export const homeData: IHomeDataElement = {
   title: 'Vladyslav Bondarchuk',
   subtitle: 'Frontend Engineer',
   text: `<span className="text-white">Frontend Engineer</span> specializing in React, Next.js, and TypeScript, with
-		<span className="text-white"><span id="exp"></span></span> of experience building production web applications across InsurTech and EdTech.
+		<span className="text-white"><span id="exp"></span></span> of experience building production web applications across FinTech, InsurTech, and EdTech.
 		<br>
 		Strong in complex, data-driven interfaces, frontend architecture, API integrations, and performance optimization.
 		<br>
 		Experienced in owning frontend features end-to-end, from implementation and testing to production release.
 		<br>
-		Actively use <span className="text-white">AI-assisted development tools</span> such as Claude Code, Codex, Cursor, and ChatGPT for code exploration, refactoring support, debugging, documentation lookup, test-case ideation, and faster UI iteration while keeping final implementation decisions and code review under my ownership.`,
+		Actively use <span className="text-white">AI-native development tools</span> such as OpenAI Codex, Claude Code, Cursor, and GitHub Copilot for code exploration, refactoring support, debugging, documentation lookup, test-case ideation, and faster UI iteration while keeping final implementation decisions and code review under my ownership.`,
   buttonText: 'CHECK MY CV',
 };
 export const experienceData: IExperienceDataElement = {
   title: 'Experience',
   workPlaces: [
     {
+      title: 'Cogitize Solutions - Frontend Engineer',
+      term: { startDate: { month: 7, year: 2026 } },
+      description: `Developed and maintained FinTech web applications using React, Next.js, and TypeScript, working across multiple product areas`,
+      achievements: [
+        {
+          text: `Built interfaces for financial operations, integrating transaction and account data to support customer workflows and operational visibility`,
+          keywords: [],
+        },
+        {
+          text: `Implemented authentication and account security features, including active-session management, to give users greater control over account access`,
+          keywords: [],
+        },
+        {
+          text: `Introduced service-status messaging and notification workflows to keep users informed about service availability`,
+          keywords: [],
+        },
+      ],
+      technologies: [
+        'React',
+        'Next.js',
+        'TypeScript',
+        'HTML5',
+        'CSS3',
+        'REST',
+        'Axios',
+        'App Router',
+        'Server Components',
+        'SSR',
+        'React Hook Form',
+        'Zod',
+        'Tailwind CSS',
+        'Zustand',
+        'TanStack Query',
+        'Redux Toolkit',
+        'RTK Query',
+        'WebSockets',
+        'OpenAPI',
+        'shadcn/ui',
+        'Radix UI',
+        'Playwright',
+        'Vitest',
+        'Git',
+      ],
+    },
+    {
       title: 'Radity - Frontend Developer',
-      term: { startDate: { month: 3, year: 2024 } },
-      description: `Owned end-to-end frontend delivery of business-critical features using React, Next.js, and TypeScript, from component development and API integration to testing and production release`,
+      term: { startDate: { month: 3, year: 2024 }, endDate: { month: 6, year: 2026 } },
+      description: `Built and enhanced InsurTech web applications using React, Next.js, and TypeScript, taking frontend functionality from implementation to production release`,
       achievements: [
         {
           text: `Implemented a complex, data-driven form workflow from scratch using Formik, Yup, and TanStack Query, featuring dynamic rendering, conditional logic, and asynchronous API integrations`,
@@ -84,13 +129,17 @@ export const experienceData: IExperienceDataElement = {
         },
       ],
       technologies: [
-        'HTML5',
-        'CSS3',
         'React',
-        'Redux',
-        'Redux-Thunk',
         'Next.js',
         'TypeScript',
+        'HTML5',
+        'CSS3',
+        'Redux',
+        'Redux-Thunk',
+        'App Router',
+        'SSR',
+        'SSG',
+        'Server Components',
         'Formik',
         'Yup',
         'TanStack Query',
@@ -110,7 +159,7 @@ export const experienceData: IExperienceDataElement = {
     {
       title: 'Upwork - Frontend Developer',
       term: { startDate: { month: 11, year: 2022 }, endDate: { month: 3, year: 2024 } },
-      description: `Developed interactive features for an e-learning platform, including content summaries, user discussions, and audio playback, enhancing content accessibility and user engagement`,
+      description: `Developed interactive learning experiences for an EdTech platform using React and TypeScript, including content summaries, user discussions, and audio playback, enhancing content accessibility and user engagement`,
       achievements: [
         {
           text: `Migrated Sendbird Chat SDK from v3 to v4, refactoring legacy integrations and removing unused functionality to improve chat initialization performance by ~25%`,
@@ -132,6 +181,7 @@ export const experienceData: IExperienceDataElement = {
         'SCSS',
         'Bootstrap',
         'React',
+        'TypeScript',
         'Sendbird SDK',
         'React-Cropper',
         'React-Drag-Drop-Files',
