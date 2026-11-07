@@ -1,11 +1,9 @@
+import { siteMetadata } from '@/constants/site-metadata';
 import Providers from '@/providers/Providers';
 import type { Metadata } from 'next';
 import './globals.css';
 
-export const metadata: Metadata = {
-  title: 'VB',
-  description: 'Vladyslav Bondarchuk portfolio website',
-};
+export const metadata: Metadata = siteMetadata;
 
 export default async function RootLayout({
   children,

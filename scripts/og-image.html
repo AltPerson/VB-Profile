@@ -1,0 +1,175 @@
+﻿<!doctype html>
+<!-- Static OG artwork source. Capture #card at 1200x630 after document.fonts.ready.
+     Rajdhani, Tomorrow and Rationale match the portfolio (SIL OFL 1.1).
+     Generation source only: visitors receive public/og-image.png. -->
+<html lang="en">
+  <meta charset="utf-8" />
+  <title>VB Open Graph artwork</title>
+  <style>
+    @font-face {
+      font-family: Rajdhani;
+      src: url('https://raw.githubusercontent.com/google/fonts/main/ofl/rajdhani/Rajdhani-Bold.ttf');
+      font-weight: 700;
+    }
+    @font-face {
+      font-family: Tomorrow;
+      src: url('https://raw.githubusercontent.com/google/fonts/main/ofl/tomorrow/Tomorrow-SemiBold.ttf');
+      font-weight: 600;
+    }
+    @font-face {
+      font-family: Rationale;
+      src: url('https://raw.githubusercontent.com/google/fonts/main/ofl/rationale/Rationale-Regular.ttf');
+      font-weight: 400;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+    }
+    #card {
+      width: 1200px;
+      height: 630px;
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(ellipse at 95% 0%, #23143c, transparent 60%), #030b10;
+      color: #e5f0f1;
+      font-family: Rajdhani, sans-serif;
+      font-weight: 700;
+    }
+    .grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(#12303960 1px, transparent 1px),
+        linear-gradient(90deg, #12303960 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .label {
+      position: absolute;
+      font-family: Tomorrow, sans-serif;
+      font-weight: 600;
+    }
+    .logo {
+      left: 80px;
+      top: 76px;
+      font-size: 32px;
+      color: #fff;
+      font-family: Rationale, sans-serif;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: baseline;
+    }
+    .logo span {
+      color: #f75049;
+      font-size: 0.7em;
+      line-height: 1;
+    }
+    .eyebrow {
+      left: 177px;
+      top: 87px;
+      font-size: 13px;
+      letter-spacing: 2px;
+      color: #8baab3;
+    }
+    .online {
+      right: 80px;
+      top: 87px;
+      font-size: 12px;
+      letter-spacing: 1.6px;
+      color: #5ef6ff;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .online::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #90f9b6;
+    }
+    .name {
+      position: absolute;
+      left: 80px;
+      top: 174px;
+      font-size: 84px;
+      line-height: 0.96;
+      letter-spacing: -1px;
+      margin: 0;
+    }
+    .name span {
+      display: block;
+      color: #f75049;
+    }
+    .role {
+      position: absolute;
+      left: 82px;
+      top: 370px;
+      font-size: 42px;
+      color: #5ef6ff;
+    }
+    .stack {
+      left: 83px;
+      top: 436px;
+      font-size: 24px;
+      color: #b1c7cf;
+    }
+    .url {
+      left: 80px;
+      top: 553px;
+      font-size: 16px;
+      letter-spacing: 0.5px;
+      color: #93b5be;
+    }
+    .footer {
+      right: 80px;
+      top: 557px;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: #638993;
+    }
+    .orbital {
+      position: absolute;
+      right: 25px;
+      top: 96px;
+    }
+  </style>
+  <main
+    id="card"
+    aria-label="Vladyslav Bondarchuk - Frontend Engineer. React, Next.js, TypeScript."
+  >
+    <div class="grid"></div>
+    <svg width="1200" height="630" style="position: absolute; inset: 0" aria-hidden="true">
+      <path
+        d="M56 99V56h43M1101 56h43v43M56 555v43h43M1101 598h43v-43"
+        fill="none"
+        stroke="#5ef6ff"
+        stroke-width="2"
+      />
+      <path d="M80 527h1040" stroke="#24505b" />
+      <path d="M80 527h72" stroke="#f75049" stroke-width="2" />
+    </svg>
+    <div class="label logo">
+      VB
+      <span>_</span>
+    </div>
+    <div class="label eyebrow">PORTFOLIO / FRONTEND</div>
+    <div class="label online">SYSTEM ONLINE</div>
+    <h1 class="name">
+      Vladyslav
+      <span>Bondarchuk</span>
+    </h1>
+    <div class="role">Frontend Engineer</div>
+    <div class="label stack">React &middot; Next.js &middot; TypeScript</div>
+    <img
+      class="orbital"
+      src="../public/assets/images/terminal-earth.svg"
+      width="420"
+      height="420"
+      alt=""
+    />
+    <div class="label url">vb-profile.netlify.app</div>
+    <div class="label footer">BUILDING FOR THE WEB</div>
+  </main>
+</html>

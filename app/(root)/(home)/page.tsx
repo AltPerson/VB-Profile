@@ -1,12 +1,7 @@
 import { resumeLink } from '@/constants';
 import { experienceData, homeData } from '@/constants/portfolio-data';
 import { formatExperience, getExperienceYears } from '@/lib/utils/getExperience';
-import { Metadata } from 'next';
 import Content from './_components/Content';
-
-export const metadata: Metadata = {
-  title: 'VB',
-};
 
 export default async function HomePage() {
   const description = homeData.text
