@@ -1,6 +1,6 @@
 export const personalContent = {
   boot: [
-    'initializing portfolio...',
+    'initializing profile...',
     'loading developer profile...',
     'fetching experience data...',
     'calculating years of experience...',

@@ -199,7 +199,7 @@ export const projectsData: IProjectDataElement = {
     {
       title: 'VB Profile',
       description:
-        'This is a portfolio website showcasing my work as a frontend developer, highlighting projects, skills, and experience in building dynamic and responsive web applications.',
+        'VB Profile is my personal developer portfolio, showcasing projects, technical skills, and professional experience in building dynamic and responsive web applications.',
       technologies: ['Next.js', 'TS', 'Tailwind'],
       link: 'https://vb-profile.netlify.app/',
     },

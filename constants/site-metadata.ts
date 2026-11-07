@@ -7,12 +7,12 @@ const image = {
   url: `${siteUrl}/og-image.png`,
   width: 1200,
   height: 630,
-  alt: 'Vladyslav Bondarchuk - Frontend Engineer. React, Next.js, TypeScript. Dark cyberpunk portfolio preview.',
+  alt: 'Vladyslav Bondarchuk - Frontend Engineer. React, Next.js, TypeScript. Dark cyberpunk VB Profile preview.',
 };
 
 export const siteMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: 'VB Portfolio', template: '%s | VB Portfolio' },
+  title: { default: 'VB Profile', template: '%s | VB Profile' },
   description,
   alternates: { canonical: `${siteUrl}/` },
   robots: { index: true, follow: true },
@@ -20,7 +20,7 @@ export const siteMetadata: Metadata = {
     title,
     description,
     url: `${siteUrl}/`,
-    siteName: 'VB Portfolio',
+    siteName: 'VB Profile',
     type: 'website',
     locale: 'en_US',
     images: [{ ...image, type: 'image/png' }],
