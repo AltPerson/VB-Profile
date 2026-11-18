@@ -1,0 +1,287 @@
+.privacy-widget {
+  --privacy-inset: 1rem;
+  position: fixed;
+  z-index: 60;
+  right: max(var(--privacy-inset), env(safe-area-inset-right));
+  bottom: max(0.625rem, env(safe-area-inset-bottom));
+  display: grid;
+  justify-items: end;
+  gap: 0.375rem;
+  width: min(
+    28rem,
+    calc(
+      100% - max(var(--privacy-inset), env(safe-area-inset-left)) -
+        max(var(--privacy-inset), env(safe-area-inset-right))
+    )
+  );
+  color: var(--pt-text-primary);
+  font:
+    500 1rem/1.3 var(--font-rajdhani),
+    sans-serif;
+  pointer-events: none;
+}
+
+.privacy-widget button,
+.privacy-panel {
+  pointer-events: auto;
+}
+
+.privacy-widget :is(button, summary, a):focus-visible {
+  outline: 2px solid var(--pt-line-primary);
+  outline-offset: 2px;
+}
+
+.privacy-widget__trigger {
+  min-height: 2rem;
+  padding-inline: 0.625rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  background: var(--pt-bg-base);
+  color: var(--pt-text-secondary);
+  font:
+    600 0.625rem/1.4 var(--font-tomorrow),
+    monospace;
+}
+
+.privacy-widget__trigger:hover {
+  border-color: var(--pt-line-soft);
+  color: var(--pt-line-primary);
+}
+
+.privacy-panel {
+  position: relative;
+  width: 100%;
+  max-height: calc(100dvh - 7rem - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  overflow: auto;
+  overscroll-behavior: contain;
+  border: 1px solid var(--pt-line-soft);
+  border-radius: 0.75rem;
+  background: var(--pt-bg-base);
+  box-shadow: 0 0.375rem 1.25rem rgba(0, 0, 0, 0.55);
+  animation: privacy-panel-enter 180ms ease-out both;
+}
+
+.privacy-panel::before,
+.privacy-panel__body::after {
+  position: absolute;
+  z-index: 1;
+  width: 0.625rem;
+  height: 0.625rem;
+  border: 0 solid var(--pt-line-primary);
+  content: '';
+  pointer-events: none;
+}
+
+.privacy-panel::before {
+  top: 0.1875rem;
+  left: 0.1875rem;
+  border-top-width: 1px;
+  border-left-width: 1px;
+  border-top-left-radius: 0.375rem;
+}
+
+.privacy-panel__body::after {
+  right: 0.1875rem;
+  bottom: 0.1875rem;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-bottom-right-radius: 0.375rem;
+}
+
+.privacy-panel__header,
+.privacy-panel__protocol,
+.privacy-panel__status,
+.privacy-panel__metadata {
+  display: flex;
+  align-items: center;
+  gap: 0.4375rem;
+}
+
+.privacy-panel__header {
+  min-height: 2.5rem;
+  padding: 0.25rem 0.875rem;
+  background: var(--pt-bg-panel);
+  color: var(--pt-line-primary);
+  font:
+    600 0.6875rem/1.3 var(--font-tomorrow),
+    monospace;
+}
+
+.privacy-panel__protocol svg {
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+}
+
+.privacy-panel__status {
+  margin-left: auto;
+  color: var(--pt-text-secondary);
+  font-size: 0.5625rem;
+  white-space: nowrap;
+}
+
+.privacy-panel__dot {
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 50%;
+  background: var(--pt-terminal-success);
+}
+
+.privacy-panel__counter {
+  padding-left: 0.4375rem;
+  border-left: 1px solid var(--pt-line-soft);
+}
+
+.privacy-panel__close {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 0.1875rem;
+  color: var(--pt-text-primary);
+  font-size: 1rem;
+}
+
+.privacy-panel__close:hover {
+  background: var(--pt-line-dim);
+}
+
+.privacy-panel__body {
+  position: relative;
+  padding: 0.75rem 0.875rem 0.875rem;
+}
+
+.privacy-panel__intro {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 0.75rem;
+  padding-bottom: 0.875rem;
+  border-bottom: 1px solid var(--pt-line-soft);
+}
+
+.privacy-panel__fingerprint {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid var(--pt-line-soft);
+  border-radius: 0.5rem;
+  color: var(--pt-line-primary);
+  font-size: 1.625rem;
+}
+
+.privacy-panel h2 {
+  margin: 0.1875rem 0 0.25rem;
+  font:
+    600 0.875rem/1.3 var(--font-tomorrow),
+    monospace;
+}
+
+.privacy-panel p {
+  color: var(--pt-text-secondary);
+}
+
+.privacy-panel__metadata {
+  margin: 0.875rem 0;
+  font:
+    600 0.625rem/1.4 var(--font-tomorrow),
+    monospace;
+}
+
+.privacy-panel__metadata svg {
+  color: var(--pt-line-primary);
+  font-size: 0.875rem;
+}
+
+.privacy-panel__settings {
+  display: grid;
+  gap: 0.25rem;
+  margin-bottom: 0.875rem;
+  padding: 0.5rem 0.625rem;
+  border: 1px solid var(--pt-line-dim);
+  border-radius: 0.375rem;
+  background: var(--pt-bg-panel);
+}
+
+.privacy-panel__settings summary,
+.privacy-panel__settings a {
+  color: var(--pt-line-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.privacy-panel__settings summary {
+  cursor: pointer;
+}
+
+.privacy-panel__settings details p {
+  margin-block: 0.5rem;
+}
+
+.privacy-panel__actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.privacy-panel__actions button {
+  min-height: 2.75rem;
+  padding: 0.375rem;
+  border: 1px solid var(--pt-line-soft);
+  border-radius: 0.375rem;
+  background: var(--pt-bg-panel);
+  font:
+    600 0.6875rem/1.3 var(--font-tomorrow),
+    monospace;
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease;
+}
+
+.privacy-panel__actions button:hover {
+  border-color: var(--pt-line-primary);
+  background: color-mix(in srgb, var(--pt-bg-panel), var(--pt-line-primary) 14%);
+}
+
+.privacy-panel__actions button:active {
+  background: color-mix(in srgb, var(--pt-bg-panel), var(--pt-line-primary) 22%);
+}
+
+.privacy-panel__actions button:last-child {
+  border-color: var(--pt-line-primary);
+  background: var(--pt-line-primary);
+  color: var(--pt-bg-base);
+}
+
+.privacy-panel__actions button:last-child:hover {
+  background: color-mix(in srgb, var(--pt-line-primary), white 20%);
+}
+
+.privacy-panel__actions button:last-child:active {
+  background: color-mix(in srgb, var(--pt-line-primary), var(--pt-bg-base) 14%);
+}
+
+@keyframes privacy-panel-enter {
+  from {
+    opacity: 0;
+    transform: translateY(0.25rem);
+  }
+}
+
+@media (max-width: 30rem) {
+  .privacy-widget {
+    --privacy-inset: 0.625rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .privacy-panel {
+    animation: none;
+  }
+
+  .privacy-panel__actions button {
+    transition: none;
+  }
+}

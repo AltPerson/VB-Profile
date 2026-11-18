@@ -13,6 +13,13 @@
 » TS <br>
 » Tailwind
 
+## Cloudflare Web Analytics
+
+This site uses manual beacon setup. Keep automatic Web Analytics injection disabled in
+Cloudflare and in the hosting configuration so the beacon loads only after authorization.
+The consent component restores the browser's choice from `vb-profile.analytics-consent`
+in local storage and uses Cloudflare's built-in SPA tracking after authorization.
+
 <h2>Screenshots of the Project 📸</h2>
 <br>
 <h3 align='center'>Home Page 🏡</h3>

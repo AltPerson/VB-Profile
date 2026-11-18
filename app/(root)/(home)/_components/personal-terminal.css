@@ -1,17 +1,9 @@
 /* Home-only terminal. Shared site geometry, fonts and navigation remain untouched. */
 .home-personal-terminal {
-  --pt-bg-base: #02070b;
-  --pt-bg-panel: #07171b;
   --pt-grid-line: rgba(94, 246, 255, 0.065);
-  --pt-line-primary: #5ef6ff;
-  --pt-line-soft: rgba(94, 246, 255, 0.4);
-  --pt-line-dim: rgba(94, 246, 255, 0.18);
   --pt-accent-coral: #f75049;
   --pt-accent-yellow: #f8ef00;
-  --pt-text-primary: #e6eff1;
-  --pt-text-secondary: rgba(230, 239, 241, 0.82);
   --pt-text-muted: #a4b8bb;
-  --pt-terminal-success: #8dffb5;
   --pt-command-size: 16px;
   --pt-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --pt-top-space: max(14px, calc((100dvh - 80px - min(800px, 100dvh - 108px)) / 2));

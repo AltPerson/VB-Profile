@@ -1,5 +1,7 @@
+import PrivacyConsent from '@/components/privacy-consent';
 import { siteMetadata } from '@/constants/site-metadata';
 import Providers from '@/providers/Providers';
+import '@/styles/terminal-colors.css';
 import type { Metadata } from 'next';
 import './globals.css';
 
@@ -34,7 +36,10 @@ export default async function RootLayout({
           `}</style>
         </noscript>
       </head>
-      <Providers>{children}</Providers>
+      <Providers>
+        {children}
+        <PrivacyConsent />
+      </Providers>
     </html>
   );
 }

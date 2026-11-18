@@ -1,0 +1,11 @@
+.home-personal-terminal,
+.privacy-widget {
+  --pt-bg-base: #02070b;
+  --pt-bg-panel: #07171b;
+  --pt-line-primary: #5ef6ff;
+  --pt-line-soft: rgba(94, 246, 255, 0.4);
+  --pt-line-dim: rgba(94, 246, 255, 0.18);
+  --pt-text-primary: #e6eff1;
+  --pt-text-secondary: rgba(230, 239, 241, 0.82);
+  --pt-terminal-success: #8dffb5;
+}
