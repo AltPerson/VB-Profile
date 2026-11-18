@@ -166,6 +166,16 @@
   opacity: 1;
   transform: scale(1);
 }
+.site-nav :is(.site-nav__link, .site-nav__brand)[data-navigation-pending] {
+  color: var(--nav-cyan);
+  background: rgb(94 246 255 / 8%);
+  transition: none;
+}
+.site-nav .site-nav__link[data-navigation-pending]::after {
+  opacity: 1;
+  transform: scale(1);
+  transition: none;
+}
 @media (max-width: 1400px) and (min-width: 993px) {
   .site-nav__links {
     gap: 8px;
