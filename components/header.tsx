@@ -17,6 +17,8 @@ export default function Header() {
   const [prefetchVisibleLinks, setPrefetchVisibleLinks] = useState(false);
   const [pendingHref, setPendingHref] = useState<string>();
   const [isNavigating, startNavigation] = useTransition();
+  const pendingDestination = isNavigating && pendingHref !== pathname ? pendingHref : undefined;
+  const highlightedPath = pendingDestination ?? pathname;
   const { playMusic, pending, audioError, togglePlayMusic } = useChangeMusic();
   const action = playMusic || pending ? 'Turn sound off' : 'Turn sound on';
 
@@ -88,14 +90,18 @@ export default function Header() {
       },
       onClick: navigate,
       'aria-current': isCurrent ? ('page' as const) : undefined,
-      'data-navigation-pending':
-        !isCurrent && isNavigating && pendingHref === href ? true : undefined,
+      'data-navigation-pending': pendingDestination === href || undefined,
+      'data-navigation-highlighted': highlightedPath === href || undefined,
     };
   }
 
   return (
     <header className="header-block site-header">
-      <nav className="site-nav" aria-label="Main navigation">
+      <nav
+        className="site-nav"
+        aria-label="Main navigation"
+        data-navigating={Boolean(pendingDestination) || undefined}
+      >
         <Link {...routeProps('/')} className="logo-title site-nav__brand" aria-label="VB Home">
           VB
           <span className="site-nav__brand-accent" aria-hidden="true">
